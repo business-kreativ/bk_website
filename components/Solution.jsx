@@ -96,63 +96,46 @@ function Solution({ accent }) {
 }
 
 function BeforeAfterFlow({ accent }) {
-  const flowCardStyle = {
-    borderRadius: 14,
-    padding: 24,
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-  };
-  const flowStepsStyle = {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-  };
-
   return (
-    <div className="lp-flow-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, alignItems: 'stretch' }}>
+    <div className="lp-flow-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
       {/* BEFORE */}
-      <div style={{ ...flowCardStyle, background: 'var(--bg)', border: '1px solid var(--line)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18, flexShrink: 0 }}>
+      <div style={{ background: 'var(--bg)', border: '1px solid var(--line)', borderRadius: 14, padding: 24 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
           <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: 'var(--bad)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
             <Icon.x style={{ width: 12, height: 12 }} />
             Vorher
           </span>
           <span style={{ fontSize: 12, color: 'var(--muted)', fontFamily: 'Geist Mono, monospace' }}>6 Schritte · 38 min</span>
         </div>
-        <div style={flowStepsStyle}>
-          <FlowStep n="1" icon="mail" label="Anfrage per Mail" sub="manuell gelesen" bad />
-          <Connector bad />
-          <FlowStep n="2" icon="excel" label="In Excel eingetragen" sub="abgetippt" bad />
-          <Connector bad />
-          <FlowStep n="3" icon="whatsapp" label="WhatsApp ans Team" sub="„Hat das wer gesehen?“" bad />
-          <Connector bad />
-          <FlowStep n="4" icon="folder" label="Ordner abgelegt" sub="auf Server gesucht" bad />
-          <Connector bad />
-          <FlowStep n="5" icon="phone" label="Status nachfragen" sub="per Anruf" bad />
-          <Connector bad />
-          <FlowStep n="6" icon="paper" label="Rechnung manuell" sub="im DATEV erfasst" bad />
-        </div>
+        <FlowStep n="1" icon="mail" label="Anfrage per Mail" sub="manuell gelesen" bad />
+        <Connector bad />
+        <FlowStep n="2" icon="excel" label="In Excel eingetragen" sub="abgetippt" bad />
+        <Connector bad />
+        <FlowStep n="3" icon="whatsapp" label="WhatsApp ans Team" sub="„Hat das wer gesehen?“" bad />
+        <Connector bad />
+        <FlowStep n="4" icon="folder" label="Ordner abgelegt" sub="auf Server gesucht" bad />
+        <Connector bad />
+        <FlowStep n="5" icon="phone" label="Status nachfragen" sub="per Anruf" bad />
+        <Connector bad />
+        <FlowStep n="6" icon="paper" label="Rechnung manuell" sub="im DATEV erfasst" bad />
       </div>
 
       {/* AFTER */}
-      <div style={{ ...flowCardStyle, background: '#0e1116', color: '#fff', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18, flexShrink: 0 }}>
+      <div style={{ background: '#0e1116', color: '#fff', borderRadius: 14, padding: 24, position: 'relative', overflow: 'hidden' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
           <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: accent, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
             <Icon.check style={{ width: 12, height: 12 }} />
             Nachher
           </span>
           <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', fontFamily: 'Geist Mono, monospace' }}>1 System · 3 min</span>
         </div>
-        <div style={flowStepsStyle}>
-          <FlowStep n="1" icon="bolt" label="Anfrage automatisch erfasst" sub="via Web / Mail / API" dark accent={accent} />
-          <Connector accent={accent} />
-          <FlowStep n="2" icon="plug" label="Daten in alle Systeme verteilt" sub="CRM · ERP · Buchhaltung" dark accent={accent} />
-          <Connector accent={accent} />
-          <FlowStep n="3" icon="chat" label="Team automatisch informiert" sub="mit klarer Aufgabe" dark accent={accent} />
-          <Connector accent={accent} />
-          <FlowStep n="4" icon="grid" label="Status live im Dashboard" sub="für alle sichtbar" dark accent={accent} live />
-        </div>
+        <FlowStep n="1" icon="bolt" label="Anfrage automatisch erfasst" sub="via Web / Mail / API" dark accent={accent} />
+        <Connector accent={accent} />
+        <FlowStep n="2" icon="plug" label="Daten in alle Systeme verteilt" sub="CRM · ERP · Buchhaltung" dark accent={accent} />
+        <Connector accent={accent} />
+        <FlowStep n="3" icon="chat" label="Team automatisch informiert" sub="mit klarer Aufgabe" dark accent={accent} />
+        <Connector accent={accent} />
+        <FlowStep n="4" icon="grid" label="Status live im Dashboard" sub="für alle sichtbar" dark accent={accent} live />
       </div>
     </div>);
 
@@ -170,8 +153,7 @@ function FlowStep({ n, icon, label, sub, bad, dark, accent, live }) {
   return (
     <div style={{
       background: bgColor, border: `1px solid ${borderColor}`, borderRadius: 8,
-      padding: '10px 12px', display: 'flex', alignItems: 'center', gap: 12,
-      minHeight: 52, flexShrink: 0
+      padding: '10px 12px', display: 'flex', alignItems: 'center', gap: 12
     }}>
       <div style={{
         width: 26, height: 26, borderRadius: 6, background: numBg, color: numColor,
@@ -195,8 +177,8 @@ function FlowStep({ n, icon, label, sub, bad, dark, accent, live }) {
 
 function Connector({ bad, accent }) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'stretch', paddingLeft: 12, flex: 1, minHeight: 24 }}>
-      <div style={{ background: bad ? 'rgba(196,69,58,0.3)' : accent || 'rgba(255,255,255,0.18)', width: "2px", minHeight: 24, flexShrink: 0 }} />
+    <div style={{ display: 'flex', justifyContent: 'flex-start', paddingLeft: 12, height: "55px" }}>
+      <div style={{ background: bad ? 'rgba(196,69,58,0.3)' : accent || 'rgba(255,255,255,0.18)', height: "57px", width: "2px" }} />
     </div>);
 
 }

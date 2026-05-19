@@ -1,6 +1,22 @@
-# Business Kreativ Website
+# business-kreativ.com - Static Export
 
-Statische Website fuer Business Kreativ.
+Doppelklick auf `index.html` öffnet die Landing Page. Funktioniert offline.
+
+## Seiten
+- `index.html`        - Landing Page (Hauptseite)
+- `anfrage.html`      - Kontaktformular / Potenzialanalyse
+- `impressum.html`    - Impressum
+- `datenschutz.html`  - Datenschutzerklaerung
+
+## Dateien
+- `app.jsx`           - React-App-Wiring (Sektionen, Tweaks)
+- `tweaks-panel.jsx`  - Tweaks-Panel-Helpers
+- `components/`       - Einzelne Sektionen (Hero, Team, Problem, ...)
+- `assets/`           - Logo, Team-Foto
+
+## Hosting
+Einfach den ganzen Ordner auf jeden statischen Webhoster werfen
+(Netlify, Vercel, Hetzner, IONOS, etc.). `index.html` ist die Startdatei.
 
 ## Lokal starten
 
@@ -23,4 +39,6 @@ Das Projekt ist fuer Vercel als statische Website vorbereitet:
 - Build Command: leer lassen
 - Output Directory: leer lassen
 
-Vercel deployed direkt die Dateien aus dem Repository-Root.
+Vercel deployed direkt die Dateien aus dem Repository-Root. Durch `cleanUrls`
+funktionieren die Unterseiten auch als `/anfrage`, `/impressum` und
+`/datenschutz`.

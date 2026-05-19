@@ -27,6 +27,7 @@ function App() {
     <>
       <Nav accent={accent} />
       <Hero variant={tweaks.heroVariant} accent={accent} />
+      <Team accent={accent} />
       <Logos accent={accent} />
       <Problem accent={accent} />
       <Solution accent={accent} />

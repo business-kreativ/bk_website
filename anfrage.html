@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anfrage — business-kreativ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #FAF8F6; --surface: #fff; --ink: #000; --ink-2: #1A1A1A;
+    --muted: #6b6b6b; --line: #E5E2DD; --line-2: #EEEAE4;
+    --accent: #F7934A; --accent-2: #EC5BB8;
+    --accent-soft: rgba(247,147,74,0.12);
+    --dark: #0e1116;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.55; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  a { color: inherit; }
+  img, svg { max-width: 100%; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: rgba(14,17,22,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); color: #fff; }
+  .nav-inner { max-width: 1240px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: -0.01em; color: #fff; text-decoration: none; }
+  .brand-logo { width: 40px; height: 40px; border-radius: 8px; background: #fff; display: grid; place-items: center; padding: 4px; overflow: hidden; }
+  .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; }
+
+  /* Hero */
+  .page-head { background: var(--dark); color: #fff; padding: 72px 32px 96px; position: relative; overflow: hidden; }
+  .page-head::before {
+    content: ''; position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(247,147,74,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .page-head-inner { max-width: 1240px; margin: 0 auto; position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.08em; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  h1 { margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 700; }
+  .lead { margin-top: 22px; font-size: 17px; color: rgba(255,255,255,0.7); max-width: 520px; line-height: 1.6; }
+
+  .promise-list { margin-top: 36px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .promise-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.9); }
+  .promise-list .check {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent-soft); color: var(--accent);
+    display: grid; place-items: center; flex-shrink: 0; margin-top: 1px;
+  }
+  .promise-list .check svg { width: 12px; height: 12px; }
+
+  /* Form card */
+  .form-wrap { max-width: 1240px; margin: -56px auto 0; padding: 0 32px 96px; position: relative; z-index: 10; }
+  .form-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    padding: 48px 56px; box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    max-width: 760px; margin: 0 auto;
+  }
+  .step-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .step-header .title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .step-header .meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+  .field-full { grid-column: span 2; }
+  .field-group { display: flex; flex-direction: column; gap: 8px; }
+  label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.06em; }
+  label .req { color: var(--accent); margin-left: 4px; }
+  input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+    width: 100%; font-family: inherit; font-size: 15px;
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; color: var(--ink); background: #fff;
+    outline: none; transition: border-color 0.15s, box-shadow 0.15s;
+    -webkit-appearance: none; appearance: none;
+  }
+  textarea { resize: vertical; min-height: 110px; }
+  input:focus, textarea:focus, select:focus { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(0,0,0,0.04); }
+  select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round'><path d='M6 9l6 6 6-6'/></svg>"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; cursor: pointer; }
+
+  /* Pill toggle (für "Wie können wir helfen") */
+  .pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill-group input { display: none; }
+  .pill-group label.pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg); border: 1px solid var(--line);
+    padding: 10px 16px; border-radius: 100px;
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    color: var(--ink-2); cursor: pointer;
+    text-transform: none; letter-spacing: 0;
+    transition: all 0.15s;
+  }
+  .pill-group input:checked + label.pill {
+    background: var(--ink); color: #fff; border-color: var(--ink);
+  }
+
+  /* Budget select (radio cards) */
+  .budget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .budget-grid input { display: none; }
+  .budget-grid label {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; cursor: pointer; text-align: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px;
+    text-transform: none; letter-spacing: 0; color: var(--ink-2);
+    transition: all 0.15s;
+  }
+  .budget-grid input:checked + label { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* Consent */
+  .consent { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; color: var(--muted); line-height: 1.55; cursor: pointer; }
+  .consent input[type="checkbox"] {
+    width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+    border: 1.5px solid var(--line); border-radius: 4px; cursor: pointer;
+    -webkit-appearance: none; appearance: none; background: #fff;
+  }
+  .consent input[type="checkbox"]:checked { background: var(--ink); border-color: var(--ink); background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'><path d='M5 12.5l4.5 4.5L19 7'/></svg>"); background-repeat: no-repeat; background-position: center; background-size: 13px; }
+
+  /* Submit */
+  .submit-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 28px; margin-top: 32px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+  .submit { display: inline-flex; align-items: center; gap: 12px; background: var(--ink); color: #fff; border: 0; padding: 16px 24px; border-radius: 12px; font-weight: 500; font-size: 15px; }
+  .submit svg { width: 16px; height: 16px; }
+  .submit-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Side aside */
+  .alt-contacts { margin-top: 32px; padding: 24px 28px; background: #fff; border: 1px solid var(--line); border-radius: 14px; max-width: 760px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .alt-contact { display: flex; align-items: center; gap: 14px; }
+  .alt-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex-shrink: 0; }
+  .alt-icon svg { width: 18px; height: 18px; }
+  .alt-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .alt-value { font-size: 15px; font-weight: 600; margin-top: 2px; }
+
+  /* Success */
+  .success { display: none; text-align: center; padding: 48px 32px; }
+  .success.show { display: block; }
+  .success .icon-wrap { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--accent-soft); display: grid; place-items: center; color: var(--accent); }
+  .success .icon-wrap svg { width: 28px; height: 28px; }
+  .success h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 12px; }
+  .success p { color: var(--muted); margin: 0; max-width: 420px; margin-inline: auto; }
+
+  /* Footer */
+  footer { background: #0e1116; color: #fff; padding: 56px 32px 28px; }
+  .footer-inner { max-width: 1240px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 20px; }
+  .footer-bottom { display: flex; justify-content: space-between; padding-top: 20px; font-size: 12px; color: rgba(255,255,255,0.5); flex-wrap: wrap; gap: 12px; }
+  .footer-bottom a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .footer-bottom .links { display: flex; gap: 24px; }
+
+  @media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .page-head-inner { grid-template-columns: 1fr; gap: 32px; }
+    .nav-inner { padding: 10px 20px; }
+  }
+  @media (max-width: 720px) {
+    html, body { overflow-x: hidden; }
+    .page-head { padding: 52px 20px 80px; }
+    .form-wrap { padding: 0 18px 72px; margin-top: -48px; }
+    .form-card { padding: 28px 22px; border-radius: 14px; }
+    .form-grid { grid-template-columns: 1fr; gap: 16px; }
+    .field-full { grid-column: span 1; }
+    .budget-grid { grid-template-columns: 1fr; }
+    .alt-contacts { grid-template-columns: 1fr; padding: 20px; }
+    .submit-row { flex-direction: column-reverse; align-items: stretch; gap: 14px; }
+    .submit { justify-content: center; min-height: 54px; }
+    h1 { font-size: 38px; }
+    .step-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .footer-top, .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span>
+      <span style="font-size: 15px;">business-kreativ</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#problem">Problem</a>
+      <a href="index.html#loesung">Lösung</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#ablauf">Ablauf</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="page-head-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Anfrage</div>
+      <h1>Potenzialanalyse<br/>anfordern.</h1>
+      <p class="lead">Konkrete Einschätzung Ihrer Prozesse — wo Automatisierung wirklich Sinn macht. Kostenlos, unverbindlich, 30 Minuten.</p>
+
+      <ul class="promise-list">
+        <li>
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+          Analyse Ihrer 3 wichtigsten Prozesse
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+          Realistische Aufwandsschätzung — ohne Verkaufsgespräch
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+          Antwort innerhalb von 24 Stunden
+        </li>
+      </ul>
+    </div>
+
+    <!-- right side intentionally empty on this layout — form floats below -->
+    <div></div>
+  </div>
+</header>
+
+<div class="form-wrap">
+  <div class="form-card" id="formCard">
+
+    <div class="form-state">
+      <div class="step-header">
+        <div class="title">Erzählen Sie uns kurz, worum es geht.</div>
+        <div class="meta">~ 2 Min · Schritt 1 / 1</div>
+      </div>
+
+      <form id="anfrageForm" novalidate>
+
+        <div class="form-grid">
+
+          <div class="field-group">
+            <label for="vorname">Vorname<span class="req">*</span></label>
+            <input id="vorname" name="vorname" type="text" autocomplete="given-name" required />
+          </div>
+
+          <div class="field-group">
+            <label for="nachname">Nachname<span class="req">*</span></label>
+            <input id="nachname" name="nachname" type="text" autocomplete="family-name" required />
+          </div>
+
+          <div class="field-group">
+            <label for="email">E-Mail<span class="req">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="name@firma.de" />
+          </div>
+
+          <div class="field-group">
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="telefon" type="tel" autocomplete="tel" placeholder="optional" />
+          </div>
+
+          <div class="field-group">
+            <label for="firma">Unternehmen<span class="req">*</span></label>
+            <input id="firma" name="firma" type="text" autocomplete="organization" required />
+          </div>
+
+          <div class="field-group">
+            <label for="branche">Branche</label>
+            <select id="branche" name="branche">
+              <option value="">Bitte auswählen…</option>
+              <option>Dienstleistung</option>
+              <option>Handwerk &amp; Fertigung</option>
+              <option>E-Commerce &amp; Handel</option>
+              <option>IT &amp; Software</option>
+              <option>Beratung</option>
+              <option>Gesundheit</option>
+              <option>Sonstige</option>
+            </select>
+          </div>
+
+          <div class="field-group field-full">
+            <label>Wo läuft es aktuell manuell? (Mehrfachauswahl)</label>
+            <div class="pill-group">
+              <input id="i1" type="checkbox" name="interesse" value="Auftragsabwicklung"/><label for="i1" class="pill">Auftragsabwicklung</label>
+              <input id="i2" type="checkbox" name="interesse" value="Angebote / Rechnungen"/><label for="i2" class="pill">Angebote / Rechnungen</label>
+              <input id="i3" type="checkbox" name="interesse" value="Lager / Logistik"/><label for="i3" class="pill">Lager / Logistik</label>
+              <input id="i4" type="checkbox" name="interesse" value="CRM / Kunden"/><label for="i4" class="pill">CRM / Kunden</label>
+              <input id="i5" type="checkbox" name="interesse" value="Reporting / Daten"/><label for="i5" class="pill">Reporting / Daten</label>
+              <input id="i6" type="checkbox" name="interesse" value="Website / Shop"/><label for="i6" class="pill">Website / Shop</label>
+              <input id="i7" type="checkbox" name="interesse" value="Sonstiges"/><label for="i7" class="pill">Sonstiges</label>
+            </div>
+          </div>
+
+          <div class="field-group field-full">
+            <label>Budget-Vorstellung</label>
+            <div class="budget-grid">
+              <input id="b1" type="radio" name="budget" value="<5k"/><label for="b1">unter 5.000 €</label>
+              <input id="b2" type="radio" name="budget" value="5–15k"/><label for="b2">5.000 – 15.000 €</label>
+              <input id="b3" type="radio" name="budget" value=">15k"/><label for="b3">über 15.000 €</label>
+            </div>
+          </div>
+
+          <div class="field-group field-full">
+            <label for="nachricht">Worum geht es konkret?</label>
+            <textarea id="nachricht" name="nachricht" placeholder="z. B. „Wir bekommen viele Anfragen per Mail und übertragen sie händisch in Excel — das wollen wir automatisieren.“"></textarea>
+          </div>
+
+          <div class="field-group field-full">
+            <label class="consent" for="consent">
+              <input id="consent" name="consent" type="checkbox" required />
+              <span>Ich habe die <a href="datenschutz.html" style="text-decoration: underline;">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu. Eine Weitergabe an Dritte findet nicht statt. <span class="req">*</span></span>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="submit-row">
+          <div class="submit-meta">* Pflichtfelder · DSGVO-konform</div>
+          <button class="submit" type="submit">
+            Anfrage senden
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="success" id="successState">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+      </div>
+      <h2>Danke — wir melden uns!</h2>
+      <p>Wir sehen uns Ihre Anfrage an und melden uns innerhalb von 24 Stunden mit einem konkreten Vorschlag.</p>
+    </div>
+
+  </div>
+
+  <div class="alt-contacts">
+    <div class="alt-contact">
+      <div class="alt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/></svg></div>
+      <div>
+        <div class="alt-label">E-Mail</div>
+        <a class="alt-value" href="mailto:hallo@business-kreativ.com">hallo@business-kreativ.com</a>
+      </div>
+    </div>
+    <div class="alt-contact">
+      <div class="alt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+      <div>
+        <div class="alt-label">Telefon</div>
+        <a class="alt-value" href="tel:+4900000000">+49 (0) 000 000 00</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a class="brand" href="index.html">
+        <span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span>
+        <span style="font-size: 16px; font-weight: 600;">business-kreativ</span>
+      </a>
+      <div class="links" style="display: flex; gap: 24px; font-size: 14px;">
+        <a href="index.html">Startseite</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 business-kreativ.com</span>
+      <div class="links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('anfrageForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // basic required check
+    const missing = [...this.querySelectorAll('[required]')].filter(el => !el.checked && !el.value.trim());
+    if (missing.length) {
+      missing[0].focus();
+      missing.forEach(el => el.style.borderColor = '#c4453a');
+      return;
+    }
+    document.querySelector('.form-state').style.display = 'none';
+    document.getElementById('successState').classList.add('show');
+    document.getElementById('formCard').scrollIntoView({ behavior: 'auto', block: 'start' });
+  });
+
+  // clear red border on input
+  document.querySelectorAll('input, textarea, select').forEach(el => {
+    el.addEventListener('input', () => { el.style.borderColor = ''; });
+    el.addEventListener('change', () => { el.style.borderColor = ''; });
+  });
+</script>
+
+</body>
+</html>

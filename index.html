@@ -191,31 +191,20 @@
     /* ===== Trust mini-flow icon rows wrap ===== */
     .lp-scen-mini { flex-wrap: wrap !important; }
 
+    /* ===== Team section ===== */
+    .lp-team-head { grid-template-columns: 1fr !important; gap: 24px !important; align-items: flex-start !important; }
+    .lp-team-labels { grid-template-columns: 1fr !important; gap: 8px !important; padding: 0 16px 20px !important; }
+    .lp-team-decor { display: none !important; }
+    .lp-team-name-card { padding: 12px 16px !important; }
+
     /* ===== Footer ===== */
     .lp-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; padding-bottom: 32px !important; }
     .lp-footer-brand { grid-column: span 2 !important; }
     .lp-footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
 
     /* ===== Logos strip ===== */
-    .lp-logos-wrap { padding: 26px 20px !important; }
-    .lp-logos-title {
-      align-items: center !important;
-      gap: 10px !important;
-      line-height: 1.35 !important;
-      margin-bottom: 20px !important;
-      max-width: 300px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    .lp-logos-title-line { width: 18px !important; flex-shrink: 0 !important; }
     .lp-logos-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 14px !important; row-gap: 20px !important; }
-    .lp-logo-item {
-      width: 100% !important;
-      justify-content: center !important;
-      gap: 6px !important;
-      min-height: 34px !important;
-    }
-    .lp-logo-item > span:last-child { font-size: 13px !important; white-space: nowrap !important; }
+    .lp-logos-grid > * { font-size: 13px !important; }
 
     /* Tap targets */
     a, button { -webkit-tap-highlight-color: transparent; }
@@ -229,7 +218,6 @@
     .lp-hero-h1 { font-size: 38px !important; }
     .lp-section-h2 { font-size: 30px !important; }
     .lp-logos-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    .lp-logos-title-line { display: none !important; }
     .lp-problem-card { padding: 18px !important; }
     .lp-benefit-card { padding: 20px 16px !important; }
   }
@@ -260,6 +248,7 @@
 <script type="text/babel" src="components/icons.jsx"></script>
 <script type="text/babel" src="components/Nav.jsx"></script>
 <script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/Team.jsx"></script>
 <script type="text/babel" src="components/Logos.jsx"></script>
 <script type="text/babel" src="components/Problem.jsx"></script>
 <script type="text/babel" src="components/Solution.jsx"></script>
