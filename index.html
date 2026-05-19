@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>business-kreativ — Prozesse automatisieren.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #FAF8F6;
+    --surface: #ffffff;
+    --ink: #000000;
+    --ink-2: #1A1A1A;
+    --muted: #6b6b6b;
+    --line: #E5E2DD;
+    --line-2: #EEEAE4;
+    --accent: #F7934A;
+    --accent-2: #EC5BB8;
+    --accent-soft: rgba(247,147,74,0.12);
+    --dark: #000000;
+    --dark-2: #0A0A0A;
+    --ok: #1f8a4c;
+    --bad: #c4453a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  button { font-family: inherit; cursor: pointer; }
+  a { color: inherit; text-decoration: none; }
+  #root { min-height: 100vh; }
+  img, svg { max-width: 100%; }
+
+  /* Hide mobile-only labels by default */
+  .lp-mobile-label { display: none; }
+
+  /* ============ RESPONSIVE UTILITY OVERRIDES ============ */
+  /* These target inline-style grids by class. Use !important to win over inline styles. */
+
+  /* === Tablet & below (≤ 1024px) === */
+  @media (max-width: 1024px) {
+    .lp-section { padding-left: 24px !important; padding-right: 24px !important; padding-top: 72px !important; padding-bottom: 72px !important; }
+    .lp-hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 56px 24px 64px !important; }
+    .lp-2col-md { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .lp-4col-md { grid-template-columns: repeat(2, 1fr) !important; }
+    .lp-6col-md { grid-template-columns: repeat(2, 1fr) !important; }
+    .lp-services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .lp-service-card { grid-column: span 1 !important; }
+    .lp-3col-md { grid-template-columns: 1fr 1fr !important; }
+    .lp-nav-links { display: none !important; }
+    .lp-nav-inner { padding: 10px 20px !important; }
+    /* hide decorative hero orbit/numbers on tablet & below to prevent overflow */
+    .lp-hero-orbit, .lp-hero-decor, .lp-section-bignum { display: none !important; }
+  }
+
+  /* === Mobile (≤ 720px) === */
+  @media (max-width: 720px) {
+    html, body { overflow-x: hidden; }
+
+    /* ===== Global section rhythm ===== */
+    .lp-section { padding-left: 20px !important; padding-right: 20px !important; padding-top: 72px !important; padding-bottom: 72px !important; }
+    .lp-section-h2 { font-size: 36px !important; line-height: 1.04 !important; letter-spacing: -0.025em !important; font-weight: 700 !important; }
+    .lp-section-sub { font-size: 15px !important; }
+
+    /* ===== Hero ===== */
+    .lp-hero-grid { padding: 32px 20px 64px !important; gap: 32px !important; }
+    .lp-hero-h1 { font-size: 44px !important; line-height: 1.02 !important; letter-spacing: -0.03em !important; font-weight: 700 !important; }
+    .lp-hero-sub { font-size: 16px !important; line-height: 1.55 !important; color: rgba(255,255,255,0.78) !important; }
+    .lp-hero-cta-row { flex-direction: column !important; align-items: stretch !important; gap: 10px !important; margin-top: 4px !important; }
+    .lp-hero-cta-row > a { width: 100% !important; justify-content: center !important; min-height: 54px; padding: 6px 8px 6px 22px !important; border-radius: 12px !important; }
+    .lp-hero-cta-row > a:last-child { padding: 16px 18px !important; justify-content: center !important; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px !important; }
+    .lp-trust-line {
+      gap: 10px !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      font-size: 13px !important;
+      margin-top: 32px !important;
+      padding-top: 22px !important;
+    }
+
+    /* ===== Hero visual ===== */
+    .lp-hero-visual { padding: 22px 18px !important; border-radius: 14px !important; }
+    .lp-hero-visual-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+    .lp-hero-visual-arrow { transform: rotate(90deg); margin: 4px 0; padding: 0 !important; }
+    .lp-hero-header-bar { display: none !important; }
+    /* Show mobile labels (hidden on desktop) */
+    .lp-mobile-label { display: inline-block !important; }
+    /* Swap chaos layout: desktop scatter → mobile chip cluster */
+    .lp-hero-chaos { height: auto !important; padding-top: 28px !important; overflow: visible !important; }
+    .lp-chaos-desktop { display: none !important; }
+    .lp-chaos-mobile { display: flex !important; }
+    /* Flow block: room above for label */
+    .lp-hero-flow { margin-top: 26px !important; }
+    .lp-hero-metrics {
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+      padding-top: 16px !important;
+      margin-top: 16px !important;
+    }
+    .lp-hero-metrics > div {
+      display: grid !important;
+      grid-template-columns: 1fr auto !important;
+      align-items: center !important;
+      gap: 12px !important;
+      padding: 10px 0 !important;
+      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+    }
+    .lp-hero-metrics > div:last-child { border-bottom: 0 !important; }
+    .lp-hero-metrics > div > div:first-child { margin-bottom: 0 !important; font-size: 12px !important; letter-spacing: 0.08em !important; }
+    .lp-hero-metrics > div > div:last-child { margin-top: 0 !important; }
+
+    /* ===== Generic grids ===== */
+    .lp-2col-sm { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .lp-3col-sm { grid-template-columns: 1fr !important; }
+    .lp-4col-sm { grid-template-columns: 1fr 1fr !important; }
+    .lp-6col-sm { grid-template-columns: 1fr !important; }
+    .lp-3col-md { grid-template-columns: 1fr !important; }
+
+    /* Sticky disable on mobile */
+    .lp-not-sticky-sm { position: static !important; }
+
+    /* ===== Problem ===== */
+    .lp-problem-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .lp-problem-card {
+      grid-template-columns: 44px 1fr !important;
+      gap: 16px !important;
+      padding: 20px !important;
+      border-radius: 14px !important;
+    }
+    .lp-problem-card > div:nth-child(4) { display: none !important; }
+
+    /* ===== Solution flow ===== */
+    .lp-flow-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+
+    /* ===== Benefits ===== */
+    .lp-benefits-grid {
+      grid-template-columns: 1fr 1fr !important;
+      border-radius: 16px !important;
+      gap: 1px !important;
+    }
+    .lp-benefit-card { min-height: 0 !important; padding: 22px 18px !important; gap: 14px !important; }
+    .lp-benefit-kpi { font-size: 22px !important; }
+
+    /* ===== Trust steps ===== */
+    .lp-trust-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .lp-trust-line-bg { display: none !important; }
+
+    /* ===== Services ===== */
+    .lp-services-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .lp-service-card { padding: 24px 20px !important; border-radius: 14px !important; }
+
+    /* ===== Scenarios ===== */
+    .lp-scen-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+    /* ===== CTA ===== */
+    .lp-cta-block {
+      padding: 40px 24px !important;
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+      border-radius: 16px !important;
+    }
+
+    /* ===== Solution / SystemHub ===== */
+    .lp-systemhub {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+      padding: 28px 22px !important;
+      border-radius: 16px !important;
+    }
+    .lp-systemhub > div:last-child svg { max-width: 280px !important; }
+
+    /* ===== Benefits savings strip ===== */
+    .lp-savings-strip {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+      padding: 28px 22px !important;
+      border-radius: 16px !important;
+    }
+    .lp-savings-strip > div { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; }
+    .lp-savings-strip > div:first-child { border-top: 0 !important; padding-top: 0 !important; }
+
+    /* ===== Trust mini-flow icon rows wrap ===== */
+    .lp-scen-mini { flex-wrap: wrap !important; }
+
+    /* ===== Footer ===== */
+    .lp-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; padding-bottom: 32px !important; }
+    .lp-footer-brand { grid-column: span 2 !important; }
+    .lp-footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+
+    /* ===== Logos strip ===== */
+    .lp-logos-wrap { padding: 26px 20px !important; }
+    .lp-logos-title {
+      align-items: center !important;
+      gap: 10px !important;
+      line-height: 1.35 !important;
+      margin-bottom: 20px !important;
+      max-width: 300px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .lp-logos-title-line { width: 18px !important; flex-shrink: 0 !important; }
+    .lp-logos-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 14px !important; row-gap: 20px !important; }
+    .lp-logo-item {
+      width: 100% !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      min-height: 34px !important;
+    }
+    .lp-logo-item > span:last-child { font-size: 13px !important; white-space: nowrap !important; }
+
+    /* Tap targets */
+    a, button { -webkit-tap-highlight-color: transparent; }
+  }
+
+  /* === Very small (≤ 380px) === */
+  @media (max-width: 380px) {
+    .lp-section { padding-top: 60px !important; padding-bottom: 60px !important; }
+    .lp-4col-sm { grid-template-columns: 1fr !important; }
+    .lp-benefits-grid { grid-template-columns: 1fr !important; }
+    .lp-hero-h1 { font-size: 38px !important; }
+    .lp-section-h2 { font-size: 30px !important; }
+    .lp-logos-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .lp-logos-title-line { display: none !important; }
+    .lp-problem-card { padding: 18px !important; }
+    .lp-benefit-card { padding: 20px 16px !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7934A"/>
+      <stop offset="100%" stop-color="#EC5BB8"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" fill="#FAF8F6"/>
+  <rect x="30" y="30" width="40" height="40" rx="8" fill="url(#g)"/>
+  <text x="50" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="#fff">bk</text>
+</svg>
+</template>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="components/icons.jsx"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/Logos.jsx"></script>
+<script type="text/babel" src="components/Problem.jsx"></script>
+<script type="text/babel" src="components/Solution.jsx"></script>
+<script type="text/babel" src="components/Benefits.jsx"></script>
+<script type="text/babel" src="components/Services.jsx"></script>
+<script type="text/babel" src="components/Trust.jsx"></script>
+<script type="text/babel" src="components/Scenarios.jsx"></script>
+<script type="text/babel" src="components/CTA.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+
+</body>
+</html>
