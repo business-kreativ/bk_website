@@ -35,9 +35,8 @@ function Footer({ accent }) {
         <div className="lp-footer-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 24, fontSize: 12, color: 'rgba(255,255,255,0.45)', flexWrap: 'wrap', gap: 16 }}>
           <span>© 2026 business-kreativ.com — Alle Rechte vorbehalten.</span>
           <div style={{ display: 'flex', gap: 24 }}>
-            <a href="#">Impressum</a>
-            <a href="#">Datenschutz</a>
-            <a href="#">AGB</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
           </div>
         </div>
       </div>

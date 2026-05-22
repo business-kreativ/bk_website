@@ -132,7 +132,7 @@ function HeroVisual({ accent }) {
         </div>
 
         {/* ===== RIGHT: structured ===== */}
-        <div className="lp-hero-flow" style={{ position: 'relative', height: 280, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: "4px 0" }}>
+        <div className="lp-hero-flow" style={{ position: 'relative', height: 280, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 0, padding: "4px 30px", width: '100%', maxWidth: 320, justifySelf: 'start' }}>
           <span className="lp-mobile-label" style={{ position: 'absolute', top: -22, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
             Nachher · automatisiert
           </span>
@@ -296,7 +296,7 @@ function Hero({ variant, accent }) {
           }}>{v.sub}</p>
 
           <div className="lp-hero-cta-row" style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-            <a href="#cta" style={{
+            <a href="anfrage.html" style={{
               display: 'inline-flex', alignItems: 'center', gap: 0,
               background: '#fff',
               color: '#0e1116',

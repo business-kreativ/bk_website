@@ -7,12 +7,12 @@ function Solution({ accent }) {
 
 
   return (
-    <section id="loesung" className="lp-section" style={{ background: '#fff', padding: '96px 32px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
-      <div style={{
+    <section id="loesung" className="lp-section" style={{ background: 'linear-gradient(180deg, #fff 0%, #f7f2ec 100%)', padding: '96px 32px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
+      <div className="lp-section-bignum" style={{
         position: 'absolute', top: 60, left: -40,
         fontFamily: 'Geist Mono, monospace',
         fontSize: 280, fontWeight: 700,
-        color: 'rgba(14,17,22,0.03)',
+        color: 'rgba(14,17,22,0.06)',
         lineHeight: 1, pointerEvents: 'none'
       }}>02</div>
 
@@ -39,7 +39,7 @@ function Solution({ accent }) {
         <SystemHub accent={accent} />
 
         {/* Solution pillars */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 32 }}>
+        <div className="lp-solution-pillars" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 32 }}>
           {points.map((p, i) => {
             const I = Icon[p.icon];
             return (
@@ -79,7 +79,7 @@ function Solution({ accent }) {
               Maximale Effizienz bei <span style={{ color: accent }}>minimalem manuellen Aufwand.</span>
             </div>
           </div>
-          <a href="#cta" style={{
+          <a href="anfrage.html" style={{
             position: 'relative',
             display: 'inline-flex', alignItems: 'center', gap: 10,
             background: accent, color: '#fff',
@@ -177,8 +177,8 @@ function FlowStep({ n, icon, label, sub, bad, dark, accent, live }) {
 
 function Connector({ bad, accent }) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'flex-start', paddingLeft: 12, height: "55px" }}>
-      <div style={{ background: bad ? 'rgba(196,69,58,0.3)' : accent || 'rgba(255,255,255,0.18)', height: "57px", width: "2px" }} />
+    <div style={{ display: 'flex', justifyContent: 'flex-start', paddingLeft: 12, height: 24 }}>
+      <div style={{ background: bad ? 'rgba(196,69,58,0.3)' : accent || 'rgba(255,255,255,0.18)', height: 26, width: "2px" }} />
     </div>);
 
 }
@@ -250,7 +250,7 @@ function SystemHub({ accent }) {
             const y = cy + r * Math.sin(rad);
             return (
               <g key={i}>
-                <circle cx={x} cy={y} r="6.5" fill="#fff" stroke="var(--line)" strokeWidth="0.4" />
+                <circle cx={x} cy={y} r="7" fill="#fff" stroke="var(--line)" strokeWidth="0.4" />
                 <text x={x} y={y + 0.5} textAnchor="middle" dominantBaseline="middle" fill="var(--ink)" fontSize="2.2" fontFamily="Geist, sans-serif" fontWeight="600">{t.name}</text>
               </g>);
 

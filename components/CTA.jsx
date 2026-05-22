@@ -84,16 +84,17 @@ function CTA({ accent, ctaVariant }) {
               }} />
             </div>
 
-            <button type="submit" style={{
+            <a href="anfrage.html" style={{
               marginTop: 6,
               background: accent, color: '#fff', border: 0,
               padding: '14px 18px', borderRadius: 10,
               fontWeight: 500, fontSize: 15,
+              textDecoration: 'none',
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
             }}>
               {v.button}
               <Icon.arrow style={{ width: 16, height: 16 }} />
-            </button>
+            </a>
 
             <div style={{ fontSize: 12, color: 'var(--muted)', textAlign: 'center', marginTop: 4 }}>
               Antwort innerhalb von 24 Stunden. Keine Newsletter.

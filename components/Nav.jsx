@@ -37,7 +37,7 @@ function Nav({ accent }) {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           gap: 24,
         }}>
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, fontWeight: 600, letterSpacing: '-0.01em' }}>
+          <a href="index.html" style={{ display: 'flex', alignItems: 'center', gap: 12, fontWeight: 600, letterSpacing: '-0.01em' }}>
             <span style={{
               width: 40, height: 40, borderRadius: 8,
               background: '#fff',
@@ -54,7 +54,7 @@ function Nav({ accent }) {
             {links.map((l) => (
               <a key={l.href} href={l.href} style={{ color: 'rgba(255,255,255,0.75)' }}>{l.label}</a>
             ))}
-            <a href="#cta" style={{
+            <a href="anfrage.html" style={{
               background: accent, color: '#fff',
               padding: '9px 16px', borderRadius: 8,
               fontWeight: 500, fontSize: 14,
@@ -93,7 +93,7 @@ function Nav({ accent }) {
           animation: 'lp-fade-in 0.18s ease',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <a href="#" onClick={() => setOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <a href="index.html" onClick={() => setOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <span style={{ width: 36, height: 36, borderRadius: 8, background: '#fff', padding: 3, display: 'grid', placeItems: 'center' }}>
                 <img src="assets/logo_bk.png" alt="bk" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </span>
@@ -128,7 +128,7 @@ function Nav({ accent }) {
           </div>
 
           <a
-            href="#cta"
+            href="anfrage.html"
             onClick={() => setOpen(false)}
             style={{
               background: accent, color: '#fff',

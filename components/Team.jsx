@@ -2,14 +2,13 @@
 // Headline + photo with name labels aligned beneath each person
 function Team({ accent }) {
   const people = [
-    { name: 'Irina',  role: 'Vertriebs­expertin',  initials: 'IR' },
-    { name: 'Cansu',  role: 'Media­expertin',      initials: 'CA' },
-    { name: 'Anton',  role: 'IT & Tech Experte',   initials: 'AN' },
+    { name: 'Cansu', role: 'Media Expertin' },
+    { name: 'Anton', role: 'IT & Tech Experte' },
   ];
 
   return (
     <section id="team" className="lp-section" style={{
-      background: 'var(--bg)',
+      background: 'linear-gradient(180deg, #fff 0%, #f3eee8 100%)',
       borderTop: '1px solid var(--line)',
       padding: '64px 32px 0',
       position: 'relative',
@@ -44,7 +43,7 @@ function Team({ accent }) {
               letterSpacing: '-0.02em',
               fontWeight: 700,
             }}>
-              Drei Köpfe.<br/>
+              Zwei Köpfe.<br/>
               <span style={{ color: 'var(--muted)' }}>Ein klares Ziel.</span>
             </h2>
           </div>
@@ -56,7 +55,7 @@ function Team({ accent }) {
             color: 'var(--ink-2)',
             maxWidth: 380,
           }}>
-            Vertrieb, Media und Tech — vereint in einem Team, das Ihre Prozesse von Anfang bis Ende versteht und automatisiert.
+            Media und Tech, vereint in einem Team, das Ihre Prozesse von Anfang bis Ende versteht und automatisiert.
           </p>
         </div>
 
@@ -75,14 +74,14 @@ function Team({ accent }) {
             top: 18, right: 24,
             fontFamily: 'JetBrains Mono, monospace',
             fontSize: 110, fontWeight: 700,
-            color: 'rgba(0,0,0,0.04)',
+            color: 'rgba(0,0,0,0.07)',
             lineHeight: 1, pointerEvents: 'none',
             zIndex: 0,
           }}>03</div>
 
           <img
-            src="assets/team.png"
-            alt="Das Team: Irina, Cansu, Anton"
+            src="Design ohne Titel (18).png"
+            alt="Das Team: Cansu und Anton"
             className="lp-team-photo"
             style={{
               display: 'block',
@@ -101,7 +100,7 @@ function Team({ accent }) {
             marginTop: -8,
             padding: '0 18px 20px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateColumns: 'repeat(2, 1fr)',
             gap: 12,
           }}>
             {people.map((p, i) => (

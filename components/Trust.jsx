@@ -8,8 +8,8 @@ function Trust({ accent }) {
   ];
 
   return (
-    <section id="ablauf" className="lp-section" style={{ background: 'var(--bg)', padding: '96px 32px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', top: 60, right: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.03)', lineHeight: 1, pointerEvents: 'none' }}>05</div>
+    <section id="ablauf" className="lp-section" style={{ background: 'linear-gradient(180deg, #f2ece5 0%, #fbf8f4 100%)', padding: '96px 32px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
+      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, right: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.06)', lineHeight: 1, pointerEvents: 'none' }}>05</div>
 
       <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
