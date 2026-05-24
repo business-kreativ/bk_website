@@ -3,28 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Datenschutz — business-kreativ</title>
+<title>Datenschutzerklärung — business-kreativ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-  :root {
-    --bg: #FAF8F6; --surface: #fff; --ink: #000; --ink-2: #1A1A1A;
-    --muted: #6b6b6b; --line: #E5E2DD;
-    --accent: #F7934A; --accent-2: #EC5BB8;
-    --dark: #0e1116;
-  }
+  :root { --bg:#FAF8F6; --ink:#000; --ink-2:#1A1A1A; --muted:#6b6b6b; --line:#E5E2DD; --accent:#F7934A; --dark:#0e1116; }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    color: var(--ink); background: var(--bg);
-    -webkit-font-smoothing: antialiased; line-height: 1.55;
-  }
-  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.55; }
   a { color: inherit; }
-  img, svg { max-width: 100%; }
-
+  img { max-width: 100%; }
   .nav { position: sticky; top: 0; z-index: 50; background: rgba(14,17,22,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); color: #fff; }
   .nav-inner { max-width: 1240px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
   .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: -0.01em; color: #fff; text-decoration: none; }
@@ -33,15 +22,13 @@
   .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; }
   .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; }
   .nav-cta { background: var(--accent); color: #fff !important; padding: 9px 16px; border-radius: 8px; font-weight: 500; }
-
   .page-head { background: var(--dark); color: #fff; padding: 72px 32px 88px; position: relative; overflow: hidden; }
   .page-head::after { content: '02'; position: absolute; right: -20px; bottom: -100px; font-family: 'JetBrains Mono', monospace; font-size: 360px; font-weight: 700; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; }
   .page-head-inner { max-width: 1240px; margin: 0 auto; position: relative; }
   .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.08em; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; }
   .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-  h1 { margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1.0; letter-spacing: -0.03em; font-weight: 700; }
+  h1 { margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.03em; font-weight: 700; }
   .lead { margin-top: 22px; font-size: 17px; color: rgba(255,255,255,0.7); max-width: 640px; line-height: 1.6; }
-
   main { max-width: 1240px; margin: 0 auto; padding: 80px 32px 96px; }
   .layout { display: grid; grid-template-columns: 240px 1fr; gap: 72px; align-items: start; }
   .toc { position: sticky; top: 100px; }
@@ -50,216 +37,140 @@
   .toc-list a { display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--ink-2); text-decoration: none; padding: 6px 0; border-bottom: 1px solid var(--line); }
   .toc-list a:hover { color: var(--accent); }
   .toc-list a span { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); width: 24px; flex-shrink: 0; }
-
   section { padding: 36px 0; border-bottom: 1px solid var(--line); }
   section:first-of-type { padding-top: 0; }
   section:last-of-type { border-bottom: 0; }
   h2 { margin: 0 0 8px; font-size: 26px; letter-spacing: -0.02em; font-weight: 600; }
   h2 .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); margin-right: 12px; font-weight: 500; }
-  h3 { margin: 22px 0 8px; font-size: 15px; font-weight: 600; }
   p { margin: 0 0 12px; color: var(--ink-2); }
-  ul { margin: 8px 0 14px; padding-left: 20px; color: var(--ink-2); }
-  ul li { margin-bottom: 6px; }
-
-  .callout { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--accent); padding: 18px 22px; border-radius: 6px; margin: 16px 0; }
+  .callout { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--accent); padding: 18px 22px; border-radius: 6px; margin: 16px 0; color: var(--ink-2); }
   .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
-
-  .rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
-  .right-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
-  .right-card .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
-  .right-card .title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-  .right-card .body { font-size: 13px; color: var(--muted); line-height: 1.5; }
-
   footer { background: #0e1116; color: #fff; padding: 56px 32px 28px; }
   .footer-inner { max-width: 1240px; margin: 0 auto; }
-  .footer-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 20px; }
+  .footer-top { padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .footer-bottom { display: flex; justify-content: space-between; padding-top: 20px; font-size: 12px; color: rgba(255,255,255,0.5); flex-wrap: wrap; gap: 12px; }
-  .footer-bottom a { color: rgba(255,255,255,0.7); text-decoration: none; }
-  .footer-bottom .links { display: flex; gap: 24px; }
-
-  @media (max-width: 1024px) {
-    .nav-links { display: none; }
-    .layout { grid-template-columns: 1fr; gap: 32px; }
-    .toc { position: static; }
-    .nav-inner { padding: 10px 20px; }
-  }
-  @media (max-width: 720px) {
-    html, body { overflow-x: hidden; }
-    .page-head { padding: 52px 20px 64px; }
-    main { padding: 56px 20px 72px; }
-    h1 { font-size: 40px; }
-    h2 { font-size: 22px; }
-    .rights-grid { grid-template-columns: 1fr; }
-    .footer-top, .footer-bottom { flex-direction: column; align-items: flex-start; }
-  }
+  .footer-bottom a, footer .links a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  @media (max-width: 1024px) { .nav-links { display: none; } .layout { grid-template-columns: 1fr; gap: 32px; } .toc { position: static; } .nav-inner { padding: 10px 20px; } }
+  @media (max-width: 720px) { html, body { overflow-x: hidden; } .page-head { padding: 52px 20px 64px; } main { padding: 56px 20px 72px; } h1 { font-size: 40px; } h2 { font-size: 22px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" href="index.html">
-      <span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span>
-      <span style="font-size: 15px;">business-kreativ</span>
-    </a>
-    <div class="nav-links">
-      <a href="index.html#problem">Problem</a>
-      <a href="index.html#loesung">Lösung</a>
-      <a href="index.html#leistungen">Leistungen</a>
-      <a href="index.html#ablauf">Ablauf</a>
-      <a class="nav-cta" href="anfrage.html">Anfrage</a>
-    </div>
+    <a class="brand" href="index.html"><span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span><span style="font-size: 15px;">business-kreativ</span></a>
+    <div class="nav-links"><a href="index.html#problem">Problem</a><a href="index.html#loesung">Lösung</a><a href="index.html#leistungen">Leistungen</a><a href="index.html#ablauf">Ablauf</a><a class="nav-cta" href="anfrage.html">Anfrage</a></div>
   </div>
 </nav>
 
 <header class="page-head">
   <div class="page-head-inner">
     <div class="eyebrow"><span class="dot"></span>Rechtliches</div>
-    <h1>Datenschutz&shy;erklärung.</h1>
-    <p class="lead">Wir nehmen den Schutz Ihrer personenbezogenen Daten ernst und behandeln sie vertraulich nach den gesetzlichen Datenschutzvorschriften (DSGVO, BDSG) sowie dieser Datenschutzerklärung. Stand: Mai 2026.</p>
+    <h1>Datenschutzerklärung.</h1>
+    <p class="lead">Stand: Mai 2026</p>
   </div>
 </header>
 
 <main>
 <div class="layout">
-
   <aside class="toc">
     <div class="toc-title">Inhalt</div>
     <ul class="toc-list">
       <li><a href="#verantwortlicher"><span>01</span>Verantwortlicher</a></li>
-      <li><a href="#allgemein"><span>02</span>Allgemeines</a></li>
-      <li><a href="#hosting"><span>03</span>Hosting &amp; Server-Logs</a></li>
-      <li><a href="#kontaktformular"><span>04</span>Kontaktformular</a></li>
-      <li><a href="#fonts"><span>05</span>Schriftarten</a></li>
-      <li><a href="#cookies"><span>06</span>Cookies</a></li>
-      <li><a href="#rechte"><span>07</span>Ihre Rechte</a></li>
-      <li><a href="#aufsicht"><span>08</span>Aufsichtsbehörde</a></li>
+      <li><a href="#allgemein"><span>02</span>Allgemeine Hinweise</a></li>
+      <li><a href="#hosting"><span>03</span>Hosting über Vercel</a></li>
+      <li><a href="#kontaktformular"><span>04</span>Kontaktformular &amp; n8n</a></li>
+      <li><a href="#ki-auswertung"><span>05</span>KI-gestützte Auswertung (ChatGPT)</a></li>
+      <li><a href="#analytics"><span>06</span>Google Analytics</a></li>
+      <li><a href="#cookies"><span>07</span>Cookies</a></li>
+      <li><a href="#rechte"><span>08</span>Ihre Rechte</a></li>
     </ul>
   </aside>
 
   <div>
-
     <section id="verantwortlicher">
       <h2><span class="num">01</span>Verantwortlicher</h2>
-      <p>Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der DSGVO ist:</p>
-      <p>
-        business-kreativ [Rechtsform]<br/>
-        Musterstraße 1, 12345 Musterstadt<br/>
-        E-Mail: <a href="mailto:hallo@business-kreativ.com">hallo@business-kreativ.com</a>
-      </p>
+      <p>Business-Kreativ<br/>Anton Antipin<br/>Scharpwinkelring 9<br/>44653 Herne<br/>Deutschland</p>
+      <p>E-Mail: <a href="mailto:info@business-kreativ.com">info@business-kreativ.com</a><br/>Telefon: [deine Telefonnummer einfügen]</p>
     </section>
 
     <section id="allgemein">
       <h2><span class="num">02</span>Allgemeine Hinweise</h2>
-      <p>Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Wir erheben solche Daten nur, wenn Sie sie uns aktiv mitteilen (etwa über das Kontaktformular) oder wenn dies technisch zwingend erforderlich ist (etwa beim Aufruf der Website).</p>
-      <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+      <p>Wir verarbeiten personenbezogene Daten nur, soweit dies für den Betrieb dieser Website, die Bearbeitung von Anfragen oder die Analyse der Website-Nutzung erforderlich ist.</p>
+      <p>Personenbezogene Daten sind alle Informationen, mit denen Sie persönlich identifiziert werden können, zum Beispiel Name, E-Mail-Adresse, Telefonnummer, IP-Adresse oder Angaben aus einem Anfrageformular.</p>
     </section>
 
     <section id="hosting">
-      <h2><span class="num">03</span>Hosting &amp; Server-Logs</h2>
-      <p>Beim Aufruf dieser Website werden vom Webserver automatisch sogenannte Server-Logfiles erfasst. Diese enthalten:</p>
-      <ul>
-        <li>Browsertyp und Browserversion</li>
-        <li>verwendetes Betriebssystem</li>
-        <li>Referrer-URL</li>
-        <li>Hostname des zugreifenden Rechners</li>
-        <li>Uhrzeit der Serveranfrage</li>
-        <li>IP-Adresse (anonymisiert)</li>
-      </ul>
-      <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer technisch fehlerfreien Darstellung).</p>
-      <div class="callout">
-        <div class="label">Hosting-Anbieter</div>
-        Wir hosten unsere Website bei [Anbieter, z. B. Hetzner, IONOS, Vercel] mit Serverstandort in Deutschland/EU. Ein Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO liegt vor.
-      </div>
+      <h2><span class="num">03</span>Hosting über Vercel</h2>
+      <p>Diese Website wird bei Vercel gehostet.</p>
+      <p>Beim Besuch dieser Website können automatisch technische Daten verarbeitet werden. Dazu gehören insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seiten, Browsertyp, Betriebssystem und Referrer-URL.</p>
+      <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt im sicheren und fehlerfreien Betrieb der Website.</p>
+      <div class="callout"><div class="label">Anbieter</div>Vercel Inc.<br/>440 N Barranca Ave #4133<br/>Covina, CA 91723<br/>USA</div>
+      <p>Weitere Informationen: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">https://vercel.com/legal/privacy-policy</a></p>
     </section>
 
     <section id="kontaktformular">
-      <h2><span class="num">04</span>Kontaktformular</h2>
-      <p>Wenn Sie uns über das Kontaktformular eine Anfrage zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
-      <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Ihre Daten werden gelöscht, sobald sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungsfristen entgegenstehen.</p>
+      <h2><span class="num">04</span>Kontaktformular und Verarbeitung über n8n</h2>
+      <p>Wenn Sie uns über ein Formular auf dieser Website kontaktieren, verarbeiten wir die von Ihnen eingegebenen Daten. Dazu können insbesondere Name, E-Mail-Adresse, Telefonnummer, Nachricht und weitere freiwillige Angaben gehören.</p>
+      <p>Die Formulardaten werden zur Bearbeitung Ihrer Anfrage per Webhook an n8n weitergeleitet und dort verarbeitet.</p>
+      <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage mit vorvertraglichen oder vertraglichen Maßnahmen zusammenhängt. In allen übrigen Fällen erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der effizienten Bearbeitung von Anfragen.</p>
+      <p>Die Daten werden gelöscht, sobald sie für die Bearbeitung der Anfrage nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+      <div class="callout"><div class="label">Anbieter</div>n8n GmbH<br/>Novalisstraße 10<br/>10115 Berlin<br/>Deutschland</div>
+      <p>Weitere Informationen: <a href="https://n8n.io/privacy/" target="_blank" rel="noopener">https://n8n.io/privacy/</a></p>
     </section>
 
-    <section id="fonts">
-      <h2><span class="num">05</span>Externe Schriftarten</h2>
-      <p>Diese Website verwendet zur einheitlichen Darstellung Schriftarten von Google Fonts. Beim Aufruf einer Seite werden die benötigten Schriften vom Browser nachgeladen, dabei wird die IP-Adresse an Google übertragen.</p>
-      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen unter <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+    <section id="ki-auswertung">
+      <h2><span class="num">05</span>KI-gestützte Auswertung mit ChatGPT</h2>
+      <p>Zur Erstellung einer individuellen Analyse können die im Formular eingegebenen Antworten mithilfe von ChatGPT verarbeitet werden.</p>
+      <div class="callout"><div class="label">Keine Übermittlung von Kontaktdaten</div>Es werden <strong>keine</strong> Namen, <strong>keine</strong> Adressen, <strong>keine</strong> E-Mail-Adressen, <strong>keine</strong> Telefonnummern und <strong>keine</strong> sonstigen direkten Kontaktdaten an ChatGPT übermittelt. Die Auswertung erfolgt nur anhand der inhaltlichen Formularantworten.</div>
+      <p>Anbieter von ChatGPT ist OpenAI. Je nach eingesetztem Dienst kann eine Verarbeitung außerhalb der Europäischen Union stattfinden.</p>
+      <p>Die KI-gestützte Auswertung dient ausschließlich dazu, auf Grundlage Ihrer Angaben eine Analyse bzw. Empfehlung zu erstellen. Die fertige Analyse wird anschließend an die von Ihnen angegebene E-Mail-Adresse gesendet.</p>
+      <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, soweit sie zur Bearbeitung Ihrer Anfrage oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen erfolgt sie auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der effizienten Erstellung individueller Analysen.</p>
+      <p>Eine automatisierte Entscheidung mit rechtlicher Wirkung oder ähnlicher erheblicher Beeinträchtigung im Sinne von Art. 22 DSGVO findet nicht statt.</p>
+      <p>Weitere Informationen zur Datenverarbeitung durch OpenAI finden Sie unter: <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">https://openai.com/policies/privacy-policy</a></p>
+    </section>
+
+    <section id="analytics">
+      <h2><span class="num">06</span>Google Analytics</h2>
+      <p>Diese Website nutzt Google Analytics, einen Webanalysedienst von Google.</p>
+      <p>Google Analytics hilft uns zu verstehen, wie Besucher unsere Website nutzen. Dabei können insbesondere aufgerufene Seiten, Verweildauer, verwendetes Gerät, Browser, ungefährer Standort und IP-Adresse verarbeitet werden.</p>
+      <p>Google Analytics wird nur eingesetzt, wenn Sie zuvor über unser Cookie- bzw. Consent-Banner eingewilligt haben.</p>
+      <p>Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO sowie § 25 Abs. 1 TDDDG. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+      <div class="callout"><div class="label">Anbieter</div>Google Ireland Limited<br/>Gordon House<br/>Barrow Street<br/>Dublin 4<br/>Irland</div>
+      <p>Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
     </section>
 
     <section id="cookies">
-      <h2><span class="num">06</span>Cookies</h2>
-      <p>Unsere Website verwendet ausschließlich technisch notwendige Cookies bzw. lokale Speicher (z. B. zur Speicherung Ihrer Einstellungen). Diese sind für den Betrieb der Seite erforderlich (Art. 6 Abs. 1 lit. f DSGVO, § 25 Abs. 2 Nr. 2 TTDSG).</p>
-      <p>Tracking- oder Marketing-Cookies setzen wir nicht ein.</p>
+      <h2><span class="num">07</span>Cookies und vergleichbare Technologien</h2>
+      <p>Diese Website verwendet technisch notwendige Technologien, soweit sie für den Betrieb der Website erforderlich sind.</p>
+      <p>Für Google Analytics werden Cookies oder vergleichbare Technologien nur eingesetzt, wenn Sie zuvor eingewilligt haben.</p>
+      <p>Rechtsgrundlage für technisch notwendige Technologien ist § 25 Abs. 2 TDDDG. Rechtsgrundlage für Analyse-Technologien ist Ihre Einwilligung gemäß § 25 Abs. 1 TDDDG und Art. 6 Abs. 1 lit. a DSGVO.</p>
     </section>
 
     <section id="rechte">
-      <h2><span class="num">07</span>Ihre Rechte</h2>
-      <p>Ihnen stehen unter den gesetzlichen Voraussetzungen folgende Rechte zu:</p>
-      <div class="rights-grid">
-        <div class="right-card">
-          <div class="label">Art. 15 DSGVO</div>
-          <div class="title">Auskunft</div>
-          <div class="body">Sie haben das Recht, eine kostenlose Auskunft über Ihre gespeicherten Daten zu erhalten.</div>
-        </div>
-        <div class="right-card">
-          <div class="label">Art. 16 DSGVO</div>
-          <div class="title">Berichtigung</div>
-          <div class="body">Sie können verlangen, dass unrichtige Daten berichtigt werden.</div>
-        </div>
-        <div class="right-card">
-          <div class="label">Art. 17 DSGVO</div>
-          <div class="title">Löschung</div>
-          <div class="body">Sie können die Löschung Ihrer Daten verlangen, soweit keine gesetzlichen Pflichten entgegenstehen.</div>
-        </div>
-        <div class="right-card">
-          <div class="label">Art. 18 DSGVO</div>
-          <div class="title">Einschränkung</div>
-          <div class="body">Sie können die Einschränkung der Verarbeitung verlangen.</div>
-        </div>
-        <div class="right-card">
-          <div class="label">Art. 20 DSGVO</div>
-          <div class="title">Datenübertragbarkeit</div>
-          <div class="body">Sie können verlangen, Ihre Daten in einem strukturierten Format zu erhalten.</div>
-        </div>
-        <div class="right-card">
-          <div class="label">Art. 21 DSGVO</div>
-          <div class="title">Widerspruch</div>
-          <div class="body">Sie haben das Recht, der Verarbeitung Ihrer Daten zu widersprechen.</div>
-        </div>
-      </div>
+      <h2><span class="num">08</span>Ihre Rechte</h2>
+      <p>Sie haben im Rahmen der gesetzlichen Vorschriften jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit, Widerspruch gegen bestimmte Verarbeitungen sowie Widerruf erteilter Einwilligungen.</p>
+      <p>Außerdem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.</p>
     </section>
-
-    <section id="aufsicht">
-      <h2><span class="num">08</span>Aufsichtsbehörde</h2>
-      <p>Bei Verstößen gegen die DSGVO steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Für business-kreativ ist das die Datenschutzbeauftragte / der Datenschutzbeauftragte des Bundeslandes, in dem unser Unternehmen seinen Sitz hat.</p>
-      <p>Eine Liste aller Behörden finden Sie unter <a href="https://www.bfdi.bund.de" target="_blank" rel="noopener">bfdi.bund.de</a>.</p>
-    </section>
-
   </div>
 </div>
 </main>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="brand">
-        <span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span>
-        <span style="font-size: 16px; font-weight: 600;">business-kreativ</span>
+    <div class="footer-top" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 48px; align-items: flex-start;">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span><span style="font-size: 16px; font-weight: 600;">business-kreativ</span></a>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 16px 0 0; max-width: 360px;">Wir verwandeln manuelle Prozesse in effiziente, skalierbare Systeme – für mittelständische Unternehmen.</p>
       </div>
-      <div class="links" style="display: flex; gap: 24px; font-size: 14px;">
-        <a href="index.html">Startseite</a>
-        <a href="anfrage.html">Anfrage</a>
-        <a href="impressum.html">Impressum</a>
-      </div>
+      <div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Leistungen</div><div class="links" style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="index.html#leistungen">Prozessautomatisierung</a><a href="index.html#leistungen">Individuelle Software</a><a href="index.html#leistungen">IT-Optimierung</a><a href="index.html#leistungen">Web &amp; E-Commerce</a></div></div>
+      <div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Unternehmen</div><div class="links" style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="index.html#team">Über uns</a><a href="index.html#ablauf">Ablauf</a><a href="index.html#kontakt">Kontakt</a></div></div>
+      <div><div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Kontakt</div><div class="links" style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="mailto:info@business-kreativ.com">info@business-kreativ.com</a><a href="tel:+4900000000">+49 (0) 000 000 00</a></div></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 business-kreativ.com</span>
-      <div class="links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-      </div>
+      <span>© 2026 business-kreativ.com — Alle Rechte vorbehalten.</span>
+      <div class="links" style="display: flex; gap: 24px;"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
     </div>
   </div>
 </footer>
-
 </body>
 </html>

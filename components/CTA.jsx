@@ -86,7 +86,7 @@ function CTA({ accent, ctaVariant }) {
 
             <a href="anfrage.html" style={{
               marginTop: 6,
-              background: accent, color: '#fff', border: 0,
+              background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)', color: '#fff', border: 0,
               padding: '14px 18px', borderRadius: 10,
               fontWeight: 500, fontSize: 15,
               textDecoration: 'none',

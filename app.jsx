@@ -28,15 +28,11 @@ function App() {
       <Nav accent={accent} />
       <Hero variant={tweaks.heroVariant} accent={accent} />
       <Team accent={accent} />
-      <InlineCTA accent={accent}>Zeig mir meine Chancen</InlineCTA>
       <Logos accent={accent} />
       <Problem accent={accent} />
-      <InlineCTA accent={accent}>Was ist bei uns möglich?</InlineCTA>
       <Solution accent={accent} />
-      <InlineCTA accent={accent}>Kostenlose Einschätzung sichern</InlineCTA>
       <Benefits accent={accent} promiseVariant={tweaks.promiseVariant} />
       <Services accent={accent} />
-      <InlineCTA accent={accent}>Unverbindlich prüfen lassen</InlineCTA>
       <Trust accent={accent} />
       <Scenarios accent={accent} />
       <CTA accent={accent} ctaVariant={tweaks.ctaVariant} />
@@ -106,32 +102,6 @@ function App() {
         </TweakSection>
       </TweaksPanel>
     </>
-  );
-}
-
-function InlineCTA({ accent, children }) {
-  return (
-    <section className="lp-inline-cta" style={{ background: '#fff', padding: '18px 32px' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
-        <a href="anfrage.html" style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 10,
-          background: accent,
-          color: '#fff',
-          padding: '13px 18px',
-          borderRadius: 10,
-          fontSize: 15,
-          fontWeight: 600,
-          textDecoration: 'none',
-          boxShadow: '0 12px 30px rgba(247, 147, 74, 0.22)',
-        }}>
-          {children}
-          <Icon.arrow style={{ width: 15, height: 15 }} />
-        </a>
-      </div>
-    </section>
   );
 }
 

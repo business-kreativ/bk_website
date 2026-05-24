@@ -59,7 +59,7 @@ function HeroVisual({ accent }) {
         {/* ===== LEFT: chaos ===== */}
         <div className="lp-hero-chaos" style={{ position: 'relative', height: 280, overflow: 'hidden' }}>
           {/* Mobile-only inline label */}
-          <span className="lp-mobile-label" style={{ position: 'absolute', top: 0, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
+          <span className="lp-mobile-label lp-mobile-label-before" style={{ position: 'absolute', top: 0, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
             Vorher · verteilt
           </span>
 
@@ -133,7 +133,7 @@ function HeroVisual({ accent }) {
 
         {/* ===== RIGHT: structured ===== */}
         <div className="lp-hero-flow" style={{ position: 'relative', height: 280, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 0, padding: "4px 30px", width: '100%', maxWidth: 320, justifySelf: 'start' }}>
-          <span className="lp-mobile-label" style={{ position: 'absolute', top: -22, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
+          <span className="lp-mobile-label lp-mobile-label-after" style={{ position: 'absolute', top: -22, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
             Nachher · automatisiert
           </span>
           <FlowNode label="Auftrag erfasst" sub="automatisch" status="done" accent={accent} />
@@ -188,8 +188,8 @@ function FlowNode({ label, sub, status, accent }) {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between'
     }}>
       <div>
-        <div style={{ color: '#fff', fontSize: 13, fontWeight: 500 }}>{label}</div>
-        <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, marginTop: 2 }}>{sub}</div>
+        <div className="lp-flow-label" style={{ color: '#fff', fontSize: 13, fontWeight: 500 }}>{label}</div>
+        <div className="lp-flow-sub" style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, marginTop: 2 }}>{sub}</div>
       </div>
       {status === 'done' &&
       <div style={{ width: 18, height: 18, borderRadius: '50%', background: 'rgba(31,138,76,0.2)', color: '#4ade80', display: 'grid', placeItems: 'center' }}>
@@ -298,8 +298,8 @@ function Hero({ variant, accent }) {
           <div className="lp-hero-cta-row" style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
             <a href="anfrage.html" style={{
               display: 'inline-flex', alignItems: 'center', gap: 0,
-              background: '#fff',
-              color: '#0e1116',
+              background: 'linear-gradient(135deg, #7C4A25 0%, #762E5C 100%)',
+              color: '#fff',
               borderRadius: 10,
               padding: '4px 4px 4px 20px',
               fontWeight: 500, fontSize: 15
@@ -308,7 +308,7 @@ function Hero({ variant, accent }) {
               <span style={{
                 marginLeft: 14,
                 width: 36, height: 36, borderRadius: 7,
-                background: accent, color: '#fff',
+                background: 'rgba(255,255,255,0.18)', color: '#fff',
                 display: 'grid', placeItems: 'center'
               }}>
                 <Icon.arrow style={{ width: 16, height: 16 }} />

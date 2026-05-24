@@ -55,7 +55,7 @@ function Nav({ accent }) {
               <a key={l.href} href={l.href} style={{ color: 'rgba(255,255,255,0.75)' }}>{l.label}</a>
             ))}
             <a href="anfrage.html" style={{
-              background: accent, color: '#fff',
+              background: 'linear-gradient(135deg, #7C4A25 0%, #762E5C 100%)', color: '#fff',
               padding: '9px 16px', borderRadius: 8,
               fontWeight: 500, fontSize: 14,
               display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -131,7 +131,7 @@ function Nav({ accent }) {
             href="anfrage.html"
             onClick={() => setOpen(false)}
             style={{
-              background: accent, color: '#fff',
+              background: 'linear-gradient(135deg, #7C4A25 0%, #762E5C 100%)', color: '#fff',
               padding: '18px 22px', borderRadius: 12,
               fontWeight: 500, fontSize: 16,
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,

@@ -20,9 +20,9 @@ function Footer({ accent }) {
           <div>
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Kontakt</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>
-              <a href="mailto:hallo@business-kreativ.com" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <a href="mailto:info@business-kreativ.com" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <Icon.mail style={{ width: 14, height: 14, color: accent }} />
-                hallo@business-kreativ.com
+                info@business-kreativ.com
               </a>
               <a href="tel:+4900000000" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <Icon.phone style={{ width: 14, height: 14, color: accent }} />

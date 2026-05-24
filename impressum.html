@@ -9,10 +9,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
   :root {
-    --bg: #FAF8F6; --surface: #fff; --ink: #000; --ink-2: #1A1A1A;
+    --bg: #FAF8F6; --ink: #000; --ink-2: #1A1A1A;
     --muted: #6b6b6b; --line: #E5E2DD;
-    --accent: #F7934A; --accent-2: #EC5BB8;
-    --dark: #0e1116;
+    --accent: #F7934A; --dark: #0e1116;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -21,11 +20,8 @@
     color: var(--ink); background: var(--bg);
     -webkit-font-smoothing: antialiased; line-height: 1.55;
   }
-  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
   a { color: inherit; }
-  img, svg { max-width: 100%; }
-
-  /* Nav */
+  img { max-width: 100%; }
   .nav { position: sticky; top: 0; z-index: 50; background: rgba(14,17,22,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); color: #fff; }
   .nav-inner { max-width: 1240px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
   .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: -0.01em; color: #fff; text-decoration: none; }
@@ -33,10 +29,7 @@
   .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
   .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; }
   .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; }
-  .nav-links a:hover { color: #fff; }
   .nav-cta { background: var(--accent); color: #fff !important; padding: 9px 16px; border-radius: 8px; font-weight: 500; }
-
-  /* Page */
   .page-head { background: var(--dark); color: #fff; padding: 72px 32px 88px; position: relative; overflow: hidden; }
   .page-head::after { content: '01'; position: absolute; right: -20px; bottom: -100px; font-family: 'JetBrains Mono', monospace; font-size: 360px; font-weight: 700; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; }
   .page-head-inner { max-width: 1240px; margin: 0 auto; position: relative; }
@@ -44,57 +37,33 @@
   .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
   h1 { margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1.0; letter-spacing: -0.03em; font-weight: 700; }
   .lead { margin-top: 22px; font-size: 17px; color: rgba(255,255,255,0.7); max-width: 640px; line-height: 1.6; }
-
-  /* Body */
-  main { max-width: 1240px; margin: 0 auto; padding: 80px 32px 96px; }
-  .layout { display: grid; grid-template-columns: 240px 1fr; gap: 72px; align-items: start; }
-  .toc { position: sticky; top: 100px; }
-  .toc-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
-  .toc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-  .toc-list a { display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--ink-2); text-decoration: none; padding: 6px 0; border-bottom: 1px solid var(--line); }
-  .toc-list a:hover { color: var(--accent); }
-  .toc-list a span { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); width: 24px; flex-shrink: 0; }
-
-  section { padding: 36px 0; border-bottom: 1px solid var(--line); }
+  main { max-width: 860px; margin: 0 auto; padding: 80px 32px 96px; }
+  section { padding: 34px 0; border-bottom: 1px solid var(--line); }
   section:first-of-type { padding-top: 0; }
   section:last-of-type { border-bottom: 0; }
-  h2 { margin: 0 0 8px; font-size: 26px; letter-spacing: -0.02em; font-weight: 600; }
-  h2 .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); margin-right: 12px; font-weight: 500; vertical-align: middle; }
-  h3 { margin: 24px 0 8px; font-size: 15px; font-weight: 600; }
+  h2 { margin: 0 0 14px; font-size: 26px; letter-spacing: -0.02em; font-weight: 600; }
   p { margin: 0 0 12px; color: var(--ink-2); }
-  .meta-list { display: grid; grid-template-columns: 140px 1fr; gap: 8px 24px; margin: 16px 0; font-size: 15px; }
-  .meta-list dt { color: var(--muted); }
-  .meta-list dd { margin: 0; color: var(--ink-2); }
-
-  /* Footer */
+  dl { display: grid; grid-template-columns: 120px 1fr; gap: 12px 24px; margin: 0; }
+  dt { font-size: 13px; color: var(--muted); }
+  dd { margin: 0; color: var(--ink-2); }
   footer { background: #0e1116; color: #fff; padding: 56px 32px 28px; }
   .footer-inner { max-width: 1240px; margin: 0 auto; }
   .footer-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 20px; }
   .footer-bottom { display: flex; justify-content: space-between; padding-top: 20px; font-size: 12px; color: rgba(255,255,255,0.5); flex-wrap: wrap; gap: 12px; }
-  .footer-bottom a { color: rgba(255,255,255,0.7); text-decoration: none; }
-  .footer-bottom .links { display: flex; gap: 24px; }
-
-  @media (max-width: 1024px) {
-    .nav-links { display: none; }
-    .layout { grid-template-columns: 1fr; gap: 32px; }
-    .toc { position: static; }
-    .nav-inner { padding: 10px 20px; }
-  }
+  .footer-bottom a, footer .links a { color: rgba(255,255,255,0.7); text-decoration: none; }
   @media (max-width: 720px) {
-    html, body { overflow-x: hidden; }
+    .nav-inner { padding: 10px 20px; }
+    .nav-links { display: none; }
     .page-head { padding: 52px 20px 64px; }
     main { padding: 56px 20px 72px; }
-    .meta-list { grid-template-columns: 1fr; gap: 4px; }
-    .meta-list dt { color: var(--muted); margin-top: 8px; }
     h1 { font-size: 40px; }
     h2 { font-size: 22px; }
-    .footer-top { flex-direction: column; align-items: flex-start; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    dl { grid-template-columns: 1fr; gap: 4px 0; }
+    .footer-top, .footer-bottom { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
@@ -115,117 +84,70 @@
   <div class="page-head-inner">
     <div class="eyebrow"><span class="dot"></span>Rechtliches</div>
     <h1>Impressum.</h1>
-    <p class="lead">Angaben gemäß § 5 TMG sowie § 18 Abs. 2 MStV. Stand: Mai 2026.</p>
+    <p class="lead">Angaben gemäß § 5 DDG.</p>
   </div>
 </header>
 
 <main>
-<div class="layout">
+  <section>
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <p>
+      Business-Kreativ<br/>
+      Anton Antipin<br/>
+      Scharpwinkelring 9<br/>
+      44653 Herne<br/>
+      Deutschland
+    </p>
+  </section>
 
-  <aside class="toc">
-    <div class="toc-title">Inhalt</div>
-    <ul class="toc-list">
-      <li><a href="#anbieter"><span>01</span>Anbieter</a></li>
-      <li><a href="#kontakt"><span>02</span>Kontakt</a></li>
-      <li><a href="#vertretung"><span>03</span>Vertretung</a></li>
-      <li><a href="#register"><span>04</span>Register &amp; USt</a></li>
-      <li><a href="#verantwortlich"><span>05</span>Inhaltlich verantwortlich</a></li>
-      <li><a href="#streitschlichtung"><span>06</span>Streitschlichtung</a></li>
-      <li><a href="#haftung"><span>07</span>Haftung</a></li>
-      <li><a href="#urheberrecht"><span>08</span>Urheberrecht</a></li>
-    </ul>
-  </aside>
+  <section>
+    <h2>Kontakt</h2>
+    <dl>
+      <dt>Telefon</dt>
+      <dd>[deine Telefonnummer einfügen]</dd>
+      <dt>E-Mail</dt>
+      <dd><a href="mailto:info@business-kreativ.com">info@business-kreativ.com</a></dd>
+    </dl>
+  </section>
 
-  <div>
-
-    <section id="anbieter">
-      <h2><span class="num">01</span>Anbieter</h2>
-      <p>business-kreativ ist eine Marke der unten genannten verantwortlichen Stelle. Diese Website wird betrieben von:</p>
-      <dl class="meta-list">
-        <dt>Firma</dt><dd>business-kreativ [Inhaber:in / Rechtsform ergänzen]</dd>
-        <dt>Anschrift</dt><dd>Musterstraße 1<br/>12345 Musterstadt<br/>Deutschland</dd>
-      </dl>
-    </section>
-
-    <section id="kontakt">
-      <h2><span class="num">02</span>Kontakt</h2>
-      <dl class="meta-list">
-        <dt>Telefon</dt><dd>+49 (0) 000 000 00</dd>
-        <dt>E-Mail</dt><dd><a href="mailto:hallo@business-kreativ.com">hallo@business-kreativ.com</a></dd>
-        <dt>Web</dt><dd>business-kreativ.com</dd>
-      </dl>
-    </section>
-
-    <section id="vertretung">
-      <h2><span class="num">03</span>Vertretungsberechtigt</h2>
-      <dl class="meta-list">
-        <dt>Name</dt><dd>[Vor- und Nachname der vertretungsberechtigten Person]</dd>
-      </dl>
-    </section>
-
-    <section id="register">
-      <h2><span class="num">04</span>Register &amp; Steuer</h2>
-      <dl class="meta-list">
-        <dt>Registereintrag</dt><dd>[Amtsgericht, HRB-Nummer falls vorhanden]</dd>
-        <dt>USt-IdNr.</dt><dd>[USt-IdNr. gemäß § 27a UStG]</dd>
-        <dt>Wirtschafts-ID</dt><dd>[falls erteilt]</dd>
-      </dl>
-    </section>
-
-    <section id="verantwortlich">
-      <h2><span class="num">05</span>Inhaltlich verantwortlich</h2>
-      <p>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</p>
-      <dl class="meta-list">
-        <dt>Name</dt><dd>[Vor- und Nachname]</dd>
-        <dt>Anschrift</dt><dd>Wie oben</dd>
-      </dl>
-    </section>
-
-    <section id="streitschlichtung">
-      <h2><span class="num">06</span>Streitschlichtung</h2>
-      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
-      <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-    </section>
-
-    <section id="haftung">
-      <h2><span class="num">07</span>Haftung für Inhalte &amp; Links</h2>
-      <h3>Inhalte</h3>
-      <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8–10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
-      <h3>Links</h3>
-      <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
-    </section>
-
-    <section id="urheberrecht">
-      <h2><span class="num">08</span>Urheberrecht</h2>
-      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
-    </section>
-
-  </div>
-</div>
+  <section>
+    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+  </section>
 </main>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="brand">
-        <span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span>
-        <span style="font-size: 16px; font-weight: 600;">business-kreativ</span>
+    <div class="footer-top" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 48px; align-items: flex-start;">
+      <div>
+        <a class="brand" href="index.html">
+          <span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span>
+          <span style="font-size: 16px; font-weight: 600;">business-kreativ</span>
+        </a>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 16px 0 0; max-width: 360px;">
+          Wir verwandeln manuelle Prozesse in effiziente, skalierbare Systeme – für mittelständische Unternehmen.
+        </p>
       </div>
-      <div class="links" style="display: flex; gap: 24px; font-size: 14px;">
-        <a href="index.html">Startseite</a>
-        <a href="anfrage.html">Anfrage</a>
-        <a href="datenschutz.html">Datenschutz</a>
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Leistungen</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="index.html#leistungen">Prozessautomatisierung</a><a href="index.html#leistungen">Individuelle Software</a><a href="index.html#leistungen">IT-Optimierung</a><a href="index.html#leistungen">Web &amp; E-Commerce</a></div>
+      </div>
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Unternehmen</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="index.html#team">Über uns</a><a href="index.html#ablauf">Ablauf</a><a href="index.html#kontakt">Kontakt</a></div>
+      </div>
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Kontakt</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="mailto:info@business-kreativ.com">info@business-kreativ.com</a><a href="tel:+4900000000">+49 (0) 000 000 00</a></div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 business-kreativ.com</span>
-      <div class="links">
+      <span>© 2026 business-kreativ.com — Alle Rechte vorbehalten.</span>
+      <div class="links" style="display: flex; gap: 24px;">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </div>
     </div>
   </div>
 </footer>
-
 </body>
 </html>

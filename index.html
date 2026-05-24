@@ -40,6 +40,29 @@
   #root { min-height: 100vh; }
   img, svg { max-width: 100%; }
 
+  body.home-logo-header #root > section:first-of-type::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: clamp(-260px, -11vw, -120px);
+    width: min(1170px, calc(96vw - 10px));
+    aspect-ratio: 1;
+    background: url("assets/logo_bk.png") center / contain no-repeat;
+    opacity: 0.07;
+    filter: saturate(0.7) brightness(0.85);
+    mix-blend-mode: normal;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body.home-logo-header #root > section:first-of-type {
+    background: #0c0f13 !important;
+  }
+  body.home-logo-header #root > section:first-of-type > * {
+    position: relative;
+    z-index: 1;
+  }
+
   /* Hide mobile-only labels by default */
   .lp-mobile-label { display: none; }
 
@@ -66,6 +89,12 @@
       font-size: 180px !important;
       top: 36px !important;
       opacity: 0.85;
+    }
+    body.home-logo-header #root > section:first-of-type::before {
+      top: 50%;
+      right: -240px;
+      width: 890px;
+      opacity: 0.14;
     }
   }
 
@@ -94,37 +123,166 @@
       margin-top: 32px !important;
       padding-top: 22px !important;
     }
+    body.home-logo-header #root > section:first-of-type::before {
+      top: 48%;
+      right: -300px;
+      width: 610px;
+      opacity: 0.11;
+    }
 
-    /* ===== Hero visual ===== */
-    .lp-hero-visual { padding: 22px 18px !important; border-radius: 14px !important; }
-    .lp-hero-visual-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
-    .lp-hero-visual-arrow { transform: rotate(90deg); margin: 4px 0; padding: 0 !important; }
+    /* ===== Hero visual (kompakt aber lesbar) ===== */
+    .lp-hero-visual { padding: 16px 14px !important; border-radius: 14px !important; }
+    .lp-hero-visual-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
     .lp-hero-header-bar { display: none !important; }
-    /* Show mobile labels (hidden on desktop) */
-    .lp-mobile-label { display: inline-block !important; }
-    /* Swap chaos layout: desktop scatter → mobile chip cluster */
-    .lp-hero-chaos { height: auto !important; padding-top: 28px !important; overflow: visible !important; }
+    /* Section labels als kleine Pill-Badges mit Punkt */
+    .lp-mobile-label {
+      position: static !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      background: rgba(255,255,255,0.05) !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      color: rgba(255,255,255,0.7) !important;
+      padding: 5px 12px !important;
+      border-radius: 100px !important;
+      font-size: 11px !important;
+      letter-spacing: 0.04em !important;
+      margin-bottom: 10px !important;
+      top: auto !important;
+      left: auto !important;
+    }
+    .lp-mobile-label::before {
+      content: "";
+      width: 6px; height: 6px; border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .lp-mobile-label-before::before { background: var(--bad); }
+    .lp-mobile-label-after::before { background: var(--ok); }
+    /* Pfeil als duenne horizontale Trennlinie mit kleinem Symbol */
+    .lp-hero-visual-arrow {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      transform: none !important;
+      margin: 2px 0 !important;
+      padding: 0 !important;
+    }
+    .lp-hero-visual-arrow::before,
+    .lp-hero-visual-arrow::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .lp-hero-visual-arrow > div {
+      width: 28px !important;
+      height: 28px !important;
+      box-shadow: 0 0 0 5px rgba(255,122,26,0.1) !important;
+    }
+    .lp-hero-visual-arrow > div svg { width: 13px !important; height: 13px !important; }
+    /* Chaos: 6 Chips in 3x2 */
+    .lp-hero-chaos { height: auto !important; padding-top: 0 !important; overflow: visible !important; text-align: center !important; }
     .lp-chaos-desktop { display: none !important; }
-    .lp-chaos-mobile { display: flex !important; }
-    /* Flow block: room above for label */
-    .lp-hero-flow { margin-top: 26px !important; }
-    .lp-hero-metrics {
-      grid-template-columns: 1fr !important;
+    .lp-chaos-mobile {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 6px !important;
+    }
+    .lp-chaos-mobile > * {
+      padding: 6px 10px !important;
+      font-size: 12px !important;
+      gap: 6px !important;
+      justify-content: center;
+      border-radius: 100px !important;
+    }
+    .lp-chaos-mobile > * svg { width: 12px !important; height: 12px !important; }
+    .lp-chaos-mobile > *:nth-child(n+7) { display: none !important; }
+    /* Flow: 3 vertikale Step-Karten mit sichtbaren Connectoren */
+    .lp-hero-flow {
+      margin-top: 0 !important;
+      height: auto !important;
+      flex-direction: column !important;
       gap: 0 !important;
-      padding-top: 16px !important;
-      margin-top: 16px !important;
+      padding: 2px 0 !important;
+      max-width: 100% !important;
+      justify-self: stretch !important;
+      text-align: center !important;
+    }
+    /* Connectoren = ungerade div-Kinder (Positionen 3, 5) */
+    .lp-hero-flow > div:nth-child(odd) {
+      display: flex !important;
+      justify-content: center !important;
+      padding: 0 !important;
+      height: 10px !important;
+    }
+    .lp-hero-flow > div:nth-child(odd) > div {
+      height: 10px !important;
+      width: 1px !important;
+      background: rgba(255,255,255,0.15) !important;
+    }
+    /* Cards = gerade div-Kinder (Positionen 2, 4, 6) */
+    .lp-hero-flow > div:nth-child(even) {
+      padding: 10px 14px !important;
+      border-radius: 10px !important;
+      justify-content: center !important;
+      background: rgba(255,255,255,0.04) !important;
+    }
+    .lp-hero-flow > div:nth-child(even) > div:not(:first-child) { display: none !important; }
+    /* Pulsierender Accent-Punkt auf der dritten Card (Live-Status) */
+    .lp-hero-flow > div:nth-child(6) .lp-flow-label::before {
+      content: "";
+      display: inline-block;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent);
+      margin-right: 6px;
+      vertical-align: middle;
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    .lp-flow-label {
+      font-size: 13px !important;
+      line-height: 1.3 !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+    }
+    .lp-flow-sub { display: none !important; }
+    /* Metrics: kompakte 3-Spalten-Reihe ohne Trennlinien */
+    .lp-hero-metrics {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8px !important;
+      padding-top: 14px !important;
+      margin-top: 14px !important;
     }
     .lp-hero-metrics > div {
-      display: grid !important;
-      grid-template-columns: 1fr auto !important;
+      width: auto !important;
+      max-width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
       align-items: center !important;
-      gap: 12px !important;
-      padding: 10px 0 !important;
-      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+      text-align: center !important;
+      padding: 0 !important;
+      border-bottom: 0 !important;
     }
-    .lp-hero-metrics > div:last-child { border-bottom: 0 !important; }
-    .lp-hero-metrics > div > div:first-child { margin-bottom: 0 !important; font-size: 12px !important; letter-spacing: 0.08em !important; }
-    .lp-hero-metrics > div > div:last-child { margin-top: 0 !important; }
+    .lp-hero-metrics > div > div:first-child {
+      margin-bottom: 4px !important;
+      font-size: 9px !important;
+      letter-spacing: 0.06em !important;
+      line-height: 1.2 !important;
+    }
+    .lp-hero-metrics > div > div:last-child {
+      margin-top: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 5px !important;
+      font-size: 12px !important;
+      flex-wrap: nowrap !important;
+      white-space: nowrap !important;
+    }
+    .lp-hero-metrics > div > div:last-child svg { width: 9px !important; height: 9px !important; }
+    .lp-hero-metrics > div > div:last-child > span:last-child {
+      font-weight: 600 !important;
+    }
 
     /* ===== Generic grids ===== */
     .lp-2col-sm { grid-template-columns: 1fr !important; gap: 24px !important; }
@@ -163,6 +321,7 @@
     .lp-trust-line-bg { display: none !important; }
 
     /* ===== Services ===== */
+    #leistungen { padding-bottom: 44px !important; }
     .lp-services-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
     .lp-service-card { padding: 24px 20px !important; border-radius: 14px !important; }
 
@@ -170,8 +329,8 @@
     .lp-scen-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
 
     /* ===== CTA ===== */
-    .lp-inline-cta { padding: 14px 20px !important; }
-    .lp-inline-cta a { width: 100% !important; max-width: 360px !important; }
+    .lp-services-cta { margin-top: 24px !important; }
+    .lp-services-cta a { width: 100% !important; max-width: 360px !important; }
     .lp-cta-block {
       padding: 40px 24px !important;
       grid-template-columns: 1fr !important;
@@ -253,7 +412,7 @@
   }
 </style>
 </head>
-<body>
+<body class="home-logo-header">
 <div id="root"></div>
 
 <template id="__bundler_thumbnail">

@@ -82,7 +82,7 @@ function Solution({ accent }) {
           <a href="anfrage.html" style={{
             position: 'relative',
             display: 'inline-flex', alignItems: 'center', gap: 10,
-            background: accent, color: '#fff',
+            background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)', color: '#fff',
             padding: '12px 18px', borderRadius: 8,
             fontWeight: 500, fontSize: 14
           }}>

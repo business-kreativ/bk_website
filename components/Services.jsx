@@ -40,7 +40,7 @@ function Services({ accent }) {
   ];
 
   return (
-    <section id="leistungen" className="lp-section" style={{ background: '#fff', padding: '96px 32px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
+    <section id="leistungen" className="lp-section" style={{ background: '#fff', padding: '96px 32px 56px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
       <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, left: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.055)', lineHeight: 1, pointerEvents: 'none' }}>04</div>
       <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 40, marginBottom: 48, flexWrap: 'wrap' }}>
@@ -99,6 +99,26 @@ function Services({ accent }) {
               </div>
             );
           })}
+        </div>
+
+        <div className="lp-services-cta" style={{ display: 'flex', justifyContent: 'center', marginTop: 32 }}>
+          <a href="anfrage.html" style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 10,
+            background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)',
+            color: '#fff',
+            padding: '13px 18px',
+            borderRadius: 10,
+            fontSize: 15,
+            fontWeight: 600,
+            textDecoration: 'none',
+            boxShadow: '0 12px 30px rgba(236, 91, 184, 0.26)',
+          }}>
+            Unverbindlich prüfen lassen
+            <Icon.arrow style={{ width: 15, height: 15 }} />
+          </a>
         </div>
       </div>
     </section>

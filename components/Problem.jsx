@@ -33,6 +33,23 @@ function Problem({ accent }) {
             <p style={{ marginTop: 24, fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', maxWidth: 460 }}>
               Manuelle Prozesse, doppelte Arbeit und nicht verbundene Systeme führen zu:
             </p>
+            <a href="anfrage.html" style={{
+              marginTop: 18,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)',
+              color: '#fff',
+              padding: '12px 16px',
+              borderRadius: 10,
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: 'none',
+              boxShadow: '0 12px 30px rgba(236, 91, 184, 0.26)',
+            }}>
+              Was ist bei uns möglich?
+              <Icon.arrow style={{ width: 14, height: 14 }} />
+            </a>
 
             {/* Time leak dashboard mockup */}
             <TimeLeakCard accent={accent} />
