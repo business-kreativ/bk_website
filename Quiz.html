@@ -1825,18 +1825,15 @@ function animateNumber(id, from, to, duration, isCurrency = false, decimals = 0)
 }
 
 // ===== Exit modal trigger =====
-// Show ONLY when:
-//   (1) User makes a real exit gesture (cursor leaves through top of viewport
-//       with upward velocity — not just hovering near the top), OR
-//   (2) User has been inactive for 2 minutes inside the quiz.
-// Never shows on the hook, contact, loading or result screens.
+// Show only for real leave attempts while the visitor is inside the quiz:
+// cursor exits through the top edge, a page link is clicked, or browser back is used.
+// No inactivity timer, no scroll trigger, no normal quiz-click trigger.
 
 function isInQuiz() {
   return ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11'].includes(state.currentScreen);
 }
 
-function triggerExitModal() {
-  if (state.exitShown || !isInQuiz()) return;
+function showExitModal() {
   state.exitShown = true;
   const screenIdx = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11'].indexOf(state.currentScreen);
   const pct = Math.round(((screenIdx + 1) / 11) * 100);
@@ -1844,42 +1841,36 @@ function triggerExitModal() {
   document.getElementById('exit-modal').classList.add('show');
 }
 
-// --- (1) Real exit-intent: fast upward movement out of the top edge ---
-let lastY = null, lastT = 0;
-document.addEventListener('mousemove', (e) => {
-  const now = performance.now();
-  if (lastY !== null && now - lastT < 100) {
-    const dy = e.clientY - lastY;       // negative = upward
-    const dt = now - lastT;
-    const velocity = dy / dt;            // px per ms, negative = up
-    // Cursor near the top edge AND moving quickly upward
-    if (e.clientY < 60 && velocity < -0.6) {
-      triggerExitModal();
-    }
-  }
-  lastY = e.clientY;
-  lastT = now;
-});
-
-// Tab change / actual leave: also a real exit signal
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden') triggerExitModal();
-});
-
-// --- (2) 2-minute inactivity timer ---
-let inactivityTimer = null;
-function resetInactivityTimer() {
-  if (inactivityTimer) clearTimeout(inactivityTimer);
-  if (!isInQuiz()) return;
-  inactivityTimer = setTimeout(triggerExitModal, 120000); // 2 min
+function triggerExitModal() {
+  if (state.exitShown || !isInQuiz()) return false;
+  showExitModal();
+  return true;
 }
-['mousemove','keydown','click','scroll','touchstart'].forEach(ev =>
-  document.addEventListener(ev, resetInactivityTimer, { passive: true })
-);
-// Restart the timer whenever the screen changes (wrap showScreen)
-const _origShowScreen = showScreen;
-showScreen = function(id) { _origShowScreen(id); resetInactivityTimer(); };
-resetInactivityTimer();
+
+document.addEventListener('mouseout', (event) => {
+  const leavingWindow = !event.relatedTarget && event.clientY <= 0;
+  if (leavingWindow) triggerExitModal();
+});
+
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a[href]');
+  if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+  if (triggerExitModal()) event.preventDefault();
+});
+
+try {
+  history.pushState({ quizExitGuard: true }, '', window.location.href);
+  window.addEventListener('popstate', () => {
+    if (triggerExitModal()) history.pushState({ quizExitGuard: true }, '', window.location.href);
+  });
+} catch (error) {
+  // Browsers that block history state simply skip the back-button guard.
+}
+
 function closeExitModal() { document.getElementById('exit-modal').classList.remove('show'); }
 function captureExitLead() {
   const email = document.getElementById('exit-email').value;
