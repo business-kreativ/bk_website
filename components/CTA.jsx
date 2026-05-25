@@ -39,7 +39,7 @@ function CTA({ accent, ctaVariant }) {
           {/* LEFT */}
           <div style={{ position: 'relative' }}>
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: accent, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18 }}>
-              Nächster Schritt
+              09 Kontakt
             </div>
             <h2 className="lp-section-h2" style={{ margin: 0, fontSize: 'clamp(32px, 3.2vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 600, marginBottom: 22 }}>
               {v.title}
@@ -50,8 +50,8 @@ function CTA({ accent, ctaVariant }) {
 
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
-                'Konkrete Einschätzung Ihrer 3 wichtigsten Prozesse',
-                'Realistische Aufwandsschätzung – ohne Verkaufsgespräch',
+                'Konkrete Einschätzung Ihrer wichtigsten Prozesse',
+                'Realistische Aufwandsschätzung ohne Verkaufsgespräch',
                 '30 Minuten Ihrer Zeit. Kostenlos. Unverbindlich.',
               ].map((line, i) => (
                 <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, fontSize: 14, color: 'rgba(255,255,255,0.9)' }}>
@@ -76,7 +76,7 @@ function CTA({ accent, ctaVariant }) {
             <Field label="E-Mail" placeholder="name@firma.de" type="email" />
             <div>
               <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--ink-2)', marginBottom: 6 }}>Wo verlieren Sie aktuell am meisten Zeit?</div>
-              <textarea rows="3" placeholder="z. B. Auftragsabwicklung, doppelte Dateneingabe, ..." style={{
+              <textarea rows="3" placeholder="z. B. Auftragsabwicklung, doppelte Dateneingabe, Status-Nachfragen ..." style={{
                 width: '100%', resize: 'none', fontFamily: 'inherit',
                 border: '1px solid var(--line)', borderRadius: 8,
                 padding: '10px 12px', fontSize: 14, color: 'var(--ink)',
@@ -84,7 +84,7 @@ function CTA({ accent, ctaVariant }) {
               }} />
             </div>
 
-            <a href="anfrage.html" style={{
+            <a href="Quiz.html" style={{
               marginTop: 6,
               background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)', color: '#fff', border: 0,
               padding: '14px 18px', borderRadius: 10,

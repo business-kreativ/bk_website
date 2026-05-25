@@ -14,12 +14,12 @@ function Solution({ accent }) {
         fontSize: 280, fontWeight: 700,
         color: 'rgba(14,17,22,0.06)',
         lineHeight: 1, pointerEvents: 'none'
-      }}>02</div>
+      }}>04</div>
 
       <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ color: accent, fontWeight: 600 }}>02</span>
+            <span style={{ color: accent, fontWeight: 600 }}>04</span>
             <span style={{ width: 24, height: 1, background: accent }} />
             Die Lösung
           </div>
@@ -28,7 +28,7 @@ function Solution({ accent }) {
             <span style={{ color: accent }}>funktionierende Systeme.</span>
           </h2>
           <p style={{ marginTop: 22, fontSize: 17, lineHeight: 1.6, color: 'var(--muted)', maxWidth: 640, marginInline: 'auto' }}>
-            Statt Flickwerk und Einzellösungen schaffen wir:
+            Wir analysieren Ihre bestehenden Prozesse, verbinden Ihre Tools und automatisieren die Schritte, die Ihr Team jeden Tag unnötig aufhalten.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ function Solution({ accent }) {
               Maximale Effizienz bei <span style={{ color: accent }}>minimalem manuellen Aufwand.</span>
             </div>
           </div>
-          <a href="anfrage.html" style={{
+          <a href="Quiz.html" style={{
             position: 'relative',
             display: 'inline-flex', alignItems: 'center', gap: 10,
             background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)', color: '#fff',
@@ -111,13 +111,13 @@ function BeforeAfterFlow({ accent }) {
         <Connector bad />
         <FlowStep n="2" icon="excel" label="In Excel eingetragen" sub="abgetippt" bad />
         <Connector bad />
-        <FlowStep n="3" icon="whatsapp" label="WhatsApp ans Team" sub="„Hat das wer gesehen?“" bad />
+        <FlowStep n="3" icon="whatsapp" label="WhatsApp ans Team" sub="Status unklar" bad />
         <Connector bad />
-        <FlowStep n="4" icon="folder" label="Ordner abgelegt" sub="auf Server gesucht" bad />
+        <FlowStep n="4" icon="folder" label="Im Ordner abgelegt" sub="später gesucht" bad />
         <Connector bad />
         <FlowStep n="5" icon="phone" label="Status nachfragen" sub="per Anruf" bad />
         <Connector bad />
-        <FlowStep n="6" icon="paper" label="Rechnung manuell" sub="im DATEV erfasst" bad />
+        <FlowStep n="6" icon="paper" label="Rechnung manuell" sub="in DATEV erfasst" bad />
       </div>
 
       {/* AFTER */}
@@ -131,11 +131,11 @@ function BeforeAfterFlow({ accent }) {
         </div>
         <FlowStep n="1" icon="bolt" label="Anfrage automatisch erfasst" sub="via Web / Mail / API" dark accent={accent} />
         <Connector accent={accent} />
-        <FlowStep n="2" icon="plug" label="Daten in alle Systeme verteilt" sub="CRM · ERP · Buchhaltung" dark accent={accent} />
+        <FlowStep n="2" icon="plug" label="Daten automatisch verteilt" sub="CRM · ERP · Buchhaltung" dark accent={accent} />
         <Connector accent={accent} />
         <FlowStep n="3" icon="chat" label="Team automatisch informiert" sub="mit klarer Aufgabe" dark accent={accent} />
         <Connector accent={accent} />
-        <FlowStep n="4" icon="grid" label="Status live im Dashboard" sub="für alle sichtbar" dark accent={accent} live />
+        <FlowStep n="4" icon="grid" label="Status live sichtbar" sub="im Dashboard" dark accent={accent} live />
       </div>
     </div>);
 
@@ -206,16 +206,16 @@ function SystemHub({ accent }) {
           Ein zentrales System
         </div>
         <h3 style={{ margin: 0, fontSize: 28, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 14 }}>
-          Alle Tools sprechen miteinander – über eine Quelle der Wahrheit.
+          Ein zentrales System statt verstreuter Einzellösungen.
         </h3>
         <p style={{ margin: 0, fontSize: 15, color: 'var(--muted)', lineHeight: 1.6, marginBottom: 22 }}>
-          Daten werden einmal erfasst und automatisch dorthin verteilt, wo sie gebraucht werden. Keine doppelten Eingaben, keine Synchronisations-Probleme.
+          Daten werden einmal erfasst und automatisch an alle relevanten Systeme weitergegeben. So entstehen klare Abläufe, weniger Fehler und ein aktueller Stand für alle.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {[
-          'Auftrag im Shop → automatisch im Lager & in der Buchhaltung',
-          'Kunde im CRM → automatisch in Mail-Listen & Rechnungssystem',
-          'Status im Dashboard → für alle Mitarbeiter live sichtbar'].
+          'Shop-Bestellung → Lager & Buchhaltung',
+          'CRM-Kontakt → Mail-Liste & Rechnungssystem',
+          'Auftragsstatus → live im Dashboard'].
           map((line, i) =>
           <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13, color: 'var(--ink-2)' }}>
               <Icon.check style={{ width: 14, height: 14, color: accent, flexShrink: 0, marginTop: 2 }} />

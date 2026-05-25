@@ -8,6 +8,7 @@ function Logos({ accent }) {
           Wir verbinden Ihre bestehenden Systeme
           <span className="lp-logos-title-line" style={{ width: 32, height: 1, background: 'var(--line)' }} />
         </div>
+        <p style={{ margin: '-12px auto 24px', textAlign: 'center', color: 'var(--muted)', fontSize: 14 }}>Viele Ihrer Tools können mehr, wenn sie miteinander sprechen.</p>
         <div className="lp-logos-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: 16, alignItems: 'center', justifyItems: 'center' }}>
           <Logo name="Shopify" color="#7AB55C" />
           <Logo name="Microsoft 365" color="#0078D4" />

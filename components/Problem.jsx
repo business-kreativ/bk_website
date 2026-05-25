@@ -1,9 +1,9 @@
 // PROBLEM v2 — adds: animated chaos cluster + dashboard mockup showing "where time leaks"
 function Problem({ accent }) {
   const pains = [
-    { icon: 'clock', label: 'Zeitverlust im Tagesgeschäft', desc: 'Routineaufgaben, die jeden Tag manuell erledigt werden – obwohl sie automatisierbar wären.', stat: '~2,4 h', statLabel: 'pro Tag/Mitarbeiter' },
-    { icon: 'warn', label: 'Fehleranfällige Abläufe', desc: 'Doppelt eingegebene Daten, übersehene Schritte, Tippfehler – die später Geld kosten.', stat: '8%', statLabel: 'durchschnittliche Fehlerquote' },
-    { icon: 'eye', label: 'Fehlende Transparenz', desc: 'Keiner weiß, wo ein Auftrag steht, wer was macht oder welche Zahl aktuell stimmt.', stat: '0', statLabel: 'einheitliche Quelle' },
+    { icon: 'clock', label: 'Zeitverlust im Tagesgeschäft', desc: 'Wiederkehrende Aufgaben werden täglich manuell erledigt – obwohl sie längst automatisierbar wären.', stat: '~2,4 h', statLabel: 'pro Tag/Mitarbeiter' },
+    { icon: 'warn', label: 'Fehleranfällige Abläufe', desc: 'Daten werden mehrfach eingetragen, Schritte vergessen oder Informationen falsch übertragen.', stat: '8 %', statLabel: 'durchschnittliche Fehlerquote' },
+    { icon: 'eye', label: 'Fehlende Transparenz', desc: 'Niemand sieht auf einen Blick, wo ein Auftrag steht, wer zuständig ist oder welche Zahl aktuell stimmt.', stat: '0', statLabel: 'einheitliche Datenquelle' },
   ];
 
   return (
@@ -15,25 +15,25 @@ function Problem({ accent }) {
         fontSize: 280, fontWeight: 700,
         color: 'rgba(14,17,22,0.06)',
         lineHeight: 1, pointerEvents: 'none',
-      }}>01</div>
+      }}>03</div>
 
       <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative' }}>
         <div className="lp-problem-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'start' }}>
           {/* LEFT */}
           <div className="lp-not-sticky-sm" style={{ position: 'sticky', top: 100 }}>
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ color: accent, fontWeight: 600 }}>01</span>
+              <span style={{ color: accent, fontWeight: 600 }}>03</span>
               <span style={{ width: 24, height: 1, background: accent }} />
               Das Problem
             </div>
             <h2 className="lp-section-h2" style={{ margin: 0, fontSize: 'clamp(34px, 3.6vw, 48px)', lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 600 }}>
               Ihr Unternehmen läuft – <br />
-              <span style={{ color: 'var(--muted)' }}>aber es kostet unnötig Ressourcen.</span>
+              <span style={{ color: 'var(--muted)' }}>aber zu viel passiert noch manuell.</span>
             </h2>
             <p style={{ marginTop: 24, fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', maxWidth: 460 }}>
-              Manuelle Prozesse, doppelte Arbeit und nicht verbundene Systeme führen zu:
+              Viele mittelständische Unternehmen wachsen schneller als ihre Prozesse. Was früher funktioniert hat, kostet heute Zeit, Nerven und Geld.
             </p>
-            <a href="anfrage.html" style={{
+            <a href="Quiz.html" style={{
               marginTop: 18,
               display: 'inline-flex',
               alignItems: 'center',
@@ -123,12 +123,13 @@ function Problem({ accent }) {
                 {[
                   ['Excel-Liste #4', 'excel'],
                   ['WhatsApp-Gruppe', 'whatsapp'],
-                  ['Mail von Lieferant', 'mail'],
+                  ['Mail vom Lieferanten', 'mail'],
                   ['Notiz auf Papier', 'paper'],
                   ['Anruf vom Kunden', 'phone'],
-                  ['Ordner auf Server', 'folder'],
+                  ['Ordner auf dem Server', 'folder'],
                   ['Doppelt erfasst', 'copy'],
-                  ['"Hat das schon wer gemacht?"', 'chat'],
+                  ['„Hat das schon jemand gemacht?“', 'chat'],
+                  ['Welche Version ist aktuell?', 'doc'],
                 ].map(([label, icon], i) => {
                   const I = Icon[icon];
                   return (
@@ -152,7 +153,7 @@ function Problem({ accent }) {
   );
 }
 
-// Mini dashboard: "Wo geht die Zeit verloren?"
+// Mini dashboard: "Wo im Alltag Zeit verloren geht"
 function TimeLeakCard({ accent }) {
   const items = [
     { label: 'Auftragserfassung', value: 28 },
@@ -168,7 +169,7 @@ function TimeLeakCard({ accent }) {
       padding: '20px 22px', maxWidth: 460,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-        <div style={{ fontSize: 13, fontWeight: 600 }}>Wo geht die Zeit verloren?</div>
+        <div style={{ fontSize: 13, fontWeight: 600 }}>Wo im Alltag Zeit verloren geht</div>
         <Icon.search style={{ width: 14, height: 14, color: 'var(--muted)' }} />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>

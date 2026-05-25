@@ -3,14 +3,11 @@ const HERO_VARIANTS = {
   A: {
     eyebrow: 'Prozessautomatisierung für den Mittelstand',
     headline: [
-    { text: 'Automatisieren Sie', muted: false },
-    { text: 'Ihre Prozesse.', muted: false },
-    { text: 'Reduzieren Sie', muted: true },
-    { text: 'manuelle Arbeit.', muted: true },
-    { text: 'Skalieren Sie', muted: true },
-    { text: 'Ihr Unternehmen.', muted: true }],
+    { text: 'Wir automatisieren', muted: false },
+    { text: 'manuelle Prozesse', muted: false },
+    { text: 'im Mittelstand.', muted: false }],
 
-    sub: 'Wir identifizieren ineffiziente Abläufe und verwandeln sie in automatisierte, skalierbare Systeme – messbar, strukturiert und nachhaltig.',
+    sub: 'Weniger Excel, weniger doppelte Eingaben, weniger Nachfragen – dafür klare Abläufe, verbundene Systeme und mehr Zeit für Ihr Kerngeschäft.',
     cta: 'Potenzialanalyse anfordern'
   },
   B: {
@@ -52,7 +49,7 @@ function HeroVisual({ accent }) {
       {/* Header bar (desktop) */}
       <div className="lp-hero-header-bar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
         <span>Vorher · manuell &amp; verteilt</span>
-        <span>Nachher · automatisiert</span>
+        <span>Nachher · automatisiert &amp; sichtbar</span>
       </div>
 
       <div className="lp-hero-visual-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 28px 1fr', gap: 0, alignItems: 'stretch' }}>
@@ -60,7 +57,7 @@ function HeroVisual({ accent }) {
         <div className="lp-hero-chaos" style={{ position: 'relative', height: 280, overflow: 'hidden' }}>
           {/* Mobile-only inline label */}
           <span className="lp-mobile-label lp-mobile-label-before" style={{ position: 'absolute', top: 0, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
-            Vorher · verteilt
+            Vorher · manuell &amp; verteilt
           </span>
 
           {/* Desktop: scattered absolute layout */}
@@ -134,7 +131,7 @@ function HeroVisual({ accent }) {
         {/* ===== RIGHT: structured ===== */}
         <div className="lp-hero-flow" style={{ position: 'relative', height: 280, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 0, padding: "4px 30px", width: '100%', maxWidth: 320, justifySelf: 'start' }}>
           <span className="lp-mobile-label lp-mobile-label-after" style={{ position: 'absolute', top: -22, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
-            Nachher · automatisiert
+            Nachher · automatisiert &amp; sichtbar
           </span>
           <FlowNode label="Auftrag erfasst" sub="automatisch" status="done" accent={accent} />
           <FlowConnector />
@@ -152,7 +149,7 @@ function HeroVisual({ accent }) {
       }}>
         <Metric label="Manuelle Schritte" before="14" after="2" accent={accent} />
         <Metric label="Bearbeitungszeit" before="42 min" after="3 min" accent={accent} />
-        <Metric label="Fehlerquote" before="8%" after="<1%" accent={accent} />
+        <Metric label="Fehlerquote" before="8 %" after="<1 %" accent={accent} />
       </div>
     </div>);
 
@@ -296,7 +293,7 @@ function Hero({ variant, accent }) {
           }}>{v.sub}</p>
 
           <div className="lp-hero-cta-row" style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-            <a href="anfrage.html" style={{
+            <a href="Quiz.html" style={{
               display: 'inline-flex', alignItems: 'center', gap: 0,
               background: 'linear-gradient(135deg, #7C4A25 0%, #762E5C 100%)',
               color: '#fff',

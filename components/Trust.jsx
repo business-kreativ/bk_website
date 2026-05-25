@@ -3,18 +3,18 @@ function Trust({ accent }) {
   const steps = [
     { n: '01', icon: 'phone', title: 'Kostenlose Potenzialanalyse', body: 'In einem 30-minütigen Gespräch verstehen wir Ihre wichtigsten Abläufe und identifizieren konkrete Automatisierungs­potenziale.', meta: '30 min · kostenlos · unverbindlich', tag: 'Gespräch' },
     { n: '02', icon: 'doc', title: 'Konkrete Lösungsvorschläge', body: 'Sie erhalten eine schriftliche Einschätzung mit den 3 wirkungsvollsten Hebeln – inklusive Aufwandsschätzung und realistischem Zeitplan.', meta: 'innerhalb von 5 Werktagen', tag: 'Analyse' },
-    { n: '03', icon: 'cog', title: 'Schrittweise Umsetzung', body: 'Wir starten mit dem Prozess, der den schnellsten Mehrwert bringt – und bauen darauf auf. Kein Big-Bang, kein Risiko.', meta: 'erste Ergebnisse in 2–4 Wochen', tag: 'Umsetzung' },
+    { n: '03', icon: 'cog', title: 'Schrittweise Umsetzung', body: 'Wir starten mit dem Prozess, der am schnellsten Wirkung zeigt. Kein Big Bang, kein unnötiges Risiko.', meta: 'erste Ergebnisse in 2–4 Wochen', tag: 'Umsetzung' },
     { n: '04', icon: 'shield', title: 'Begleitung & Optimierung', body: 'Wir bleiben dran, bis es im Alltag sauber läuft – und passen Systeme an, wenn Ihr Unternehmen wächst.', meta: 'auf Wunsch laufende Betreuung', tag: 'Support' },
   ];
 
   return (
     <section id="ablauf" className="lp-section" style={{ background: 'linear-gradient(180deg, #f2ece5 0%, #fbf8f4 100%)', padding: '96px 32px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
-      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, right: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.06)', lineHeight: 1, pointerEvents: 'none' }}>05</div>
+      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, right: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.06)', lineHeight: 1, pointerEvents: 'none' }}>07</div>
 
       <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ color: accent, fontWeight: 600 }}>05</span>
+            <span style={{ color: accent, fontWeight: 600 }}>07</span>
             <span style={{ width: 24, height: 1, background: accent }} />
             So arbeiten wir
           </div>

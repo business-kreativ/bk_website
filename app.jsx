@@ -28,13 +28,13 @@ function App() {
       <Nav accent={accent} />
       <Hero variant={tweaks.heroVariant} accent={accent} />
       <Team accent={accent} />
-      <Logos accent={accent} />
       <Problem accent={accent} />
       <Solution accent={accent} />
       <Benefits accent={accent} promiseVariant={tweaks.promiseVariant} />
       <Services accent={accent} />
       <Trust accent={accent} />
       <Scenarios accent={accent} />
+      <Logos accent={accent} />
       <CTA accent={accent} ctaVariant={tweaks.ctaVariant} />
       <Footer accent={accent} />
 

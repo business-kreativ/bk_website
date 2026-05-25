@@ -3,7 +3,7 @@ function Scenarios({ accent }) {
   const cases = [
     {
       tag: 'Dienstleister', icon: 'doc',
-      title: 'Angebote, die sich selbst schreiben',
+      title: 'Angebote, die fast von selbst entstehen',
       before: 'Anfrage per Mail → Vorlage suchen → Daten kopieren → manuell anpassen → versenden',
       after: 'Anfrage trifft ein → Angebot wird automatisch erstellt → liegt zur Freigabe bereit',
       saved: '3,5 h', savedSub: 'pro Woche',
@@ -13,14 +13,14 @@ function Scenarios({ accent }) {
       tag: 'Handwerk & Fertigung', icon: 'cog',
       title: 'Aufträge ohne Zettelwirtschaft',
       before: 'Notiz auf Papier → in Excel übertragen → per WhatsApp ans Team → Status nachfragen',
-      after: 'Auftrag wird einmal erfasst → Team sieht alles im Tablet → Status live im Büro',
+      after: 'Auftrag wird einmal erfasst → Team sieht alles am Tablet → Status ist live im Büro sichtbar',
       saved: '12 Std.', savedSub: 'pro Monat',
       icons: ['paper', 'workflow', 'eye'],
     },
     {
       tag: 'E-Commerce & Lager', icon: 'grid',
-      title: 'Bestellungen, die durchlaufen',
-      before: 'Shop-Bestellung → manuell ins Lagersystem → Rechnung manuell → Versandlabel manuell',
+      title: 'Bestellungen, die sauber durchlaufen',
+      before: 'Shop-Bestellung → manuell ins Lager übertragen → Rechnung erstellen → Versandlabel erzeugen',
       after: 'Bestellung kommt rein → Lager, Rechnung & Versand laufen automatisch',
       saved: '<1%', savedSub: 'Fehlerquote',
       icons: ['cog', 'plug', 'bolt'],
@@ -29,13 +29,13 @@ function Scenarios({ accent }) {
 
   return (
     <section className="lp-section" style={{ background: '#fff', padding: '96px 32px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
-      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, left: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.055)', lineHeight: 1, pointerEvents: 'none' }}>06</div>
+      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, left: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.055)', lineHeight: 1, pointerEvents: 'none' }}>08</div>
 
       <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative' }}>
         <div className="lp-2col-md" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'end', marginBottom: 48 }}>
           <div>
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ color: accent, fontWeight: 600 }}>06</span>
+              <span style={{ color: accent, fontWeight: 600 }}>08</span>
               <span style={{ width: 24, height: 1, background: accent }} />
               Praxisbeispiele
             </div>
@@ -45,7 +45,7 @@ function Scenarios({ accent }) {
             </h2>
           </div>
           <p style={{ fontSize: 16, lineHeight: 1.6, color: 'var(--muted)', margin: 0, maxWidth: 460 }}>
-            Drei typische Szenarien aus unserer Arbeit – branchenübergreifend, aber konkret.
+            Drei typische Szenarien aus dem Mittelstand – konkret, verständlich und direkt messbar.
           </p>
         </div>
 

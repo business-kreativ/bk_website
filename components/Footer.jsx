@@ -24,9 +24,9 @@ function Footer({ accent }) {
                 <Icon.mail style={{ width: 14, height: 14, color: accent }} />
                 info@business-kreativ.com
               </a>
-              <a href="tel:+4900000000" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <a href="tel:+4923255945387" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <Icon.phone style={{ width: 14, height: 14, color: accent }} />
-                +49 (0) 000 000 00
+                02325 5945387
               </a>
             </div>
           </div>

@@ -54,7 +54,7 @@ function Nav({ accent }) {
             {links.map((l) => (
               <a key={l.href} href={l.href} style={{ color: 'rgba(255,255,255,0.75)' }}>{l.label}</a>
             ))}
-            <a href="anfrage.html" style={{
+            <a href="Quiz.html" style={{
               background: 'linear-gradient(135deg, #7C4A25 0%, #762E5C 100%)', color: '#fff',
               padding: '9px 16px', borderRadius: 8,
               fontWeight: 500, fontSize: 14,
@@ -128,7 +128,7 @@ function Nav({ accent }) {
           </div>
 
           <a
-            href="anfrage.html"
+            href="Quiz.html"
             onClick={() => setOpen(false)}
             style={{
               background: 'linear-gradient(135deg, #7C4A25 0%, #762E5C 100%)', color: '#fff',

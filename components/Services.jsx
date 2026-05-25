@@ -5,14 +5,14 @@ function Services({ accent }) {
       n: '01',
       icon: 'grid',
       title: 'Individuelle Software & Systeme',
-      body: 'Wir entwickeln Anwendungen, Dashboards und Tools, die Prozesse vereinfachen und Transparenz schaffen – exakt abgestimmt auf Ihre Abläufe.',
+      body: 'Interne Tools, Dashboards und Anwendungen, die exakt zu Ihren Abläufen passen.',
       bullets: ['Dashboards mit Live-Daten', 'Interne Tools statt Excel', 'Schnittstellen zu Ihren Systemen'],
     },
     {
       n: '02',
       icon: 'bolt',
       title: 'Prozessautomatisierung',
-      body: 'Wir automatisieren wiederkehrende Aufgaben, Datenflüsse und Schnittstellen.',
+      body: 'Wir automatisieren wiederkehrende Aufgaben, Datenflüsse und Übergaben zwischen Systemen.',
       bullets: ['weniger manuelle Arbeit', 'schnellere Abläufe', 'geringere Fehlerquote'],
       featured: true,
     },
@@ -20,14 +20,14 @@ function Services({ accent }) {
       n: '03',
       icon: 'plug',
       title: 'IT- & Systemoptimierung',
-      body: 'Wir analysieren bestehende Tools und Strukturen und sorgen dafür, dass Systeme effizient zusammenspielen.',
+      body: 'Wir prüfen Ihre bestehende Tool-Landschaft und sorgen dafür, dass Systeme sauber zusammenspielen.',
       bullets: ['System-Audit', 'Tool-Konsolidierung', 'saubere Datenbasis'],
     },
     {
       n: '04',
       icon: 'cog',
       title: 'Web & E-Commerce',
-      body: 'Websites und Shops, die nicht isoliert funktionieren, sondern direkt in Ihre Prozesse integriert sind.',
+      body: 'Websites und Shops, die direkt mit Lager, Buchhaltung, CRM und weiteren Systemen verbunden sind.',
       bullets: ['Anbindung an Lager & Buchhaltung', 'automatisierte Bestellabwicklung', 'verlässliche Performance'],
     },
     {
@@ -41,12 +41,12 @@ function Services({ accent }) {
 
   return (
     <section id="leistungen" className="lp-section" style={{ background: '#fff', padding: '96px 32px 56px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
-      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, left: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.055)', lineHeight: 1, pointerEvents: 'none' }}>04</div>
+      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, left: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.055)', lineHeight: 1, pointerEvents: 'none' }}>06</div>
       <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 40, marginBottom: 48, flexWrap: 'wrap' }}>
           <div>
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18 }}>
-              <span style={{ color: accent }}>04</span>  &nbsp;Leistungen
+              <span style={{ color: accent }}>06</span>  &nbsp;Leistungen
             </div>
             <h2 className="lp-section-h2" style={{ margin: 0, fontSize: 'clamp(34px, 3.4vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 600, maxWidth: 640 }}>
               Fünf Felder. Ein Ziel: <br />
@@ -102,7 +102,7 @@ function Services({ accent }) {
         </div>
 
         <div className="lp-services-cta" style={{ display: 'flex', justifyContent: 'center', marginTop: 32 }}>
-          <a href="anfrage.html" style={{
+          <a href="Quiz.html" style={{
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',

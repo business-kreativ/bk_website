@@ -1,6 +1,6 @@
 // BENEFITS v2 — KPI dashboard mockup + savings widget
 const PROMISE_VARIANTS = {
-  A: { title: 'Automatisierung, die im Alltag funktioniert.', body: 'Keine Theorie. Keine Standardlösungen. Wir entwickeln Systeme, die exakt zu Ihren Prozessen passen – und produktiv eingesetzt werden.' },
+  A: { title: 'Automatisierung, die im Alltag funktioniert.', body: 'Keine Theorie. Keine Standardlösung. Wir bauen Systeme, die zu Ihren Abläufen passen und im Tagesgeschäft wirklich genutzt werden.' },
   B: { title: 'Individuell statt generisch.', body: 'Ihre Prozesse sind einzigartig – Ihre Automatisierung sollte es auch sein. Wir bauen Lösungen, die sich an Ihr Unternehmen anpassen, nicht umgekehrt.' },
   C: { title: 'Von Analyse bis Umsetzung.', body: 'Wir identifizieren Potenziale, entwickeln Lösungen und setzen sie vollständig um – bis sie im Alltag zuverlässig funktionieren.' },
 };
@@ -9,21 +9,21 @@ function Benefits({ accent, promiseVariant }) {
   const v = PROMISE_VARIANTS[promiseVariant] || PROMISE_VARIANTS.A;
 
   const benefits = [
-    { icon: 'clock', kpi: '–70%', label: 'Zeit sparen', desc: 'Wiederkehrende Aufgaben laufen automatisch – Ihr Team kann sich auf Wichtiges konzentrieren.', viz: 'time' },
-    { icon: 'shield', kpi: '<1%', label: 'Weniger Fehler', desc: 'Keine doppelten Eingaben, keine vergessenen Schritte. Daten landen direkt am richtigen Ort.', viz: 'error' },
-    { icon: 'workflow', kpi: '1×', label: 'Klare Prozesse', desc: 'Jeder weiß, was zu tun ist – auch neue Mitarbeiter sind in Tagen statt Wochen eingearbeitet.', viz: 'process' },
-    { icon: 'eye', kpi: '24/7', label: 'Voller Überblick', desc: 'Auf einen Blick sehen, wo ein Auftrag steht, was offen ist und welche Zahlen aktuell stimmen.', viz: 'overview' },
+    { icon: 'clock', kpi: 'Bis zu 70 %', label: 'Zeitersparnis', desc: 'Wiederkehrende Aufgaben laufen automatisch. Ihr Team gewinnt Zeit für Arbeit, die wirklich Wert schafft.', viz: 'time' },
+    { icon: 'shield', kpi: '<1 %', label: 'Fehlerquote', desc: 'Daten landen direkt dort, wo sie gebraucht werden – ohne doppelte Eingaben und manuelle Übertragungen.', viz: 'error' },
+    { icon: 'workflow', kpi: '1×', label: 'klarer Prozess', desc: 'Jeder weiß, was zu tun ist. Neue Mitarbeiter verstehen Abläufe schneller und arbeiten sicherer.', viz: 'process' },
+    { icon: 'eye', kpi: '24/7', label: 'Überblick', desc: 'Aufträge, Aufgaben und Kennzahlen sind jederzeit sichtbar – ohne Nachfragen und ohne Suchen.', viz: 'overview' },
   ];
 
   return (
     <section className="lp-section" style={{ background: 'linear-gradient(135deg, #efe8df 0%, #faf8f6 100%)', padding: '96px 32px', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
-      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, right: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.06)', lineHeight: 1, pointerEvents: 'none' }}>03</div>
+      <div className="lp-section-bignum" style={{ position: 'absolute', top: 60, right: -40, fontFamily: 'Geist Mono, monospace', fontSize: 280, fontWeight: 700, color: 'rgba(14,17,22,0.06)', lineHeight: 1, pointerEvents: 'none' }}>05</div>
 
       <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative' }}>
         <div className="lp-2col-md" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'end', marginBottom: 48 }}>
           <div>
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ color: accent, fontWeight: 600 }}>03</span>
+              <span style={{ color: accent, fontWeight: 600 }}>05</span>
               <span style={{ width: 24, height: 1, background: accent }} />
               Kernversprechen
             </div>
@@ -59,11 +59,11 @@ function Benefits({ accent, promiseVariant }) {
         <div className="lp-savings-strip" style={{ marginTop: 32, background: '#0e1116', color: '#fff', borderRadius: 14, padding: '32px 36px', display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 1fr', gap: 24, alignItems: 'center' }}>
           <div>
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: accent, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Beispielrechnung</div>
-            <div style={{ fontSize: 18, fontWeight: 500, lineHeight: 1.4 }}>Was ein automatisierter Prozess <span style={{ color: accent }}>typischerweise einspart.</span></div>
+            <div style={{ fontSize: 18, fontWeight: 500, lineHeight: 1.4 }}>Was ein automatisierter Prozess <span style={{ color: accent }}>typischerweise einspart</span></div>
           </div>
           <SavingMetric icon="clock" label="Pro Mitarbeiter" value="2,4 h" sub="pro Tag" accent={accent} />
           <SavingMetric icon="euro" label="Jährliche Ersparnis" value="~14.000 €" sub="bei 5 Mitarbeitern" accent={accent} />
-          <SavingMetric icon="trend" label="Amortisation" value="3–6 Mon." sub="in der Regel" accent={accent} />
+          <SavingMetric icon="trend" label="Amortisation" value="3–6 Monate" sub="in der Regel" accent={accent} />
         </div>
       </div>
     </section>
