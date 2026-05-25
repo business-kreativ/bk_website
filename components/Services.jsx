@@ -102,7 +102,7 @@ function Services({ accent }) {
         </div>
 
         <div className="lp-services-cta" style={{ display: 'flex', justifyContent: 'center', marginTop: 32 }}>
-          <a href="Quiz.html" style={{
+          <a href="/prozess-check" style={{
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',

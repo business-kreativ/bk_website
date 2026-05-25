@@ -33,7 +33,7 @@ function Problem({ accent }) {
             <p style={{ marginTop: 24, fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', maxWidth: 460 }}>
               Viele mittelständische Unternehmen wachsen schneller als ihre Prozesse. Was früher funktioniert hat, kostet heute Zeit, Nerven und Geld.
             </p>
-            <a href="Quiz.html" style={{
+            <a href="/prozess-check" style={{
               marginTop: 18,
               display: 'inline-flex',
               alignItems: 'center',

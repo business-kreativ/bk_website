@@ -1,6 +1,34 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/Quiz.html",
+      "destination": "/prozess-check",
+      "permanent": true
+    },
+    {
+      "source": "/Quiz",
+      "destination": "/prozess-check",
+      "permanent": true
+    },
+    {
+      "source": "/quiz.html",
+      "destination": "/prozess-check",
+      "permanent": true
+    },
+    {
+      "source": "/quiz",
+      "destination": "/prozess-check",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/prozess-check",
+      "destination": "/prozess-check/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

@@ -84,7 +84,7 @@ function CTA({ accent, ctaVariant }) {
               }} />
             </div>
 
-            <a href="Quiz.html" style={{
+            <a href="/prozess-check" style={{
               marginTop: 6,
               background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)', color: '#fff', border: 0,
               padding: '14px 18px', borderRadius: 10,

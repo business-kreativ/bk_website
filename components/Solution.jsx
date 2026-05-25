@@ -79,7 +79,7 @@ function Solution({ accent }) {
               Maximale Effizienz bei <span style={{ color: accent }}>minimalem manuellen Aufwand.</span>
             </div>
           </div>
-          <a href="Quiz.html" style={{
+          <a href="/prozess-check" style={{
             position: 'relative',
             display: 'inline-flex', alignItems: 'center', gap: 10,
             background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)', color: '#fff',

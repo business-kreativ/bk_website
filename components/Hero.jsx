@@ -293,7 +293,7 @@ function Hero({ variant, accent }) {
           }}>{v.sub}</p>
 
           <div className="lp-hero-cta-row" style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-            <a href="Quiz.html" style={{
+            <a href="/prozess-check" style={{
               display: 'inline-flex', alignItems: 'center', gap: 0,
               background: 'linear-gradient(135deg, #7C4A25 0%, #762E5C 100%)',
               color: '#fff',

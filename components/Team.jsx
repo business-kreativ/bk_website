@@ -168,7 +168,7 @@ function Team({ accent }) {
           <div style={{ fontSize: 17, fontWeight: 600, letterSpacing: '-0.01em', lineHeight: 1.35 }}>
             Wir bauen keine isolierten Tools. <span style={{ color: accent }}>Wir bauen Abläufe, die im Alltag funktionieren.</span>
           </div>
-          <a href="Quiz.html" style={{
+          <a href="/prozess-check" style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,
             background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)',
             color: '#fff', padding: '12px 16px', borderRadius: 10,
