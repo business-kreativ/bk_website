@@ -1,41 +1,37 @@
-// SERVICES — your exact copy from section 5
+// SERVICES — i18n
 function Services({ accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
   const services = [
     {
-      n: '01',
-      icon: 'grid',
-      title: 'Individuelle Software & Systeme',
-      body: 'Interne Tools, Dashboards und Anwendungen, die exakt zu Ihren Abläufen passen.',
-      bullets: ['Dashboards mit Live-Daten', 'Interne Tools statt Excel', 'Schnittstellen zu Ihren Systemen'],
+      n: '01', icon: 'grid',
+      title: tx('services.1.title'),
+      body: tx('services.1.body'),
+      bullets: [tx('services.1.b1'), tx('services.1.b2'), tx('services.1.b3')],
     },
     {
-      n: '02',
-      icon: 'bolt',
-      title: 'Prozessautomatisierung',
-      body: 'Wir automatisieren wiederkehrende Aufgaben, Datenflüsse und Übergaben zwischen Systemen.',
-      bullets: ['weniger manuelle Arbeit', 'schnellere Abläufe', 'geringere Fehlerquote'],
+      n: '02', icon: 'bolt',
+      title: tx('services.2.title'),
+      body: tx('services.2.body'),
+      bullets: [tx('services.2.b1'), tx('services.2.b2'), tx('services.2.b3')],
       featured: true,
     },
     {
-      n: '03',
-      icon: 'plug',
-      title: 'IT- & Systemoptimierung',
-      body: 'Wir prüfen Ihre bestehende Tool-Landschaft und sorgen dafür, dass Systeme sauber zusammenspielen.',
-      bullets: ['System-Audit', 'Tool-Konsolidierung', 'saubere Datenbasis'],
+      n: '03', icon: 'plug',
+      title: tx('services.3.title'),
+      body: tx('services.3.body'),
+      bullets: [tx('services.3.b1'), tx('services.3.b2'), tx('services.3.b3')],
     },
     {
-      n: '04',
-      icon: 'cog',
-      title: 'Web & E-Commerce',
-      body: 'Websites und Shops, die direkt mit Lager, Buchhaltung, CRM und weiteren Systemen verbunden sind.',
-      bullets: ['Anbindung an Lager & Buchhaltung', 'automatisierte Bestellabwicklung', 'verlässliche Performance'],
+      n: '04', icon: 'cog',
+      title: tx('services.4.title'),
+      body: tx('services.4.body'),
+      bullets: [tx('services.4.b1'), tx('services.4.b2'), tx('services.4.b3')],
     },
     {
-      n: '05',
-      icon: 'doc',
-      title: 'Dokumentation & Transparenz',
-      body: 'Klare, nachvollziehbare Dokumentation Ihrer Prozesse und Systeme – damit Abläufe langfristig wartbar und skalierbar bleiben.',
-      bullets: ['Prozesslandkarte', 'Übergabe-Dokumente', 'wartbare Systeme'],
+      n: '05', icon: 'doc',
+      title: tx('services.5.title'),
+      body: tx('services.5.body'),
+      bullets: [tx('services.5.b1'), tx('services.5.b2'), tx('services.5.b3')],
     },
   ];
 
@@ -46,11 +42,11 @@ function Services({ accent }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 40, marginBottom: 48, flexWrap: 'wrap' }}>
           <div>
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18 }}>
-              <span style={{ color: accent }}>06</span>  &nbsp;Leistungen
+              <span style={{ color: accent }}>06</span>  &nbsp;{tx('services.eyebrow')}
             </div>
             <h2 className="lp-section-h2" style={{ margin: 0, fontSize: 'clamp(34px, 3.4vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 600, maxWidth: 640 }}>
-              Fünf Felder. Ein Ziel: <br />
-              <span style={{ color: 'var(--muted)' }}>Ihre Prozesse laufen wie ein System.</span>
+              {tx('services.h2.1')} <br />
+              <span style={{ color: 'var(--muted)' }}>{tx('services.h2.2')}</span>
             </h2>
           </div>
         </div>
@@ -116,7 +112,7 @@ function Services({ accent }) {
             textDecoration: 'none',
             boxShadow: '0 12px 30px rgba(236, 91, 184, 0.26)',
           }}>
-            Unverbindlich prüfen lassen
+            {tx('services.cta')}
             <Icon.arrow style={{ width: 15, height: 15 }} />
           </a>
         </div>

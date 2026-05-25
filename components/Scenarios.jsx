@@ -1,28 +1,29 @@
-// SCENARIOS v2 — adds icons, mini visual mockups per scenario
+// SCENARIOS — i18n
 function Scenarios({ accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
   const cases = [
     {
-      tag: 'Dienstleister', icon: 'doc',
-      title: 'Angebote, die fast von selbst entstehen',
-      before: 'Anfrage per Mail → Vorlage suchen → Daten kopieren → manuell anpassen → versenden',
-      after: 'Anfrage trifft ein → Angebot wird automatisch erstellt → liegt zur Freigabe bereit',
-      saved: '3,5 h', savedSub: 'pro Woche',
+      tag: tx('scenarios.1.tag'), icon: 'doc',
+      title: tx('scenarios.1.title'),
+      before: tx('scenarios.1.before'),
+      after: tx('scenarios.1.after'),
+      saved: '3,5 h', savedSub: tx('scenarios.1.saved_sub'),
       icons: ['mail', 'doc', 'check'],
     },
     {
-      tag: 'Handwerk & Fertigung', icon: 'cog',
-      title: 'Aufträge ohne Zettelwirtschaft',
-      before: 'Notiz auf Papier → in Excel übertragen → per WhatsApp ans Team → Status nachfragen',
-      after: 'Auftrag wird einmal erfasst → Team sieht alles am Tablet → Status ist live im Büro sichtbar',
-      saved: '12 Std.', savedSub: 'pro Monat',
+      tag: tx('scenarios.2.tag'), icon: 'cog',
+      title: tx('scenarios.2.title'),
+      before: tx('scenarios.2.before'),
+      after: tx('scenarios.2.after'),
+      saved: '12 h', savedSub: tx('scenarios.2.saved_sub'),
       icons: ['paper', 'workflow', 'eye'],
     },
     {
-      tag: 'E-Commerce & Lager', icon: 'grid',
-      title: 'Bestellungen, die sauber durchlaufen',
-      before: 'Shop-Bestellung → manuell ins Lager übertragen → Rechnung erstellen → Versandlabel erzeugen',
-      after: 'Bestellung kommt rein → Lager, Rechnung & Versand laufen automatisch',
-      saved: '<1%', savedSub: 'Fehlerquote',
+      tag: tx('scenarios.3.tag'), icon: 'grid',
+      title: tx('scenarios.3.title'),
+      before: tx('scenarios.3.before'),
+      after: tx('scenarios.3.after'),
+      saved: '<1%', savedSub: tx('scenarios.3.saved_sub'),
       icons: ['cog', 'plug', 'bolt'],
     },
   ];
@@ -37,15 +38,15 @@ function Scenarios({ accent }) {
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
               <span style={{ color: accent, fontWeight: 600 }}>08</span>
               <span style={{ width: 24, height: 1, background: accent }} />
-              Praxisbeispiele
+              {tx('scenarios.eyebrow')}
             </div>
             <h2 className="lp-section-h2" style={{ margin: 0, fontSize: 'clamp(32px, 3.2vw, 42px)', lineHeight: 1.15, letterSpacing: '-0.02em', fontWeight: 600 }}>
-              So sieht der Alltag <br />
-              <span style={{ color: accent }}>nach der Automatisierung aus.</span>
+              {tx('scenarios.h2.1')} <br />
+              <span style={{ color: accent }}>{tx('scenarios.h2.2')}</span>
             </h2>
           </div>
           <p style={{ fontSize: 16, lineHeight: 1.6, color: 'var(--muted)', margin: 0, maxWidth: 460 }}>
-            Drei typische Szenarien aus dem Mittelstand – konkret, verständlich und direkt messbar.
+            {tx('scenarios.sub')}
           </p>
         </div>
 
@@ -67,7 +68,6 @@ function Scenarios({ accent }) {
 
                 <div style={{ fontSize: 18, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 18 }}>{c.title}</div>
 
-                {/* Mini icon flow */}
                 <div className="lp-scen-mini" style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#fff', border: '1px solid var(--line)', borderRadius: 8, padding: '10px 14px', marginBottom: 16 }}>
                   {c.icons.map((ic, j) => {
                     const I = Icon[ic];
@@ -80,13 +80,13 @@ function Scenarios({ accent }) {
                       </React.Fragment>
                     );
                   })}
-                  <span style={{ marginLeft: 'auto', fontFamily: 'Geist Mono, monospace', fontSize: 10, color: accent, textTransform: 'uppercase', letterSpacing: '0.05em' }}>auto</span>
+                  <span style={{ marginLeft: 'auto', fontFamily: 'Geist Mono, monospace', fontSize: 10, color: accent, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{tx('scenarios.auto')}</span>
                 </div>
 
                 <div style={{ marginBottom: 12 }}>
                   <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, color: 'var(--bad)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                     <Icon.x style={{ width: 10, height: 10 }} />
-                    Vorher
+                    {tx('scenarios.before')}
                   </div>
                   <div style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.5 }}>{c.before}</div>
                 </div>
@@ -96,7 +96,7 @@ function Scenarios({ accent }) {
                 <div style={{ marginBottom: 18 }}>
                   <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 10, color: accent, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                     <Icon.check style={{ width: 10, height: 10 }} />
-                    Nachher
+                    {tx('scenarios.after')}
                   </div>
                   <div style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.5 }}>{c.after}</div>
                 </div>
@@ -109,7 +109,7 @@ function Scenarios({ accent }) {
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <Icon.trend style={{ width: 14, height: 14, color: accent }} />
-                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>Eingespart</span>
+                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>{tx('scenarios.saved')}</span>
                   </div>
                   <div style={{ textAlign: 'right' }}>
                     <span style={{ fontFamily: 'Geist Mono, monospace', fontWeight: 600, color: accent, fontSize: 16 }}>{c.saved}</span>

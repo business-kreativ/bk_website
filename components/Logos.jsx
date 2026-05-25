@@ -1,14 +1,15 @@
-// LOGOS v2 — actual styled wordmark logos with brand-ish colors
+// LOGOS v2 — i18n
 function Logos({ accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
   return (
     <section style={{ background: '#fff', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
       <div className="lp-logos-wrap" style={{ maxWidth: 1240, margin: '0 auto', padding: '32px 32px' }}>
         <div className="lp-logos-title" style={{ fontSize: 12, color: 'var(--muted)', textAlign: 'center', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'Geist Mono, monospace', marginBottom: 24, display: 'inline-flex', alignItems: 'center', gap: 12, justifyContent: 'center', width: '100%' }}>
           <span className="lp-logos-title-line" style={{ width: 32, height: 1, background: 'var(--line)' }} />
-          Wir verbinden Ihre bestehenden Systeme
+          {tx('logos.title')}
           <span className="lp-logos-title-line" style={{ width: 32, height: 1, background: 'var(--line)' }} />
         </div>
-        <p style={{ margin: '-12px auto 24px', textAlign: 'center', color: 'var(--muted)', fontSize: 14 }}>Viele Ihrer Tools können mehr, wenn sie miteinander sprechen.</p>
+        <p style={{ margin: '-12px auto 24px', textAlign: 'center', color: 'var(--muted)', fontSize: 14 }}>{tx('logos.sub')}</p>
         <div className="lp-logos-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: 16, alignItems: 'center', justifyItems: 'center' }}>
           <Logo name="Shopify" color="#7AB55C" />
           <Logo name="Microsoft 365" color="#0078D4" />

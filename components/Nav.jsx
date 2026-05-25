@@ -1,8 +1,8 @@
-// Nav v4 — with brand logo + mobile burger drawer
+// Nav v4 — with brand logo + mobile burger drawer + language switcher
 function Nav({ accent }) {
   const [open, setOpen] = React.useState(false);
+  const tx = (key) => (window.t ? window.t(key) : key);
 
-  // Close drawer on link click or escape
   React.useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
@@ -15,11 +15,11 @@ function Nav({ accent }) {
   }, [open]);
 
   const links = [
-    { href: '#problem', label: 'Problem' },
-    { href: '#loesung', label: 'Lösung' },
-    { href: '#leistungen', label: 'Leistungen' },
-    { href: '#ablauf', label: 'Ablauf' },
-    { href: '#kontakt', label: 'Kontakt' },
+    { href: '#problem', label: tx('nav.problem') },
+    { href: '#loesung', label: tx('nav.loesung') },
+    { href: '#leistungen', label: tx('nav.leistungen') },
+    { href: '#ablauf', label: tx('nav.ablauf') },
+    { href: '#kontakt', label: tx('nav.kontakt') },
   ];
 
   return (
@@ -54,13 +54,14 @@ function Nav({ accent }) {
             {links.map((l) => (
               <a key={l.href} href={l.href} style={{ color: 'rgba(255,255,255,0.75)' }}>{l.label}</a>
             ))}
+            <span data-bk-lang-widget="dark" style={{ display: 'inline-flex' }} />
             <a href="/prozess-check" style={{
               background: 'linear-gradient(135deg, #7C4A25 0%, #762E5C 100%)', color: '#fff',
               padding: '9px 16px', borderRadius: 8,
               fontWeight: 500, fontSize: 14,
               display: 'inline-flex', alignItems: 'center', gap: 8,
             }}>
-              Potenzialanalyse anfordern
+              {tx('nav.cta')}
               <Icon.arrow style={{ width: 14, height: 14 }} />
             </a>
           </div>
@@ -69,7 +70,7 @@ function Nav({ accent }) {
           <button
             className="lp-nav-burger"
             onClick={() => setOpen(true)}
-            aria-label="Menü öffnen"
+            aria-label={tx('nav.menu_open')}
             style={{
               display: 'none',
               background: 'transparent', border: 0, padding: 8,
@@ -99,7 +100,7 @@ function Nav({ accent }) {
               </span>
               <span style={{ fontSize: 15, fontWeight: 600 }}>business-kreativ</span>
             </a>
-            <button onClick={() => setOpen(false)} aria-label="Schließen" style={{
+            <button onClick={() => setOpen(false)} aria-label={tx('nav.menu_close')} style={{
               background: 'transparent', border: 0, color: '#fff', padding: 8, cursor: 'pointer',
             }}>
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -127,6 +128,10 @@ function Nav({ accent }) {
             ))}
           </div>
 
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 14 }}>
+            <span data-bk-lang-widget="dark" />
+          </div>
+
           <a
             href="/prozess-check"
             onClick={() => setOpen(false)}
@@ -138,7 +143,7 @@ function Nav({ accent }) {
               marginBottom: 12,
             }}
           >
-            Potenzialanalyse anfordern
+            {tx('nav.cta')}
             <Icon.arrow style={{ width: 16, height: 16 }} />
           </a>
         </div>

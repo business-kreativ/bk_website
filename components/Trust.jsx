@@ -1,10 +1,18 @@
-// TRUST v2 — visual stepper with icons, progress dots, calendar/document/cog/cycle illustrations
+// TRUST — i18n
 function Trust({ accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
   const steps = [
-    { n: '01', icon: 'phone', title: 'Kostenlose Potenzialanalyse', body: 'In einem 30-minütigen Gespräch verstehen wir Ihre wichtigsten Abläufe und identifizieren konkrete Automatisierungs­potenziale.', meta: '30 min · kostenlos · unverbindlich', tag: 'Gespräch' },
-    { n: '02', icon: 'doc', title: 'Konkrete Lösungsvorschläge', body: 'Sie erhalten eine schriftliche Einschätzung mit den 3 wirkungsvollsten Hebeln – inklusive Aufwandsschätzung und realistischem Zeitplan.', meta: 'innerhalb von 5 Werktagen', tag: 'Analyse' },
-    { n: '03', icon: 'cog', title: 'Schrittweise Umsetzung', body: 'Wir starten mit dem Prozess, der am schnellsten Wirkung zeigt. Kein Big Bang, kein unnötiges Risiko.', meta: 'erste Ergebnisse in 2–4 Wochen', tag: 'Umsetzung' },
-    { n: '04', icon: 'shield', title: 'Begleitung & Optimierung', body: 'Wir bleiben dran, bis es im Alltag sauber läuft – und passen Systeme an, wenn Ihr Unternehmen wächst.', meta: 'auf Wunsch laufende Betreuung', tag: 'Support' },
+    { n: '01', icon: 'phone', title: tx('trust.1.title'), body: tx('trust.1.body'), meta: tx('trust.1.meta'), tag: tx('trust.1.tag') },
+    { n: '02', icon: 'doc', title: tx('trust.2.title'), body: tx('trust.2.body'), meta: tx('trust.2.meta'), tag: tx('trust.2.tag') },
+    { n: '03', icon: 'cog', title: tx('trust.3.title'), body: tx('trust.3.body'), meta: tx('trust.3.meta'), tag: tx('trust.3.tag') },
+    { n: '04', icon: 'shield', title: tx('trust.4.title'), body: tx('trust.4.body'), meta: tx('trust.4.meta'), tag: tx('trust.4.tag') },
+  ];
+
+  const badges = [
+    { icon: 'shield', label: tx('trust.badge.1.label'), sub: tx('trust.badge.1.sub') },
+    { icon: 'check', label: tx('trust.badge.2.label'), sub: tx('trust.badge.2.sub') },
+    { icon: 'doc', label: tx('trust.badge.3.label'), sub: tx('trust.badge.3.sub') },
+    { icon: 'user', label: tx('trust.badge.4.label'), sub: tx('trust.badge.4.sub') },
   ];
 
   return (
@@ -16,16 +24,15 @@ function Trust({ accent }) {
           <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
             <span style={{ color: accent, fontWeight: 600 }}>07</span>
             <span style={{ width: 24, height: 1, background: accent }} />
-            So arbeiten wir
+            {tx('trust.eyebrow')}
           </div>
           <h2 className="lp-section-h2" style={{ margin: 0, fontSize: 'clamp(34px, 3.4vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 600, maxWidth: 740, marginInline: 'auto' }}>
-            Vier klare Schritte – <br />
-            <span style={{ color: 'var(--muted)' }}>vom ersten Gespräch bis zum laufenden System.</span>
+            {tx('trust.h2.1')} <br />
+            <span style={{ color: 'var(--muted)' }}>{tx('trust.h2.2')}</span>
           </h2>
         </div>
 
         <div className="lp-trust-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, position: 'relative' }}>
-          {/* connecting dashed line */}
           <svg style={{ position: 'absolute', top: 30, left: '12.5%', width: '75%', height: 2, zIndex: 0 }} preserveAspectRatio="none" viewBox="0 0 100 2">
             <line x1="0" y1="1" x2="100" y2="1" stroke={accent} strokeWidth="0.5" strokeDasharray="2 1.5" opacity="0.5" />
           </svg>
@@ -61,14 +68,8 @@ function Trust({ accent }) {
           })}
         </div>
 
-        {/* trust badges */}
         <div className="trust-badges" style={{ marginTop: 48, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
-          {[
-            { icon: 'shield', label: 'DSGVO-konform', sub: 'Hosting in DE/EU' },
-            { icon: 'check', label: 'Festpreis-Garantie', sub: 'keine Überraschungen' },
-            { icon: 'doc', label: 'Volle Dokumentation', sub: 'auch ohne uns wartbar' },
-            { icon: 'user', label: 'Persönlich erreichbar', sub: 'kein Ticket-Pingpong' },
-          ].map((b, i) => {
+          {badges.map((b, i) => {
             const I = Icon[b.icon];
             return (
               <div key={i} style={{ background: '#fff', border: '1px solid var(--line)', borderRadius: 10, padding: '16px 18px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 10 }}>

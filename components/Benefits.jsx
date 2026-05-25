@@ -1,18 +1,11 @@
-// BENEFITS v2 — KPI dashboard mockup + savings widget
-const PROMISE_VARIANTS = {
-  A: { title: 'Automatisierung, die im Alltag funktioniert.', body: 'Keine Theorie. Keine Standardlösung. Wir bauen Systeme, die zu Ihren Abläufen passen und im Tagesgeschäft wirklich genutzt werden.' },
-  B: { title: 'Individuell statt generisch.', body: 'Ihre Prozesse sind einzigartig – Ihre Automatisierung sollte es auch sein. Wir bauen Lösungen, die sich an Ihr Unternehmen anpassen, nicht umgekehrt.' },
-  C: { title: 'Von Analyse bis Umsetzung.', body: 'Wir identifizieren Potenziale, entwickeln Lösungen und setzen sie vollständig um – bis sie im Alltag zuverlässig funktionieren.' },
-};
-
-function Benefits({ accent, promiseVariant }) {
-  const v = PROMISE_VARIANTS[promiseVariant] || PROMISE_VARIANTS.A;
-
+// BENEFITS — i18n
+function Benefits({ accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
   const benefits = [
-    { icon: 'clock', kpi: 'Bis zu 70 %', label: 'Zeitersparnis', desc: 'Wiederkehrende Aufgaben laufen automatisch. Ihr Team gewinnt Zeit für Arbeit, die wirklich Wert schafft.', viz: 'time' },
-    { icon: 'shield', kpi: '<1 %', label: 'Fehlerquote', desc: 'Daten landen direkt dort, wo sie gebraucht werden – ohne doppelte Eingaben und manuelle Übertragungen.', viz: 'error' },
-    { icon: 'workflow', kpi: '1×', label: 'klarer Prozess', desc: 'Jeder weiß, was zu tun ist. Neue Mitarbeiter verstehen Abläufe schneller und arbeiten sicherer.', viz: 'process' },
-    { icon: 'eye', kpi: '24/7', label: 'Überblick', desc: 'Aufträge, Aufgaben und Kennzahlen sind jederzeit sichtbar – ohne Nachfragen und ohne Suchen.', viz: 'overview' },
+    { icon: 'clock', kpi: tx('benefits.1.kpi'), label: tx('benefits.1.label'), desc: tx('benefits.1.desc'), viz: 'time' },
+    { icon: 'shield', kpi: tx('benefits.2.kpi'), label: tx('benefits.2.label'), desc: tx('benefits.2.desc'), viz: 'error' },
+    { icon: 'workflow', kpi: tx('benefits.3.kpi'), label: tx('benefits.3.label'), desc: tx('benefits.3.desc'), viz: 'process' },
+    { icon: 'eye', kpi: tx('benefits.4.kpi'), label: tx('benefits.4.label'), desc: tx('benefits.4.desc'), viz: 'overview' },
   ];
 
   return (
@@ -25,11 +18,11 @@ function Benefits({ accent, promiseVariant }) {
             <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
               <span style={{ color: accent, fontWeight: 600 }}>05</span>
               <span style={{ width: 24, height: 1, background: accent }} />
-              Kernversprechen
+              {tx('benefits.eyebrow')}
             </div>
-            <h2 className="lp-section-h2" style={{ margin: 0, fontSize: 'clamp(34px, 3.4vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 600 }}>{v.title}</h2>
+            <h2 className="lp-section-h2" style={{ margin: 0, fontSize: 'clamp(34px, 3.4vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 600 }}>{tx('benefits.title')}</h2>
           </div>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', margin: 0, maxWidth: 480 }}>{v.body}</p>
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-2)', margin: 0, maxWidth: 480 }}>{tx('benefits.body')}</p>
         </div>
 
         <div className="lp-benefits-grid lp-4col-md" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, background: 'var(--line)', border: '1px solid var(--line)', borderRadius: 14, overflow: 'hidden' }}>
@@ -55,15 +48,14 @@ function Benefits({ accent, promiseVariant }) {
           })}
         </div>
 
-        {/* Savings calculator strip */}
         <div className="lp-savings-strip" style={{ marginTop: 32, background: '#0e1116', color: '#fff', borderRadius: 14, padding: '32px 36px', display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 1fr', gap: 24, alignItems: 'center' }}>
           <div>
-            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: accent, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Beispielrechnung</div>
-            <div style={{ fontSize: 18, fontWeight: 500, lineHeight: 1.4 }}>Was ein automatisierter Prozess <span style={{ color: accent }}>typischerweise einspart</span></div>
+            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: accent, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>{tx('benefits.savings.eyebrow')}</div>
+            <div style={{ fontSize: 18, fontWeight: 500, lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: tx('benefits.savings.html') }} />
           </div>
-          <SavingMetric icon="clock" label="Pro Mitarbeiter" value="2,4 h" sub="pro Tag" accent={accent} />
-          <SavingMetric icon="euro" label="Jährliche Ersparnis" value="~14.000 €" sub="bei 5 Mitarbeitern" accent={accent} />
-          <SavingMetric icon="trend" label="Amortisation" value="3–6 Monate" sub="in der Regel" accent={accent} />
+          <SavingMetric icon="clock" label={tx('benefits.savings.1.label')} value={tx('benefits.savings.1.value')} sub={tx('benefits.savings.1.sub')} accent={accent} />
+          <SavingMetric icon="euro" label={tx('benefits.savings.2.label')} value={tx('benefits.savings.2.value')} sub={tx('benefits.savings.2.sub')} accent={accent} />
+          <SavingMetric icon="trend" label={tx('benefits.savings.3.label')} value={tx('benefits.savings.3.value')} sub={tx('benefits.savings.3.sub')} accent={accent} />
         </div>
       </div>
     </section>
@@ -85,18 +77,18 @@ function SavingMetric({ icon, label, value, sub, accent }) {
 }
 
 function BenefitViz({ kind, accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
   if (kind === 'time') {
-    // shrinking time bar
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 10, fontFamily: 'Geist Mono, monospace' }}>
-          <span style={{ color: 'var(--bad)', width: 38 }}>vorher</span>
+          <span style={{ color: 'var(--bad)', width: 48 }}>{tx('benefits.viz.before')}</span>
           <div style={{ flex: 1, height: 6, background: 'var(--line-2)', borderRadius: 100 }}>
             <div style={{ width: '95%', height: '100%', background: 'var(--bad)', opacity: 0.6, borderRadius: 100 }} />
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 10, fontFamily: 'Geist Mono, monospace' }}>
-          <span style={{ color: accent, width: 38 }}>nachher</span>
+          <span style={{ color: accent, width: 48 }}>{tx('benefits.viz.after')}</span>
           <div style={{ flex: 1, height: 6, background: 'var(--line-2)', borderRadius: 100 }}>
             <div style={{ width: '28%', height: '100%', background: accent, borderRadius: 100 }} />
           </div>
@@ -105,7 +97,6 @@ function BenefitViz({ kind, accent }) {
     );
   }
   if (kind === 'error') {
-    // dot grid where errors are flagged
     return (
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: 3 }}>
         {Array.from({ length: 36 }).map((_, i) => (
@@ -119,7 +110,6 @@ function BenefitViz({ kind, accent }) {
     );
   }
   if (kind === 'process') {
-    // 4-step linear with check
     return (
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
         {[1,2,3,4].map(n => (
@@ -133,7 +123,6 @@ function BenefitViz({ kind, accent }) {
     );
   }
   if (kind === 'overview') {
-    // mini sparkline
     return (
       <svg viewBox="0 0 100 24" style={{ width: '100%', height: 28 }}>
         <polyline points="0,18 12,14 24,16 36,10 48,12 60,7 72,9 84,4 96,6" fill="none" stroke={accent} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

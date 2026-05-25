@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Impressum — business-kreativ</title>
+<title data-i18n="legal.impressum.title">Impressum — business-kreativ</title>
 <link rel="icon" type="image/png" href="/assets/logo_bk.png?v=20260525">
 <link rel="apple-touch-icon" href="/assets/logo_bk.png?v=20260525">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="i18n/translations.js?v=i18n-20260525"></script>
+<script src="i18n/i18n.js?v=i18n-20260525"></script>
 <style>
   :root {
     --bg: #FAF8F6; --ink: #000; --ink-2: #1A1A1A;
@@ -64,36 +66,6 @@
     .footer-top, .footer-bottom { flex-direction: column; align-items: flex-start; }
   }
 </style>
-<script>
-(function(){
-  try {
-    if (sessionStorage.getItem('bk_site_unlocked') !== 'true') {
-      document.documentElement.classList.add('bk-password-locked');
-    }
-  } catch (error) {
-    document.documentElement.classList.add('bk-password-locked');
-  }
-})();
-</script>
-<style id="bk-password-gate-style">
-  html.bk-password-locked body > :not(#bk-password-gate) { display: none !important; }
-  #bk-password-gate { position: fixed; inset: 0; z-index: 2147483647; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at 70% 20%, rgba(236,91,184,0.18), transparent 34%), radial-gradient(circle at 24% 76%, rgba(247,147,74,0.22), transparent 36%), #0e1116; color: #fff; font-family: Inter, system-ui, -apple-system, sans-serif; }
-  .bk-password-card { width: min(100%, 440px); background: rgba(20,24,31,0.94); border: 1px solid rgba(255,255,255,0.10); border-radius: 18px; padding: 34px 32px; box-shadow: 0 24px 80px rgba(0,0,0,0.34); }
-  .bk-password-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-weight: 700; }
-  .bk-password-logo { width: 38px; height: 38px; border-radius: 8px; background: #fff; display: grid; place-items: center; padding: 4px; overflow: hidden; }
-  .bk-password-logo img { width: 100%; height: 100%; object-fit: contain; }
-  .bk-password-eyebrow { color: rgba(255,255,255,0.55); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
-  .bk-password-card h1 { margin: 0 0 12px; color: #fff; font-size: clamp(32px, 6vw, 44px); line-height: 1.04; letter-spacing: -0.03em; }
-  .bk-password-card p { margin: 0 0 24px; color: rgba(255,255,255,0.68); line-height: 1.6; }
-  #bk-password-form { display: flex; gap: 10px; }
-  #bk-password-input { flex: 1; min-width: 0; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: #fff; border-radius: 10px; padding: 13px 14px; font: inherit; outline: none; }
-  #bk-password-input::placeholder { color: rgba(255,255,255,0.42); }
-  #bk-password-input:focus { border-color: rgba(247,147,74,0.7); box-shadow: 0 0 0 3px rgba(247,147,74,0.14); }
-  #bk-password-form button { border: 0; border-radius: 10px; padding: 13px 16px; color: #fff; background: linear-gradient(135deg, #F7934A 0%, #EC5BB8 100%); font: inherit; font-weight: 700; cursor: pointer; white-space: nowrap; }
-  .bk-password-error { min-height: 20px; margin-top: 12px; color: #ffb4b4; font-size: 13px; }
-  @media (max-width: 560px) { .bk-password-card { padding: 28px 22px; } #bk-password-form { flex-direction: column; } #bk-password-form button { width: 100%; } }
-</style>
-<script defer src="password-gate.js?v=20260525-0137"></script>
 </head>
 <body>
 <nav class="nav">
@@ -103,11 +75,12 @@
       <span style="font-size: 15px;">business-kreativ</span>
     </a>
     <div class="nav-links">
-      <a href="index.html#problem">Problem</a>
-      <a href="index.html#loesung">Lösung</a>
-      <a href="index.html#leistungen">Leistungen</a>
-      <a href="index.html#ablauf">Ablauf</a>
-      <a class="nav-cta" href="/prozess-check">Anfrage</a>
+      <a href="index.html#problem" data-i18n="nav.problem">Problem</a>
+      <a href="index.html#loesung" data-i18n="nav.loesung">Lösung</a>
+      <a href="index.html#leistungen" data-i18n="nav.leistungen">Leistungen</a>
+      <a href="index.html#ablauf" data-i18n="nav.ablauf">Ablauf</a>
+      <span data-bk-lang-widget="dark"></span>
+      <a class="nav-cta" href="/prozess-check" data-i18n="common.cta.analysis_short">Anfrage</a>
     </div>
   </div>
 </nav>
@@ -115,14 +88,14 @@
 <header class="page-head">
   <div class="page-head-inner">
     <div class="eyebrow"><span class="dot"></span>Rechtliches</div>
-    <h1>Impressum.</h1>
-    <p class="lead">Angaben gemäß § 5 DDG.</p>
+    <h1 data-i18n="legal.impressum.title">Impressum.</h1>
+    <p class="lead" data-i18n="legal.impressum.note">Maßgeblich ist die deutsche Fassung. Diese Übersetzung dient Ihrer Bequemlichkeit.</p>
   </div>
 </header>
 
 <main>
   <section>
-    <h2>Angaben gemäß § 5 DDG</h2>
+    <h2 data-i18n="legal.impressum.h.provider">Angaben gemäß § 5 DDG</h2>
     <p>
       Business-Kreativ<br/>
       Anton Antipin<br/>
@@ -133,16 +106,17 @@
   </section>
 
   <section>
-    <h2>Kontakt</h2>
+    <h2 data-i18n="legal.impressum.h.contact">Kontakt</h2>
     <dl>
-      <dt>Telefon</dt>
+      <dt data-i18n="anfrage.alt.phone_label">Telefon</dt>
       <dd>02325 5945387</dd>
-      <dt>E-Mail</dt>
+      <dt data-i18n="anfrage.alt.email_label">E-Mail</dt>
       <dd><a href="mailto:info@business-kreativ.com">info@business-kreativ.com</a></dd>
     </dl>
   </section>
 
   <section>
+    <h2 data-i18n="legal.impressum.h.dispute">Streitschlichtung</h2>
     <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
   </section>
 </main>
@@ -155,28 +129,29 @@
           <span class="brand-logo"><img src="assets/logo_bk.png" alt="bk" /></span>
           <span style="font-size: 16px; font-weight: 600;">business-kreativ</span>
         </a>
-        <p style="font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 16px 0 0; max-width: 360px;">
+        <p style="font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 16px 0 0; max-width: 360px;" data-i18n="footer.tagline">
           Wir verwandeln manuelle Prozesse in effiziente, skalierbare Systeme – für mittelständische Unternehmen.
         </p>
       </div>
       <div>
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Leistungen</div>
-        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="index.html#leistungen">Prozessautomatisierung</a><a href="index.html#leistungen">Individuelle Software</a><a href="index.html#leistungen">IT-Optimierung</a><a href="index.html#leistungen">Web &amp; E-Commerce</a></div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;" data-i18n="footer.col.services">Leistungen</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="index.html#leistungen" data-i18n="footer.services.automation">Prozessautomatisierung</a><a href="index.html#leistungen" data-i18n="footer.services.software">Individuelle Software</a><a href="index.html#leistungen" data-i18n="footer.services.it">IT-Optimierung</a><a href="index.html#leistungen" data-i18n="footer.services.web">Web &amp; E-Commerce</a></div>
       </div>
       <div>
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Unternehmen</div>
-        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="index.html#team">Über uns</a><a href="index.html#ablauf">Ablauf</a><a href="index.html#kontakt">Kontakt</a></div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;" data-i18n="footer.col.company">Unternehmen</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="index.html#team" data-i18n="footer.company.about">Über uns</a><a href="index.html#ablauf" data-i18n="footer.company.process">Ablauf</a><a href="index.html#kontakt" data-i18n="footer.company.contact">Kontakt</a></div>
       </div>
       <div>
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Kontakt</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;" data-i18n="footer.col.contact">Kontakt</div>
         <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;"><a href="mailto:info@business-kreativ.com">info@business-kreativ.com</a><a href="tel:+4923255945387">02325 5945387</a></div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 business-kreativ.com — Alle Rechte vorbehalten.</span>
-      <div class="links" style="display: flex; gap: 24px;">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+      <span data-i18n="footer.copyright">© 2026 business-kreativ.com — Alle Rechte vorbehalten.</span>
+      <div class="links" style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+        <a href="impressum.html" data-i18n="footer.legal.impressum">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.legal.datenschutz">Datenschutz</a>
+        <span data-bk-lang-widget="dark"></span>
       </div>
     </div>
   </div>

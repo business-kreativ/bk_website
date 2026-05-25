@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Potenzialanalyse — business-kreativ</title>
+<title data-i18n="quiz.page.title">Potenzialanalyse — business-kreativ</title>
 <link rel="icon" type="image/png" href="/assets/logo_bk.png?v=20260525">
 <link rel="apple-touch-icon" href="/assets/logo_bk.png?v=20260525">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script src="i18n/translations.js?v=i18n-20260525"></script>
+<script src="i18n/i18n.js?v=i18n-20260525"></script>
 <style>
 :root {
   /* v6 brand palette */
@@ -913,36 +915,6 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
   .slider-hours { font-size: 48px; }
 }
 </style>
-<script>
-(function(){
-  try {
-    if (sessionStorage.getItem('bk_site_unlocked') !== 'true') {
-      document.documentElement.classList.add('bk-password-locked');
-    }
-  } catch (error) {
-    document.documentElement.classList.add('bk-password-locked');
-  }
-})();
-</script>
-<style id="bk-password-gate-style">
-  html.bk-password-locked body > :not(#bk-password-gate) { display: none !important; }
-  #bk-password-gate { position: fixed; inset: 0; z-index: 2147483647; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at 70% 20%, rgba(236,91,184,0.18), transparent 34%), radial-gradient(circle at 24% 76%, rgba(247,147,74,0.22), transparent 36%), #0e1116; color: #fff; font-family: Inter, system-ui, -apple-system, sans-serif; }
-  .bk-password-card { width: min(100%, 440px); background: rgba(20,24,31,0.94); border: 1px solid rgba(255,255,255,0.10); border-radius: 18px; padding: 34px 32px; box-shadow: 0 24px 80px rgba(0,0,0,0.34); }
-  .bk-password-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-weight: 700; }
-  .bk-password-logo { width: 38px; height: 38px; border-radius: 8px; background: #fff; display: grid; place-items: center; padding: 4px; overflow: hidden; }
-  .bk-password-logo img { width: 100%; height: 100%; object-fit: contain; }
-  .bk-password-eyebrow { color: rgba(255,255,255,0.55); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
-  .bk-password-card h1 { margin: 0 0 12px; color: #fff; font-size: clamp(32px, 6vw, 44px); line-height: 1.04; letter-spacing: -0.03em; }
-  .bk-password-card p { margin: 0 0 24px; color: rgba(255,255,255,0.68); line-height: 1.6; }
-  #bk-password-form { display: flex; gap: 10px; }
-  #bk-password-input { flex: 1; min-width: 0; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: #fff; border-radius: 10px; padding: 13px 14px; font: inherit; outline: none; }
-  #bk-password-input::placeholder { color: rgba(255,255,255,0.42); }
-  #bk-password-input:focus { border-color: rgba(247,147,74,0.7); box-shadow: 0 0 0 3px rgba(247,147,74,0.14); }
-  #bk-password-form button { border: 0; border-radius: 10px; padding: 13px 16px; color: #fff; background: linear-gradient(135deg, #F7934A 0%, #EC5BB8 100%); font: inherit; font-weight: 700; cursor: pointer; white-space: nowrap; }
-  .bk-password-error { min-height: 20px; margin-top: 12px; color: #ffb4b4; font-size: 13px; }
-  @media (max-width: 560px) { .bk-password-card { padding: 28px 22px; } #bk-password-form { flex-direction: column; } #bk-password-form button { width: 100%; } }
-</style>
-<script defer src="password-gate.js?v=20260525-0137"></script>
 </head>
 
 <body>
@@ -955,11 +927,12 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
       <span style="font-size: 15px;">business-kreativ</span>
     </a>
     <div class="site-nav-links">
-      <a href="index.html#problem">Problem</a>
-      <a href="index.html#loesung">Lösung</a>
-      <a href="index.html#leistungen">Leistungen</a>
-      <a href="index.html#ablauf">Ablauf</a>
-      <a href="anfrage.html" style="color: #fff; background: linear-gradient(135deg, #7C4A25 0%, #762E5C 100%); padding: 9px 16px; border-radius: 8px; font-weight: 500;">Anfrage</a>
+      <a href="index.html#problem" data-i18n="nav.problem">Problem</a>
+      <a href="index.html#loesung" data-i18n="nav.loesung">Lösung</a>
+      <a href="index.html#leistungen" data-i18n="nav.leistungen">Leistungen</a>
+      <a href="index.html#ablauf" data-i18n="nav.ablauf">Ablauf</a>
+      <span data-bk-lang-widget="dark"></span>
+      <a href="anfrage.html" style="color: #fff; background: linear-gradient(135deg, #7C4A25 0%, #762E5C 100%); padding: 9px 16px; border-radius: 8px; font-weight: 500;" data-i18n="common.cta.analysis_short">Anfrage</a>
     </div>
   </div>
 </nav>
@@ -975,7 +948,7 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
     <div class="brand">
       <span class="brand-dot"></span>
       <span class="brand-line"></span>
-      Potenzialanalyse
+      <span data-i18n="quiz.hook.eyebrow">Potenzialanalyse</span>
     </div>
     <div class="progress-meta" id="progress-counter" style="display:none;">
       <span id="q-counter">01 / 11</span>
@@ -990,23 +963,23 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
 
     <!-- HOOK -->
     <section class="screen active" id="screen-hook">
-      <span class="hook-meta">Potenzialanalyse · 2 Minuten</span>
-      <h1 class="hook-title">Wo verlieren Sie täglich Stunden — <em>ohne es zu wissen?</em></h1>
-      <p class="hook-sub">Finden Sie heraus, wie viel Zeit und Geld Sie aktuell durch manuelle Prozesse verlieren — und welche 3 Hebel den größten Effekt hätten.</p>
-      <div class="hook-reframe">
+      <span class="hook-meta" data-i18n="quiz.hook.eyebrow">Potenzialanalyse · 2 Minuten</span>
+      <h1 class="hook-title" data-i18n-html="quiz.hook.h1">Wo verlieren Sie täglich Stunden — <em>ohne es zu wissen?</em></h1>
+      <p class="hook-sub" data-i18n="quiz.hook.sub">Finden Sie heraus, wie viel Zeit und Geld Sie aktuell durch manuelle Prozesse verlieren — und welche 3 Hebel den größten Effekt hätten.</p>
+      <div class="hook-reframe" data-i18n="quiz.hook.reframe">
         Das ist kein Test. Es ist eine 2-Minuten-Selbstreflexion. Es gibt keine richtigen oder falschen Antworten — nur ehrliche.
       </div>
       <div class="hook-badges">
-        <div class="hook-badge"><span class="hook-badge-icon">→</span> 11 Fragen</div>
-        <div class="hook-badge"><span class="hook-badge-icon">→</span> Sofortiges Ergebnis</div>
-        <div class="hook-badge"><span class="hook-badge-icon">→</span> Individuelle Auswertung</div>
+        <div class="hook-badge"><span class="hook-badge-icon">→</span> <span data-i18n="quiz.hook.badge.1">11 Fragen</span></div>
+        <div class="hook-badge"><span class="hook-badge-icon">→</span> <span data-i18n="quiz.hook.badge.2">Sofortiges Ergebnis</span></div>
+        <div class="hook-badge"><span class="hook-badge-icon">→</span> <span data-i18n="quiz.hook.badge.3">Individuelle Auswertung</span></div>
       </div>
       <div class="hook-social">
         <div class="live-dot"></div>
-        <span>Bereits von <span class="hook-social-counter">247 Mittelständlern</span> absolviert</span>
+        <span data-i18n-html="quiz.hook.social">Bereits von <span class="hook-social-counter">247 Mittelständlern</span> absolviert</span>
       </div>
       <button class="btn btn-primary btn-large" onclick="startQuiz()">
-        Potenzialanalyse starten
+        <span data-i18n="quiz.hook.cta">Potenzialanalyse starten</span>
         <span class="btn-arrow-circle">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
@@ -1029,8 +1002,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         <button class="option" data-value="mitarbeiter_rufen_status"><span class="option-bullet square"></span><span class="option-emoji">📞</span><span class="option-text">Mitarbeiter rufen an, um Status zu erfragen</span></button>
       </div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q1-next" disabled onclick="nextFromQ1()">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q1-next" disabled onclick="nextFromQ1()"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1041,8 +1014,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
       <h2 class="q-title">Welche dieser Situationen frustriert Sie <em>persönlich am meisten</em>?</h2>
       <div class="options" id="q2-options"></div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q2-next" disabled onclick="nextFromQ2()">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q2-next" disabled onclick="nextFromQ2()"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1071,8 +1044,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
       </div>
 
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" onclick="nextFromQ3()">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" onclick="nextFromQ3()"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1094,8 +1067,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         <button class="option" data-value="alles_okay"><span class="option-bullet"></span><span class="option-text">Ehrlich? Eigentlich ist alles okay — ich will nur optimieren</span></button>
       </div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q4-next" disabled onclick="nextScreen('q5')">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q4-next" disabled onclick="nextScreen('q5')"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1111,8 +1084,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         <button class="option" data-value="einziger_der_sieht"><span class="option-bullet"></span><span class="option-text">Ich bin der Einzige, der das Problem sieht — die anderen muss ich erst überzeugen</span></button>
       </div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q5-next" disabled onclick="nextScreen('q6')">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q5-next" disabled onclick="nextScreen('q6')"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1129,8 +1102,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         <button class="option" data-value="intern_nicht_durchgehalten"><span class="option-bullet"></span><span class="option-text">Wir haben es probiert, aber intern nicht durchgehalten</span></button>
       </div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q6-next" disabled onclick="nextScreen('q7')">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q6-next" disabled onclick="nextScreen('q7')"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1145,8 +1118,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         <button class="option" data-value="informieren"><span class="option-bullet"></span><span class="option-emoji">🔍</span><span class="option-text">Erst mal informieren</span></button>
       </div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q7-next" disabled onclick="nextScreen('q8')">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q7-next" disabled onclick="nextScreen('q8')"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1167,8 +1140,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         <button class="option" data-value="unschluessig"><span class="option-bullet"></span><span class="option-text">Wir sind noch unschlüssig, wer das treibt</span></button>
       </div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q8-next" disabled onclick="nextScreen('q9')">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q8-next" disabled onclick="nextScreen('q9')"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1183,8 +1156,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         <button class="option" data-value="200+"><span class="option-bullet"></span><span class="option-text">200 oder mehr</span></button>
       </div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q9-next" disabled onclick="nextScreen('q10')">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q9-next" disabled onclick="nextScreen('q10')"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1201,8 +1174,8 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         <button class="option" data-value="andere"><span class="option-bullet"></span><span class="option-text">Andere</span></button>
       </div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" id="q10-next" disabled onclick="nextScreen('q11')">Weiter <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" id="q10-next" disabled onclick="nextScreen('q11')"><span data-i18n="quiz.next">Weiter</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
@@ -1214,52 +1187,52 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
       <textarea class="form-textarea" id="q11-input" maxlength="280" placeholder="z. B. „Ich möchte endlich verstehen, welche 3 Prozesse bei uns automatisierbar sind und wo ich anfangen soll …""></textarea>
       <div class="char-counter"><span id="char-count">0</span> / 280</div>
       <div class="nav-bar">
-        <button class="btn btn-ghost" onclick="goBack()">← Zurück</button>
-        <button class="btn btn-primary" onclick="nextScreen('contact')">Weiter zur Auswertung <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn btn-ghost" onclick="goBack()" data-i18n="quiz.back_arrow">← Zurück</button>
+        <button class="btn btn-primary" onclick="nextScreen('contact')"><span data-i18n="quiz.next_to_result">Weiter zur Auswertung</span> <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="screen" id="screen-contact">
-      <div class="q-number">Letzter Schritt</div>
+      <div class="q-number" data-i18n="quiz.contact.last_step">Letzter Schritt</div>
 
       <div class="teaser-card">
-        <div class="teaser-label">◆ Ihre Analyse ist fertig</div>
-        <div class="teaser-text">
+        <div class="teaser-label" data-i18n="quiz.contact.teaser_label">◆ Ihre Analyse ist fertig</div>
+        <div class="teaser-text" data-i18n-html="quiz.contact.teaser_html">
           Erste Erkenntnis: Sie verlieren aktuell etwa <span class="teaser-amount" id="teaser-amount">35.100 €</span> <strong>pro Jahr</strong> an Effizienz. Die <strong>3 wichtigsten Hebel</strong> haben wir für Sie identifiziert.
         </div>
       </div>
 
-      <h2 class="q-title" style="font-size:28px;margin-bottom:8px;">Wohin schicken wir Ihre persönliche Auswertung?</h2>
-      <p class="q-hint">Keine Newsletter. Nur die Auswertung. Daten gehostet in Deutschland.</p>
+      <h2 class="q-title" style="font-size:28px;margin-bottom:8px;" data-i18n="quiz.contact.h2">Wohin schicken wir Ihre persönliche Auswertung?</h2>
+      <p class="q-hint" data-i18n="quiz.contact.sub">Keine Newsletter. Nur die Auswertung. Daten gehostet in Deutschland.</p>
 
       <div class="form-group">
-        <label class="form-label" for="contact-name">Vorname</label>
-        <input type="text" id="contact-name" class="form-input" placeholder="Max" required>
+        <label class="form-label" for="contact-name" data-i18n="quiz.contact.first">Vorname</label>
+        <input type="text" id="contact-name" class="form-input" placeholder="Max" data-i18n-attr="placeholder:quiz.contact.first_ph" required>
       </div>
       <div class="form-group">
-        <label class="form-label" for="contact-email">E-Mail-Adresse</label>
-        <input type="email" id="contact-email" class="form-input" placeholder="max@unternehmen.de" required>
+        <label class="form-label" for="contact-email" data-i18n="quiz.contact.email">E-Mail-Adresse</label>
+        <input type="email" id="contact-email" class="form-input" placeholder="max@unternehmen.de" data-i18n-attr="placeholder:quiz.contact.email_ph" required>
       </div>
       <div class="form-group">
-        <label class="form-label" for="contact-company">Unternehmen</label>
-        <input type="text" id="contact-company" class="form-input" placeholder="Mustermann GmbH">
+        <label class="form-label" for="contact-company" data-i18n="quiz.contact.company">Unternehmen</label>
+        <input type="text" id="contact-company" class="form-input" placeholder="Mustermann GmbH" data-i18n-attr="placeholder:quiz.contact.company_ph">
       </div>
       <div class="form-group">
-        <label class="form-label" for="contact-phone">Telefon · optional</label>
-        <input type="tel" id="contact-phone" class="form-input" placeholder="+49 …">
+        <label class="form-label" for="contact-phone" data-i18n="quiz.contact.phone">Telefon · optional</label>
+        <input type="tel" id="contact-phone" class="form-input" placeholder="+49 …" data-i18n-attr="placeholder:quiz.contact.phone_ph">
       </div>
 
       <label class="form-checkbox-row">
         <input type="checkbox" id="wants-call" class="form-checkbox">
         <span class="form-checkbox-label">
-          <strong>Ja, ich möchte zusätzlich ein 30-minütiges Erstgespräch zur Auswertung.</strong><br>
-          Kostenlos. Unverbindlich. Keine Verkaufsshow.
+          <strong data-i18n="quiz.contact.consent_strong">Ja, ich möchte zusätzlich ein 30-minütiges Erstgespräch zur Auswertung.</strong><br>
+          <span data-i18n="quiz.contact.consent_sub">Kostenlos. Unverbindlich. Keine Verkaufsshow.</span>
         </span>
       </label>
 
       <button class="btn btn-primary btn-block btn-large" onclick="submitQuiz()">
-        Auswertung erhalten
+        <span data-i18n="quiz.contact.submit">Auswertung erhalten</span>
         <span class="btn-arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </button>
     </section>
@@ -1269,20 +1242,20 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
       <div class="loading-content">
         <div class="loading-emoji" id="loading-emoji">🎯</div>
         <div class="loading-first-read">
-          <div class="loading-fr-label">◆ Erste Einschätzung</div>
+          <div class="loading-fr-label" data-i18n="quiz.loading.fr_label">◆ Erste Einschätzung</div>
           <div class="loading-fr-text" id="loading-fr-text">…</div>
         </div>
 
         <div class="loading-steps">
-          <div class="loading-step done" id="step-1"><span class="step-marker"></span> Antworten analysiert</div>
-          <div class="loading-step done" id="step-2"><span class="step-marker"></span> Persona-Matching abgeschlossen</div>
-          <div class="loading-step active" id="step-3"><span class="step-marker"></span> Top-3 Hebel identifizieren</div>
-          <div class="loading-step" id="step-4"><span class="step-marker"></span> Auswertung wird vorbereitet</div>
+          <div class="loading-step done" id="step-1"><span class="step-marker"></span> <span data-i18n="quiz.loading.step.1">Antworten analysiert</span></div>
+          <div class="loading-step done" id="step-2"><span class="step-marker"></span> <span data-i18n="quiz.loading.step.2">Persona-Matching abgeschlossen</span></div>
+          <div class="loading-step active" id="step-3"><span class="step-marker"></span> <span data-i18n="quiz.loading.step.3">Top-3 Hebel identifizieren</span></div>
+          <div class="loading-step" id="step-4"><span class="step-marker"></span> <span data-i18n="quiz.loading.step.4">Auswertung wird vorbereitet</span></div>
         </div>
 
         <div class="loading-progress">
           <div class="loading-progress-header">
-            <span>Fortschritt</span>
+            <span data-i18n="quiz.loading.progress">Fortschritt</span>
             <span class="loading-progress-pct" id="loading-pct">0%</span>
           </div>
           <div class="loading-progress-track">
@@ -1318,54 +1291,54 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
         </div>
         <div class="score-stats">
           <div class="score-stat">
-            <div class="score-stat-label">Jährliches Einsparpotenzial</div>
+            <div class="score-stat-label" data-i18n="quiz.result.stat.1">Jährliches Einsparpotenzial</div>
             <div class="score-stat-value"><span id="result-saving">0</span><span class="score-stat-value-unit">€</span></div>
           </div>
           <div class="score-stat">
-            <div class="score-stat-label">Zeit pro Mitarbeiter / Woche</div>
+            <div class="score-stat-label" data-i18n="quiz.result.stat.2">Zeit pro Mitarbeiter / Woche</div>
             <div class="score-stat-value"><span id="result-time">0</span><span class="score-stat-value-unit">Std.</span></div>
           </div>
           <div class="score-stat">
-            <div class="score-stat-label">Automatisierungs-Potenzial</div>
+            <div class="score-stat-label" data-i18n="quiz.result.stat.3">Automatisierungs-Potenzial</div>
             <div class="score-stat-value" style="font-size: 18px;" id="potential-text">…</div>
           </div>
         </div>
       </div>
 
-      <div class="section-label">Ihre 3 wichtigsten Hebel</div>
+      <div class="section-label" data-i18n="quiz.result.section.hebel">Ihre 3 wichtigsten Hebel</div>
       <div class="hebel-grid" id="hebel-grid"></div>
 
-      <div class="section-label">Aus der Praxis</div>
+      <div class="section-label" data-i18n="quiz.result.section.case">Aus der Praxis</div>
       <div class="case-card" id="case-card">
         <div class="case-meta">
           <span class="case-meta-dot"></span>
-          Vergleichbares Pain-Profil
+          <span data-i18n="quiz.result.case.meta">Vergleichbares Pain-Profil</span>
         </div>
         <div class="case-quote" id="case-quote">
           „Lukas M., Schreinerei aus Mönchengladbach (14 MA), hatte ein ähnliches Pain-Profil wie Sie. Wir haben mit ihm gestartet, indem wir erst seine Excel-Listen mit der Buchhaltung verbunden haben – nicht alles auf einmal.
           <strong>Ergebnis nach 4 Wochen: 9 Stunden Zeitersparnis pro Woche.</strong>"
         </div>
-        <a href="anfrage.html" class="case-link">→ Voller Case auf Anfrage</a>
+        <a href="anfrage.html" class="case-link" data-i18n="quiz.result.case.link">→ Voller Case auf Anfrage</a>
       </div>
 
-      <div class="section-label">Wer dahinter steht</div>
+      <div class="section-label" data-i18n="quiz.result.section.team">Wer dahinter steht</div>
       <div class="team-intro">
         <div class="team-avatars">
           <div class="team-avatar">CA</div>
           <div class="team-avatar">AN</div>
         </div>
-        <div class="team-text">
+        <div class="team-text" data-i18n-html="quiz.result.team.html">
           <strong>Wir sind zu zweit. Cansu &amp; Anton, Düsseldorf.</strong><br>
           Kein Konzern, kein Vertrieb. Sie sprechen vom ersten Gespräch an mit den Leuten, die auch umsetzen.
         </div>
       </div>
 
       <div class="cta-card">
-        <div class="cta-label">◆ Nächster Schritt</div>
-        <div class="cta-title" id="cta-title">30-Minuten-Erstgespräch</div>
-        <div class="cta-sub">Kostenlos. Unverbindlich. Keine Verkaufsshow.</div>
+        <div class="cta-label" data-i18n="quiz.result.cta.label">◆ Nächster Schritt</div>
+        <div class="cta-title" id="cta-title" data-i18n="quiz.result.cta.title">30-Minuten-Erstgespräch</div>
+        <div class="cta-sub" data-i18n="quiz.result.cta.sub">Kostenlos. Unverbindlich. Keine Verkaufsshow.</div>
         <button class="cta-btn" onclick="window.location.href='anfrage.html'">
-          Termin vereinbaren
+          <span data-i18n="quiz.result.cta.button">Termin vereinbaren</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>
@@ -1384,30 +1357,30 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
           <span class="site-footer-logo"><img src="assets/logo_bk.png" alt="bk" /></span>
           <span style="font-size: 16px; font-weight: 600;">business-kreativ</span>
         </div>
-        <p class="site-footer-text">Wir verwandeln manuelle Prozesse in effiziente, skalierbare Systeme – für mittelständische Unternehmen.</p>
+        <p class="site-footer-text" data-i18n="footer.tagline">Wir verwandeln manuelle Prozesse in effiziente, skalierbare Systeme – für mittelständische Unternehmen.</p>
       </div>
 
       <div>
-        <div class="site-footer-title">Leistungen</div>
+        <div class="site-footer-title" data-i18n="footer.col.services">Leistungen</div>
         <div class="site-footer-links">
-          <a href="index.html#leistungen">Prozessautomatisierung</a>
-          <a href="index.html#leistungen">Individuelle Software</a>
-          <a href="index.html#leistungen">IT-Optimierung</a>
-          <a href="index.html#leistungen">Web &amp; E-Commerce</a>
+          <a href="index.html#leistungen" data-i18n="footer.services.automation">Prozessautomatisierung</a>
+          <a href="index.html#leistungen" data-i18n="footer.services.software">Individuelle Software</a>
+          <a href="index.html#leistungen" data-i18n="footer.services.it">IT-Optimierung</a>
+          <a href="index.html#leistungen" data-i18n="footer.services.web">Web &amp; E-Commerce</a>
         </div>
       </div>
 
       <div>
-        <div class="site-footer-title">Unternehmen</div>
+        <div class="site-footer-title" data-i18n="footer.col.company">Unternehmen</div>
         <div class="site-footer-links">
-          <a href="index.html#team">Über uns</a>
-          <a href="index.html#ablauf">Ablauf</a>
-          <a href="index.html#kontakt">Kontakt</a>
+          <a href="index.html#team" data-i18n="footer.company.about">Über uns</a>
+          <a href="index.html#ablauf" data-i18n="footer.company.process">Ablauf</a>
+          <a href="index.html#kontakt" data-i18n="footer.company.contact">Kontakt</a>
         </div>
       </div>
 
       <div>
-        <div class="site-footer-title">Kontakt</div>
+        <div class="site-footer-title" data-i18n="footer.col.contact">Kontakt</div>
         <div class="site-footer-links">
           <a class="site-footer-contact-link" href="mailto:info@business-kreativ.com">info@business-kreativ.com</a>
           <a class="site-footer-contact-link" href="tel:+4923255945387">02325 5945387</a>
@@ -1416,10 +1389,11 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
     </div>
 
     <div class="site-footer-bottom">
-      <span>© 2026 business-kreativ.com — Alle Rechte vorbehalten.</span>
+      <span data-i18n="footer.copyright">© 2026 business-kreativ.com — Alle Rechte vorbehalten.</span>
       <div class="site-footer-legal">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html" data-i18n="footer.legal.impressum">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.legal.datenschutz">Datenschutz</a>
+        <span data-bk-lang-widget="dark"></span>
       </div>
     </div>
   </div>
@@ -1429,13 +1403,13 @@ h1, h2, h3 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-hei
 <div class="modal-overlay" id="exit-modal">
   <div class="modal">
     <button class="modal-close" onclick="closeExitModal()">×</button>
-    <h3 class="modal-title">Sie sind bereits <span id="exit-progress" style="color:var(--accent);">50%</span> durch.</h3>
-    <p class="modal-text">Geben Sie uns Ihre Mail — dann <strong>senden wir Ihnen einen Link</strong>, um den Quiz später bequem zu beenden.</p>
+    <h3 class="modal-title" id="exit-modal-title">Sie sind bereits <span id="exit-progress" style="color:var(--accent);">50%</span> durch.</h3>
+    <p class="modal-text" data-i18n="quiz.exit.text">Geben Sie uns Ihre Mail — dann <strong>senden wir Ihnen einen Link</strong>, um den Quiz später bequem zu beenden.</p>
     <div class="modal-form">
-      <input type="email" class="form-input" id="exit-email" placeholder="ihre@email.de">
-      <button class="btn btn-accent" onclick="captureExitLead()">Senden</button>
+      <input type="email" class="form-input" id="exit-email" placeholder="ihre@email.de" data-i18n-attr="placeholder:quiz.exit.email_ph">
+      <button class="btn btn-accent" onclick="captureExitLead()" data-i18n="quiz.exit.send">Senden</button>
     </div>
-    <div class="modal-note">Kein Newsletter. Nur die Auswertung.</div>
+    <div class="modal-note" data-i18n="quiz.exit.note">Kein Newsletter. Nur die Auswertung.</div>
   </div>
 </div>
 
@@ -1774,8 +1748,11 @@ function showResult() {
   const annualSaving = Math.round(a.f3_hours * 45 * 50);
   const timePerEmployee = (a.f3_hours / 8).toFixed(1);
 
-  document.getElementById('result-greeting').textContent = `Ihre Auswertung · ${firstName}`;
-  document.getElementById('result-headline').innerHTML = `${firstName}, in Ihrem Unternehmen schlummern jährlich ca. <em class="result-amount">${annualSaving.toLocaleString('de-DE')} €</em> an ungenutzter Effizienz — verteilt auf 3 zentrale Hebel.`;
+  const __t = (window.t || function(k){return k;});
+  document.getElementById('result-greeting').textContent = `${__t('quiz.result.greeting')} · ${firstName}`;
+  document.getElementById('result-headline').innerHTML = __t('quiz.result.headline')
+    .replace('{name}', firstName)
+    .replace('{amount}', annualSaving.toLocaleString('de-DE'));
 
   const circumference = 2 * Math.PI * 65;
   const offset = circumference - (score / 100) * circumference;
@@ -1837,6 +1814,11 @@ function showExitModal() {
   state.exitShown = true;
   const screenIdx = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11'].indexOf(state.currentScreen);
   const pct = Math.round(((screenIdx + 1) / 11) * 100);
+  const __t = (window.t || function(k){return k;});
+  const titleEl = document.getElementById('exit-modal-title');
+  if (titleEl) {
+    titleEl.innerHTML = __t('quiz.exit.title.html').replace('{p}', pct);
+  }
   document.getElementById('exit-progress').textContent = pct + '%';
   document.getElementById('exit-modal').classList.add('show');
 }
@@ -1876,7 +1858,8 @@ function captureExitLead() {
   const email = document.getElementById('exit-email').value;
   if (!email) return;
   closeExitModal();
-  flashFeedback('Danke! Wir senden Ihnen einen Link zum Fortsetzen.');
+  const __t = (window.t || function(k){return k;});
+  flashFeedback(__t('quiz.exit.flash'));
 }
 </script>
 

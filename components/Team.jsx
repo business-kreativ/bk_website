@@ -1,18 +1,18 @@
-// TEAM v6 — full-bleed team photo as a "header" section
-// Headline + photo with name labels aligned beneath each person
+// TEAM v6 — i18n
 function Team({ accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
   const people = [
     {
       name: 'Cansu',
-      role: 'Media & Prozessverständnis',
-      desc: 'Denkt Abläufe aus Sicht der Menschen, die täglich damit arbeiten. So werden Systeme verständlich, nutzbar und sauber in den Arbeitsalltag integriert.',
-      bullets: ['Nutzerführung', 'Kommunikation', 'Prozessverständnis'],
+      role: tx('team.cansu.role'),
+      desc: tx('team.cansu.desc'),
+      bullets: [tx('team.cansu.b1'), tx('team.cansu.b2'), tx('team.cansu.b3')],
     },
     {
       name: 'Anton',
-      role: 'IT & Automatisierung',
-      desc: 'Entwickelt Schnittstellen, Automatisierungen und digitale Systeme, die stabil laufen, Daten sauber verbinden und manuelle Arbeit reduzieren.',
-      bullets: ['Automatisierung', 'Schnittstellen', 'Systemarchitektur'],
+      role: tx('team.anton.role'),
+      desc: tx('team.anton.desc'),
+      bullets: [tx('team.anton.b1'), tx('team.anton.b2'), tx('team.anton.b3')],
     },
   ];
 
@@ -26,7 +26,6 @@ function Team({ accent }) {
     }}>
       <div style={{ maxWidth: 980, margin: '0 auto', position: 'relative' }}>
 
-        {/* Header */}
         <div className="lp-team-head lp-2col-md" style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
@@ -44,7 +43,7 @@ function Team({ accent }) {
             }}>
               <span style={{ color: accent, fontWeight: 600 }}>02</span>
               <span style={{ width: 20, height: 1, background: accent }} />
-              Warum wir
+              {tx('team.eyebrow')}
             </div>
             <h2 className="lp-section-h2" style={{
               margin: 0,
@@ -53,8 +52,8 @@ function Team({ accent }) {
               letterSpacing: '-0.02em',
               fontWeight: 700,
             }}>
-              Media und Tech<br/>
-              <span style={{ color: 'var(--muted)' }}>in einem Team.</span>
+              {tx('team.h2.1')}<br/>
+              <span style={{ color: 'var(--muted)' }}>{tx('team.h2.2')}</span>
             </h2>
           </div>
 
@@ -65,13 +64,12 @@ function Team({ accent }) {
               lineHeight: 1.55,
               color: 'var(--ink-2)',
             }}>
-              <strong style={{ display: 'block', color: 'var(--ink)', marginBottom: 8 }}>Zwei Perspektiven. Eine Lösung.</strong>
-              Media versteht den Menschen. Tech baut das System. Genau deshalb verbinden wir Kommunikation, Prozessdenken und technische Umsetzung.
+              <strong style={{ display: 'block', color: 'var(--ink)', marginBottom: 8 }}>{tx('team.intro.strong')}</strong>
+              {tx('team.intro.body')}
             </p>
           </div>
         </div>
 
-        {/* Photo + labels */}
         <div className="lp-team-photo-wrap" style={{
           position: 'relative',
           background: 'linear-gradient(180deg, #fff 0%, #fff 60%, var(--bg) 100%)',
@@ -80,7 +78,6 @@ function Team({ accent }) {
           padding: '0 0 0',
           overflow: 'visible',
         }}>
-          {/* Decorative big number behind photo */}
           <div aria-hidden="true" className="lp-team-decor" style={{
             position: 'absolute',
             top: 18, right: 24,
@@ -93,7 +90,7 @@ function Team({ accent }) {
 
           <img
             src="Design ohne Titel (18).png"
-            alt="Warum wir: Cansu und Anton"
+            alt={tx('team.eyebrow') + ': Cansu & Anton'}
             className="lp-team-photo"
             style={{
               display: 'block',
@@ -105,7 +102,6 @@ function Team({ accent }) {
             }}
           />
 
-          {/* Name labels aligned with each person */}
           <div className="lp-team-labels" style={{
             position: 'relative',
             zIndex: 2,
@@ -165,16 +161,14 @@ function Team({ accent }) {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           gap: 18, flexWrap: 'wrap',
         }}>
-          <div style={{ fontSize: 17, fontWeight: 600, letterSpacing: '-0.01em', lineHeight: 1.35 }}>
-            Wir bauen keine isolierten Tools. <span style={{ color: accent }}>Wir bauen Abläufe, die im Alltag funktionieren.</span>
-          </div>
+          <div style={{ fontSize: 17, fontWeight: 600, letterSpacing: '-0.01em', lineHeight: 1.35 }} dangerouslySetInnerHTML={{ __html: tx('team.claim.html') }} />
           <a href="/prozess-check" style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,
             background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)',
             color: '#fff', padding: '12px 16px', borderRadius: 10,
             fontSize: 14, fontWeight: 600, textDecoration: 'none', flexShrink: 0,
           }}>
-            Potenzialanalyse anfordern
+            {tx('team.cta')}
             <Icon.arrow style={{ width: 14, height: 14 }} />
           </a>
         </div>

@@ -1,4 +1,6 @@
 function Footer({ accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
+
   return (
     <footer id="kontakt" className="lp-section" style={{ background: '#0e1116', color: '#fff', padding: '64px 32px 32px' }}>
       <div style={{ maxWidth: 1240, margin: '0 auto' }}>
@@ -11,14 +13,24 @@ function Footer({ accent }) {
               <span style={{ fontSize: 16, fontWeight: 600 }}>business-kreativ</span>
             </div>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, margin: 0, maxWidth: 360 }}>
-              Wir verwandeln manuelle Prozesse in effiziente, skalierbare Systeme – für mittelständische Unternehmen.
+              {tx('footer.tagline')}
             </p>
           </div>
 
-          <FooterCol title="Leistungen" links={['Prozessautomatisierung', 'Individuelle Software', 'IT-Optimierung', 'Web & E-Commerce']} />
-          <FooterCol title="Unternehmen" links={['Über uns', 'Ablauf', 'Praxisbeispiele', 'Kontakt']} />
+          <FooterCol title={tx('footer.col.services')} links={[
+            tx('footer.services.automation'),
+            tx('footer.services.software'),
+            tx('footer.services.it'),
+            tx('footer.services.web'),
+          ]} />
+          <FooterCol title={tx('footer.col.company')} links={[
+            tx('footer.company.about'),
+            tx('footer.company.process'),
+            tx('footer.company.cases'),
+            tx('footer.company.contact'),
+          ]} />
           <div>
-            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Kontakt</div>
+            <div style={{ fontFamily: 'Geist Mono, monospace', fontSize: 11, color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>{tx('footer.col.contact')}</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.85)' }}>
               <a href="mailto:info@business-kreativ.com" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <Icon.mail style={{ width: 14, height: 14, color: accent }} />
@@ -33,10 +45,11 @@ function Footer({ accent }) {
         </div>
 
         <div className="lp-footer-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 24, fontSize: 12, color: 'rgba(255,255,255,0.45)', flexWrap: 'wrap', gap: 16 }}>
-          <span>© 2026 business-kreativ.com — Alle Rechte vorbehalten.</span>
-          <div style={{ display: 'flex', gap: 24 }}>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutz</a>
+          <span>{tx('footer.copyright')}</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 18, flexWrap: 'wrap' }}>
+            <a href="impressum.html">{tx('footer.legal.impressum')}</a>
+            <a href="datenschutz.html">{tx('footer.legal.datenschutz')}</a>
+            <span data-bk-lang-widget="dark" />
           </div>
         </div>
       </div>

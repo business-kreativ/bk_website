@@ -1,42 +1,6 @@
-// HERO — supports 3 copy variants from your text (A/B/C)
-const HERO_VARIANTS = {
-  A: {
-    eyebrow: 'Prozessautomatisierung für den Mittelstand',
-    headline: [
-    { text: 'Wir automatisieren', muted: false },
-    { text: 'manuelle Prozesse', muted: false },
-    { text: 'im Mittelstand.', muted: false }],
-
-    sub: 'Weniger Excel, weniger doppelte Eingaben, weniger Nachfragen – dafür klare Abläufe, verbundene Systeme und mehr Zeit für Ihr Kerngeschäft.',
-    cta: 'Potenzialanalyse anfordern'
-  },
-  B: {
-    eyebrow: 'Prozessautomatisierung für den Mittelstand',
-    headline: [
-    { text: 'Ihr Unternehmen', muted: false },
-    { text: 'funktioniert –', muted: false },
-    { text: 'aber ineffizient?', muted: true }],
-
-    sub: 'Wir ersetzen manuelle Abläufe, Insellösungen und Chaos durch klare, automatisierte Prozesse. Weniger Aufwand. Weniger Fehler. Mehr Output.',
-    cta: 'Potenzialanalyse starten'
-  },
-  C: {
-    eyebrow: 'Prozessautomatisierung für den Mittelstand',
-    headline: [
-    { text: 'Weniger', muted: false },
-    { text: 'manuelle Arbeit.', muted: false },
-    { text: 'Klare Prozesse.', muted: true },
-    { text: 'Messbar mehr', muted: true },
-    { text: 'Effizienz.', muted: true }],
-
-    sub: 'Wir analysieren Ihre Abläufe und automatisieren genau dort, wo Zeit und Geld verloren gehen.',
-    cta: 'Jetzt Potenzial prüfen'
-  }
-};
-
-// Visualization: chaos → structured workflow.
-// Left side = scattered, messy nodes; Right side = clean linear flow.
+// HERO — text via i18n
 function HeroVisual({ accent }) {
+  const tx = (key) => (window.t ? window.t(key) : key);
   return (
     <div className="lp-hero-visual" style={{
       position: 'relative',
@@ -46,30 +10,25 @@ function HeroVisual({ accent }) {
       padding: '28px 28px 22px',
       overflow: 'hidden'
     }}>
-      {/* Header bar (desktop) */}
       <div className="lp-hero-header-bar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-        <span>Vorher · manuell &amp; verteilt</span>
-        <span>Nachher · automatisiert &amp; sichtbar</span>
+        <span>{tx('hero.before')}</span>
+        <span>{tx('hero.after')}</span>
       </div>
 
       <div className="lp-hero-visual-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 28px 1fr', gap: 0, alignItems: 'stretch' }}>
-        {/* ===== LEFT: chaos ===== */}
         <div className="lp-hero-chaos" style={{ position: 'relative', height: 280, overflow: 'hidden' }}>
-          {/* Mobile-only inline label */}
           <span className="lp-mobile-label lp-mobile-label-before" style={{ position: 'absolute', top: 0, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
-            Vorher · manuell &amp; verteilt
+            {tx('hero.before')}
           </span>
 
-          {/* Desktop: scattered absolute layout */}
           <div className="lp-chaos-desktop" style={{ position: 'absolute', inset: 0 }}>
-            <ChaosNode top={8} left={4} label="Excel" icon="excel" rot={-6} />
-            <ChaosNode top={62} left={'42%'} label="WhatsApp" icon="whatsapp" rot={4} />
-            <ChaosNode top={130} left={2} label="E-Mail" icon="mail" rot={-3} />
-            <ChaosNode top={185} left={'30%'} label="Papier" icon="paper" rot={6} />
-            <ChaosNode top={20} left={'58%'} label="Ordner" icon="folder" rot={2} />
-            <ChaosNode top={220} left={'62%'} label="Telefon" icon="phone" rot={-5} />
+            <ChaosNode top={8} left={4} label={tx('hero.chaos.excel')} icon="excel" rot={-6} />
+            <ChaosNode top={62} left={'42%'} label={tx('hero.chaos.whatsapp')} icon="whatsapp" rot={4} />
+            <ChaosNode top={130} left={2} label={tx('hero.chaos.mail')} icon="mail" rot={-3} />
+            <ChaosNode top={185} left={'30%'} label={tx('hero.chaos.paper')} icon="paper" rot={6} />
+            <ChaosNode top={20} left={'58%'} label={tx('hero.chaos.folder')} icon="folder" rot={2} />
+            <ChaosNode top={220} left={'62%'} label={tx('hero.chaos.phone')} icon="phone" rot={-5} />
 
-            {/* tangled SVG lines */}
             <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
               <g stroke="rgba(255,255,255,0.14)" strokeWidth="1" fill="none" strokeDasharray="3 3">
                 <path d="M 50 30 Q 120 80 180 50" />
@@ -82,21 +41,20 @@ function HeroVisual({ accent }) {
             </svg>
           </div>
 
-          {/* Mobile: tidy wrapped chip cluster */}
           <div className="lp-chaos-mobile" style={{
             display: 'none',
             flexWrap: 'wrap', gap: 8,
             position: 'relative', zIndex: 1,
           }}>
             {[
-              ['Excel', 'excel'],
-              ['WhatsApp', 'whatsapp'],
-              ['E-Mail', 'mail'],
-              ['Papier', 'paper'],
-              ['Ordner', 'folder'],
-              ['Telefon', 'phone'],
-              ['Notiz', 'copy'],
-              ['Chat', 'chat'],
+              [tx('hero.chaos.excel'), 'excel'],
+              [tx('hero.chaos.whatsapp'), 'whatsapp'],
+              [tx('hero.chaos.mail'), 'mail'],
+              [tx('hero.chaos.paper'), 'paper'],
+              [tx('hero.chaos.folder'), 'folder'],
+              [tx('hero.chaos.phone'), 'phone'],
+              [tx('hero.chaos.note'), 'copy'],
+              [tx('hero.chaos.chat'), 'chat'],
             ].map(([label, icon], i) => {
               const I = Icon[icon];
               return (
@@ -116,7 +74,6 @@ function HeroVisual({ accent }) {
           </div>
         </div>
 
-        {/* ===== ARROW ===== */}
         <div className="lp-hero-visual-arrow" style={{ display: 'grid', placeItems: 'center', position: 'relative' }}>
           <div style={{
             width: 32, height: 32, borderRadius: '50%',
@@ -128,28 +85,26 @@ function HeroVisual({ accent }) {
           </div>
         </div>
 
-        {/* ===== RIGHT: structured ===== */}
         <div className="lp-hero-flow" style={{ position: 'relative', height: 280, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 0, padding: "4px 30px", width: '100%', maxWidth: 320, justifySelf: 'start' }}>
           <span className="lp-mobile-label lp-mobile-label-after" style={{ position: 'absolute', top: -22, left: 0, fontSize: 11, color: 'rgba(255,255,255,0.5)', fontFamily: 'Geist Mono, monospace', letterSpacing: '0.04em', textTransform: 'uppercase', zIndex: 2 }}>
-            Nachher · automatisiert &amp; sichtbar
+            {tx('hero.after')}
           </span>
-          <FlowNode label="Auftrag erfasst" sub="automatisch" status="done" accent={accent} />
+          <FlowNode label={tx('hero.flow.1.label')} sub={tx('hero.flow.1.sub')} status="done" accent={accent} />
           <FlowConnector />
-          <FlowNode label="Daten verteilt" sub="an alle Systeme" status="done" accent={accent} />
+          <FlowNode label={tx('hero.flow.2.label')} sub={tx('hero.flow.2.sub')} status="done" accent={accent} />
           <FlowConnector />
-          <FlowNode label="Status sichtbar" sub="für das Team" status="live" accent={accent} />
+          <FlowNode label={tx('hero.flow.3.label')} sub={tx('hero.flow.3.sub')} status="live" accent={accent} />
         </div>
       </div>
 
-      {/* footer metric strip */}
       <div className="lp-hero-metrics" style={{
         marginTop: 22, paddingTop: 18,
         borderTop: '1px solid rgba(255,255,255,0.06)',
         display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18
       }}>
-        <Metric label="Manuelle Schritte" before="14" after="2" accent={accent} />
-        <Metric label="Bearbeitungszeit" before="42 min" after="3 min" accent={accent} />
-        <Metric label="Fehlerquote" before="8 %" after="<1 %" accent={accent} />
+        <Metric label={tx('hero.metric.steps')} before="14" after="2" accent={accent} />
+        <Metric label={tx('hero.metric.time')} before="42 min" after="3 min" accent={accent} />
+        <Metric label={tx('hero.metric.errors')} before="8 %" after="<1 %" accent={accent} />
       </div>
     </div>);
 
@@ -225,7 +180,12 @@ function Metric({ label, before, after, accent }) {
 }
 
 function Hero({ variant, accent }) {
-  const v = HERO_VARIANTS[variant] || HERO_VARIANTS.A;
+  const tx = (key) => (window.t ? window.t(key) : key);
+  const headlineLines = [
+    { text: tx('hero.h1.1'), muted: false },
+    { text: tx('hero.h1.2'), muted: false },
+    { text: tx('hero.h1.3'), muted: false },
+  ];
 
   return (
     <section style={{
@@ -234,7 +194,6 @@ function Hero({ variant, accent }) {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* subtle grid bg */}
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
@@ -244,7 +203,6 @@ function Hero({ variant, accent }) {
         pointerEvents: 'none'
       }} />
 
-      {/* floating orbit accents */}
       <div className="lp-hero-orbit" style={{ position: 'absolute', top: 80, right: -180, width: 420, height: 420, border: '1px dashed rgba(255,255,255,0.06)', borderRadius: '50%', pointerEvents: 'none' }} />
       <div className="lp-hero-orbit" style={{ position: 'absolute', top: 160, right: -100, width: 260, height: 260, border: '1px dashed rgba(255,122,26,0.1)', borderRadius: '50%', pointerEvents: 'none' }} />
 
@@ -255,7 +213,6 @@ function Hero({ variant, accent }) {
         gap: 56, alignItems: 'center',
         position: 'relative'
       }}>
-        {/* LEFT: copy */}
         <div>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -267,7 +224,7 @@ function Hero({ variant, accent }) {
             marginBottom: 24
           }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: accent }} />
-            {v.eyebrow}
+            {tx('hero.eyebrow')}
           </div>
 
           <h1 className="lp-hero-h1" style={{
@@ -277,7 +234,7 @@ function Hero({ variant, accent }) {
             letterSpacing: '-0.025em',
             fontWeight: 600
           }}>
-            {v.headline.map((line, i) =>
+            {headlineLines.map((line, i) =>
             <span key={i} style={{
               display: 'block',
               color: line.muted ? 'rgba(255,255,255,0.45)' : '#fff'
@@ -290,7 +247,7 @@ function Hero({ variant, accent }) {
             fontSize: 17, lineHeight: 1.6,
             color: 'rgba(255,255,255,0.7)',
             maxWidth: 520
-          }}>{v.sub}</p>
+          }}>{tx('hero.sub')}</p>
 
           <div className="lp-hero-cta-row" style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
             <a href="/prozess-check" style={{
@@ -301,7 +258,7 @@ function Hero({ variant, accent }) {
               padding: '4px 4px 4px 20px',
               fontWeight: 500, fontSize: 15
             }}>
-              {v.cta}
+              {tx('hero.cta')}
               <span style={{
                 marginLeft: 14,
                 width: 36, height: 36, borderRadius: 7,
@@ -317,12 +274,11 @@ function Hero({ variant, accent }) {
               color: 'rgba(255,255,255,0.85)',
               fontSize: 14, fontWeight: 500
             }}>
-              So arbeiten wir
+              {tx('hero.cta2')}
               <Icon.chevron style={{ width: 14, height: 14 }} />
             </a>
           </div>
 
-          {/* trust line */}
           <div style={{
             marginTop: 44, paddingTop: 24,
             borderTop: '1px solid rgba(255,255,255,0.08)',
@@ -331,20 +287,19 @@ function Hero({ variant, accent }) {
           }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
               <Icon.check style={{ width: 14, height: 14, color: accent }} />
-              Kostenlose Erstanalyse
+              {tx('hero.trust.1')}
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
               <Icon.check style={{ width: 14, height: 14, color: accent }} />
-              Antwort innerhalb von 24 h
+              {tx('hero.trust.2')}
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
               <Icon.check style={{ width: 14, height: 14, color: accent }} />
-              Keine Vertragsbindung
+              {tx('hero.trust.3')}
             </span>
           </div>
         </div>
 
-        {/* RIGHT: visualization */}
         <HeroVisual accent={accent} />
       </div>
 
@@ -356,6 +311,7 @@ function Hero({ variant, accent }) {
         @media (max-width: 1100px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
         }
+        .bk-accent { color: var(--accent, #F7934A); }
       `}</style>
     </section>);
 
