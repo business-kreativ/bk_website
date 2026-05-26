@@ -12,6 +12,7 @@
 <script src="i18n/translations.js?v=i18n-20260526"></script>
 <script src="i18n/i18n.js?v=i18n-20260525"></script>
 <script src="i18n/cookie-consent.js?v=cookie-20260526"></script>
+<script src="i18n/turnstile.js?v=turnstile-20260526"></script>
 <script src="i18n/lead-submit.js?v=lead-20260526"></script>
 <script src="i18n/quiz-copy.js?v=quiz-copy-20260526"></script>
 <style>
@@ -1721,8 +1722,18 @@ function buildQuizWebhookPayload() {
   };
 }
 
-function sendQuizWebhook() {
+async function sendQuizWebhook() {
   const payload = buildQuizWebhookPayload();
+
+  try {
+    payload.turnstileToken = window.getBkTurnstileToken
+      ? await window.getBkTurnstileToken('quiz_submit')
+      : '';
+    payload.turnstileAction = 'quiz_submit';
+  } catch (error) {
+    console.warn('Turnstile verification failed', error);
+    return;
+  }
 
   fetch('/api/quiz-webhook', {
     method: 'POST',

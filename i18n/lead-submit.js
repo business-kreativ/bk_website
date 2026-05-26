@@ -91,6 +91,9 @@
     setStatus(form, tx('lead.sending', 'Wird gesendet...'), false);
 
     try {
+      const turnstileToken = window.getBkTurnstileToken
+        ? await window.getBkTurnstileToken('lead_submit')
+        : '';
       const response = await fetch(ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -105,6 +108,8 @@
           },
           contact: getContact(data),
           form: data,
+          turnstileToken,
+          turnstileAction: 'lead_submit',
         }),
       });
 
