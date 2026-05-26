@@ -5,6 +5,10 @@
   "description": "Static website for Business Kreativ.",
   "scripts": {
     "dev": "python3 -m http.server 8080",
-    "start": "python3 -m http.server 8080"
+    "start": "python3 -m http.server 8080",
+    "build:jsx": "mkdir -p dist/components && esbuild tweaks-panel.jsx --outfile=dist/tweaks-panel.js --jsx-factory=React.createElement --jsx-fragment=React.Fragment --format=iife && for f in components/icons.jsx components/Nav.jsx components/Hero.jsx components/Team.jsx components/Logos.jsx components/Problem.jsx components/Solution.jsx components/Benefits.jsx components/Services.jsx components/Trust.jsx components/Scenarios.jsx components/CTA.jsx components/Footer.jsx; do esbuild \"$f\" --outfile=\"dist/${f%.jsx}.js\" --jsx-factory=React.createElement --jsx-fragment=React.Fragment --format=iife; done && esbuild app.jsx --outfile=dist/app.js --jsx-factory=React.createElement --jsx-fragment=React.Fragment --format=iife"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
   }
 }

@@ -64,7 +64,7 @@ module.exports = async function handler(request, response) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'User-Agent': 'business-kreativ-quiz-webhook/1.0',
+        'User-Agent': 'business-kreativ-webhook/1.0',
       },
       body: JSON.stringify({
         ...payload,

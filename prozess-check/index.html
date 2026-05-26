@@ -10,8 +10,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<script src="i18n/translations.js?v=i18n-20260525"></script>
+<script src="i18n/translations.js?v=i18n-20260526"></script>
 <script src="i18n/i18n.js?v=i18n-20260525"></script>
+<script src="i18n/cookie-consent.js?v=cookie-20260526"></script>
+<script src="i18n/lead-submit.js?v=lead-20260526"></script>
+<script src="i18n/quiz-copy.js?v=quiz-copy-20260526"></script>
 <style>
 :root {
   /* v6 brand palette */
@@ -1439,6 +1442,7 @@ const personas = {
   p9_unentschlossen: { emoji: '🤔', firstRead: (n) => `<p><strong>Ihre Antworten zeigen etwas,</strong> das in vielen Unternehmen passiert, aber selten ausgesprochen wird: Der größte Engpass ist gerade nicht die Technik – sondern die <strong>Klarheit, wo anfangen</strong>.</p><p>Genau dafür gibt es einen unterschätzten ersten Schritt: eine schriftliche <strong>Prozesslandkarte</strong>. Sie zeigt schwarz auf weiß, wo wirklich Zeit verloren geht und welcher Hebel zuerst gezogen werden sollte. Oft reicht das schon, um intern die Diskussion auf eine neue Ebene zu heben.</p><p style="color:var(--muted);font-size:13px;">Wir bereiten Ihre persönliche Erstanalyse vor…</p>`, hebel: [{ title: 'Prozesslandkarte erstellen', desc: 'Visualisierung Ihrer aktuellen Abläufe – Engpässe schwarz auf weiß.', saving: 'Interner Konsens möglich' },{ title: 'Top-3-Hebel priorisieren', desc: 'Aus der Landkarte ableiten, wo zuerst angepackt werden sollte.', saving: 'Klarer Plan zum Mitnehmen' },{ title: 'Stakeholder mitnehmen', desc: 'Eine Argumentationsbasis, mit der Sie intern überzeugen können.', saving: 'Buy-in im Team' }], cta: 'Prozesslandkarte zum Mitnehmen — kostenfrei', potential: 'Mittel · Klarheit zuerst' , case: {"meta":"Unklarheit als größter Engpass","quote":"„Karin L., Möbel-Familienunternehmen aus Münster (16 MA). Die drei Geschwister in der Geschäftsführung diskutierten seit zwei Jahren über Digitalisierung – ohne Ergebnis. Wir haben mit einer Prozesslandkarte angefangen, die schwarz auf weiß zeigte, wo Zeit verloren geht. <strong>Ergebnis: Zum ersten Mal war die Familie einig</strong> – und der erste Hebel ging zwei Wochen später live.\""} },
   p10_enterprise: { emoji: '🏢', firstRead: (n) => `<p><strong>Bei Ihrer Unternehmensgröße verdient eine Auswertung mehr Tiefe</strong> – das berücksichtigen wir gerade in der Analyse.</p><p>Was wir Ihnen schon vorab sagen können: In Unternehmen Ihrer Größenordnung liegt der entscheidende Hebel selten bei einem einzelnen Tool, sondern bei der <strong>Architektur der Systemlandschaft</strong>. Wer 50+ Mitarbeiter:innen durch unverbundene Prozesse schickt, verliert nicht Stunden – er verliert pro Monat im <strong>fünf- bis sechsstelligen Bereich</strong>.</p><p style="color:var(--muted);font-size:13px;">Ihre detaillierte Hebel-Analyse läuft – wir sind gleich da…</p>`, hebel: [{ title: 'Architektur-Assessment', desc: 'Wir bewerten Ihre Systemlandschaft strategisch und identifizieren Konsolidierungspotenziale.', saving: '6-stellige Einsparpotenziale' },{ title: 'Schrittweise Modernisierung', desc: 'Kein Big-Bang. Geordnete Roadmap mit klar bewerteten Meilensteinen.', saving: 'Risiko-minimierter Wandel' },{ title: 'Cross-Department-Sync', desc: 'Daten und Prozesse über Abteilungsgrenzen hinweg verbinden.', saving: 'Kommunikationsaufwand: −50%' }], cta: 'Architektur-Assessment für Ihre Systemlandschaft', potential: 'Sehr Hoch · Strategisch' , case: {"meta":"Vergleichbare Systemlandschaft","quote":"„Thomas R., Logistik-Mittelständler aus Köln (140 MA, 6 Standorte). Jeder Standort hatte eigene Tools – CRM, Tourenplanung, Frachtdokumente, alles unverbunden. Wir haben mit einem Architektur-Assessment begonnen, bevor wir Code geschrieben haben. <strong>Ergebnis nach 4 Monaten: 4 von 11 Tools konsolidiert, sechsstellige Lizenzkosten/Jahr eingespart</strong> – und ein einheitlicher Datenstand über alle Standorte.\""} }
 };
+if (window.bkQuizLocalizePersonas) window.bkQuizLocalizePersonas(personas);
 
 function matchPersona(a) {
   const scores = { p1_solopreneur: 0, p2_wachstum: 0, p3_toolprofi: 0, p4_skeptiker: 0, p5_quality: 0, p6_daten: 0, p7_team: 0, p8_optimierer: 0, p9_unentschlossen: 0, p10_enterprise: 0 };
@@ -1581,7 +1585,8 @@ function nextFromQ1() {
     const btn = document.createElement('button');
     btn.className = 'option';
     btn.dataset.value = val;
-    btn.innerHTML = `<span class="option-bullet"></span><span class="option-emoji">${opt.emoji}</span><span class="option-text">${opt.text}</span>`;
+    const optionText = window.bkQuizChoice ? window.bkQuizChoice(val, opt.text) : opt.text;
+    btn.innerHTML = `<span class="option-bullet"></span><span class="option-emoji">${opt.emoji}</span><span class="option-text">${optionText}</span>`;
     btn.addEventListener('click', () => {
       q2Container.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
       btn.classList.add('selected');
@@ -1610,7 +1615,10 @@ function nextFromQ3() {
   const hours = state.answers.f3_hours;
   const lower = Math.round(hours * 45 * 50 * 0.45 / 1000) * 1000;
   const upper = Math.round(hours * 45 * 50 * 0.85 / 1000) * 1000;
-  document.getElementById('recip-tip-1').innerHTML = `Bei <strong>${hours} Stunden / Woche</strong> sparen vergleichbare Unternehmen typischerweise <strong>${lower.toLocaleString('de-DE')}–${upper.toLocaleString('de-DE')} € pro Jahr</strong> durch gezielte Automatisierung. Das volle Bild bekommen Sie am Ende.`;
+  const recipFallback = `Bei <strong>${hours} Stunden / Woche</strong> sparen vergleichbare Unternehmen typischerweise <strong>${lower.toLocaleString('de-DE')}–${upper.toLocaleString('de-DE')} € pro Jahr</strong> durch gezielte Automatisierung. Das volle Bild bekommen Sie am Ende.`;
+  document.getElementById('recip-tip-1').innerHTML = window.bkQuizText
+    ? window.bkQuizText('recip1', recipFallback, { hours, lower: lower.toLocaleString('de-DE'), upper: upper.toLocaleString('de-DE') })
+    : recipFallback;
   nextScreen('q4');
 }
 
@@ -1817,7 +1825,8 @@ function showResult() {
   persona.hebel.forEach((h, i) => {
     const card = document.createElement('div');
     card.className = 'hebel-card';
-    card.innerHTML = `<div class="hebel-num">HEBEL ${String(i+1).padStart(2,'0')}</div><div class="hebel-title">${h.title}</div><div class="hebel-desc">${h.desc}</div><div class="hebel-saving">${h.saving}</div>`;
+    const leverLabel = window.bkQuizText ? window.bkQuizText('lever', 'HEBEL') : 'HEBEL';
+    card.innerHTML = `<div class="hebel-num">${leverLabel} ${String(i+1).padStart(2,'0')}</div><div class="hebel-title">${h.title}</div><div class="hebel-desc">${h.desc}</div><div class="hebel-saving">${h.saving}</div>`;
     hebelGrid.appendChild(card);
   });
   document.getElementById('cta-title').textContent = persona.cta;

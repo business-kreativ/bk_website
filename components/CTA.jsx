@@ -42,7 +42,7 @@ function CTA({ accent }) {
             </ul>
           </div>
 
-          <form onSubmit={(e) => e.preventDefault()} style={{
+          <form data-bk-lead-form="homepage_cta" style={{
             background: '#fff', color: 'var(--ink)',
             borderRadius: 12, padding: 28,
             display: 'flex', flexDirection: 'column', gap: 14,
@@ -50,12 +50,12 @@ function CTA({ accent }) {
           }}>
             <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 4 }}>{tx('cta.form.title')}</div>
 
-            <Field label={tx('cta.form.name')} placeholder={tx('cta.form.name_ph')} />
-            <Field label={tx('cta.form.company')} placeholder={tx('cta.form.company_ph')} />
-            <Field label={tx('cta.form.email')} placeholder={tx('cta.form.email_ph')} type="email" />
+            <Field name="name" label={tx('cta.form.name')} placeholder={tx('cta.form.name_ph')} required />
+            <Field name="company" label={tx('cta.form.company')} placeholder={tx('cta.form.company_ph')} required />
+            <Field name="email" label={tx('cta.form.email')} placeholder={tx('cta.form.email_ph')} type="email" required />
             <div>
               <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--ink-2)', marginBottom: 6 }}>{tx('cta.form.q')}</div>
-              <textarea rows="3" placeholder={tx('cta.form.q_ph')} style={{
+              <textarea name="message" rows="3" placeholder={tx('cta.form.q_ph')} style={{
                 width: '100%', resize: 'none', fontFamily: 'inherit',
                 border: '1px solid var(--line)', borderRadius: 8,
                 padding: '10px 12px', fontSize: 14, color: 'var(--ink)',
@@ -63,7 +63,7 @@ function CTA({ accent }) {
               }} />
             </div>
 
-            <a href="/prozess-check" style={{
+            <button type="submit" style={{
               marginTop: 6,
               background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)', color: '#fff', border: 0,
               padding: '14px 18px', borderRadius: 10,
@@ -73,7 +73,7 @@ function CTA({ accent }) {
             }}>
               {tx('cta.form.button')}
               <Icon.arrow style={{ width: 16, height: 16 }} />
-            </a>
+            </button>
 
             <div style={{ fontSize: 12, color: 'var(--muted)', textAlign: 'center', marginTop: 4 }}>
               {tx('cta.form.note')}
@@ -89,11 +89,11 @@ function CTA({ accent }) {
   );
 }
 
-function Field({ label, placeholder, type = 'text' }) {
+function Field({ name, label, placeholder, type = 'text', required = false }) {
   return (
     <div>
       <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--ink-2)', marginBottom: 6 }}>{label}</div>
-      <input type={type} placeholder={placeholder} style={{
+      <input name={name} type={type} placeholder={placeholder} required={required} style={{
         width: '100%', fontFamily: 'inherit',
         border: '1px solid var(--line)', borderRadius: 8,
         padding: '10px 12px', fontSize: 14, color: 'var(--ink)',
