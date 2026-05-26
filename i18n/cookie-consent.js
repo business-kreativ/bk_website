@@ -167,7 +167,7 @@
         <div class="cookie-text">
           <strong>${tx('cookie.title', 'Cookies &amp; Privatsphäre.')}</strong>
           ${tx('cookie.text', 'Wir nutzen Google Analytics nur nach Ihrer Zustimmung. Sie können Ihre Auswahl jederzeit ändern.')}
-          <a href="datenschutz.html">${tx('cookie.more', 'Mehr erfahren')}</a>
+          <a href="datenschutz.html">${tx('cookie.more', 'Mehr über Datenschutz erfahren')}</a>
         </div>
         <div class="cookie-actions">
           <button type="button" class="cookie-btn cookie-btn-ghost" data-choice="${DECLINED}">${tx('cookie.decline', 'Ablehnen')}</button>
