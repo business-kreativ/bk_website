@@ -89,8 +89,12 @@ function Team({ accent }) {
           }}>02</div>
 
           <img
-            src="Design ohne Titel (18).png"
+            src="assets/team-optimized.webp"
             alt={tx('team.eyebrow') + ': Cansu & Anton'}
+            width="1296"
+            height="624"
+            loading="lazy"
+            decoding="async"
             className="lp-team-photo"
             style={{
               display: 'block',

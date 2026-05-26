@@ -8,7 +8,7 @@ function Footer({ accent }) {
           <div className="lp-footer-brand">
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
               <span style={{ width: 36, height: 36, borderRadius: 8, background: '#fff', padding: 3, display: 'grid', placeItems: 'center' }}>
-                <img src="assets/logo_bk.png" alt="bk" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                <img src="assets/logo_bk-small.webp" alt="bk" width="180" height="180" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </span>
               <span style={{ fontSize: 16, fontWeight: 600 }}>business-kreativ</span>
             </div>

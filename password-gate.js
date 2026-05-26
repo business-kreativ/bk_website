@@ -34,7 +34,7 @@
     gate.setAttribute('aria-labelledby', 'bk-password-title');
     gate.innerHTML = [
       '<div class="bk-password-card">',
-      '<div class="bk-password-brand"><span class="bk-password-logo"><img src="assets/logo_bk.png" alt="bk"></span><span>business-kreativ</span></div>',
+      '<div class="bk-password-brand"><span class="bk-password-logo"><img src="assets/logo_bk-small.webp" alt="bk"></span><span>business-kreativ</span></div>',
       '<div class="bk-password-eyebrow">Geschützter Bereich</div>',
       '<h1 id="bk-password-title">Passwort eingeben.</h1>',
       '<p>Diese Website ist aktuell nur mit Passwort erreichbar.</p>',
