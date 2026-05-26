@@ -1654,6 +1654,7 @@ function submitQuiz() {
   };
   if (!state.contact.email) { document.getElementById('contact-email').focus(); return; }
   state.persona = matchPersona(state.answers);
+  sendQuizWebhook();
   showLoadingScreen();
   setTimeout(() => {
     document.getElementById('step-3').classList.remove('active');
@@ -1666,6 +1667,63 @@ function submitQuiz() {
   }, 4000);
   animateLoadingProgress(5200);
   setTimeout(() => showResult(), 5500);
+}
+
+function getQuizMetrics() {
+  const a = state.answers;
+  let score = 30;
+  score += Math.min(a.f1_symptoms.length * 6, 30);
+  score += Math.min(a.f3_hours / 2, 20);
+  if (a.f7_urgency === 'sofort') score += 12;
+  else if (a.f7_urgency === '3_monate') score += 8;
+  else if (a.f7_urgency === 'dieses_jahr') score += 4;
+  if (a.f4_cost === 'alles_okay') score = Math.max(score - 25, 20);
+  score = Math.min(Math.round(score), 99);
+
+  return {
+    score,
+    annualSaving: Math.round(a.f3_hours * 45 * 50),
+    timePerEmployee: Number((a.f3_hours / 8).toFixed(1)),
+  };
+}
+
+function buildQuizWebhookPayload() {
+  const persona = personas[state.persona];
+  const metrics = getQuizMetrics();
+
+  return {
+    source: 'business-kreativ-prozess-check',
+    submittedAt: new Date().toISOString(),
+    language: window.BK_LANG || document.documentElement.lang || 'de',
+    page: {
+      href: window.location.href,
+      path: window.location.pathname,
+      userAgent: navigator.userAgent,
+    },
+    contact: state.contact,
+    answers: state.answers,
+    result: {
+      personaKey: state.persona,
+      personaEmoji: persona && persona.emoji,
+      potential: persona && persona.potential,
+      cta: persona && persona.cta,
+      metrics,
+      levers: persona ? persona.hebel : [],
+      case: persona ? persona.case : null,
+    },
+  };
+}
+
+function sendQuizWebhook() {
+  const payload = buildQuizWebhookPayload();
+
+  fetch('/api/quiz-webhook', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch((error) => {
+    console.warn('Quiz webhook failed', error);
+  });
 }
 
 function animateLoadingProgress(duration) {
@@ -1736,18 +1794,8 @@ function showLoadingScreen() {
 
 function showResult() {
   const persona = personas[state.persona];
-  const a = state.answers;
   const firstName = state.contact.firstName;
-  let score = 30;
-  score += Math.min(a.f1_symptoms.length * 6, 30);
-  score += Math.min(a.f3_hours / 2, 20);
-  if (a.f7_urgency === 'sofort') score += 12;
-  else if (a.f7_urgency === '3_monate') score += 8;
-  else if (a.f7_urgency === 'dieses_jahr') score += 4;
-  if (a.f4_cost === 'alles_okay') score = Math.max(score - 25, 20);
-  score = Math.min(Math.round(score), 99);
-  const annualSaving = Math.round(a.f3_hours * 45 * 50);
-  const timePerEmployee = (a.f3_hours / 8).toFixed(1);
+  const { score, annualSaving, timePerEmployee } = getQuizMetrics();
 
   const __t = (window.t || function(k){return k;});
   document.getElementById('result-greeting').textContent = `${__t('quiz.result.greeting')} · ${firstName}`;
