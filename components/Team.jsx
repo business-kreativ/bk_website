@@ -89,7 +89,7 @@ function Team({ accent }) {
           }}>02</div>
 
           <img
-            src="assets/team-optimized.webp"
+            src="assets/team-transparent.webp"
             alt={tx('team.eyebrow') + ': Cansu & Anton'}
             width="1296"
             height="624"
